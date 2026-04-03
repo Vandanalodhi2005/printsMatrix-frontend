@@ -28,13 +28,13 @@ const Wishlist = () => {
                     transition={{ duration: 0.5 }}
                     className="w-24 h-24 bg-[#F8F9FA] rounded-sm flex items-center justify-center mb-8 border border-gray-100 shadow-sm"
                 >
-                    <Heart size={40} className="text-[#024ad8]" />
+                    <Heart size={40} className="text-[#0075be]" />
                 </motion.div>
                 <h2 className="text-2xl font-bold mb-3 text-black text-center">Your wishlist is empty</h2>
                 <p className="text-gray-400 mb-8 text-center max-w-sm text-sm leading-relaxed">Save items you love and come back to them anytime.</p>
                 <Link
                     to="/shop"
-                    className="px-8 py-3.5 bg-[#024ad8] text-white font-bold rounded-sm hover:bg-[#0133a1] transition-all flex items-center gap-3 text-sm shadow-lg"
+                    className="px-8 py-3.5 bg-[#0075be] text-white font-bold rounded-sm hover:bg-[#005d9c] transition-all flex items-center gap-3 text-sm shadow-lg"
                 >
                     Browse Products <ArrowRight size={16} />
                 </Link>
@@ -47,12 +47,12 @@ const Wishlist = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
                     <div className="flex items-center gap-4">
-                        <h1 className="text-2xl sm:text-3xl font-bold text-black">My <span className="text-[#024ad8]">Wishlist</span></h1>
-                        <span className="text-xs font-bold text-[#024ad8] bg-blue-50 px-3 py-1.5 rounded-sm border border-blue-100">{wishlist.length} {wishlist.length === 1 ? 'item' : 'items'}</span>
+                        <h1 className="text-2xl sm:text-3xl font-bold text-black">My <span className="text-[#0075be]">Wishlist</span></h1>
+                        <span className="text-xs font-bold text-[#0075be] bg-blue-50 px-3 py-1.5 rounded-sm border border-blue-100">{wishlist.length} {wishlist.length === 1 ? 'item' : 'items'}</span>
                     </div>
                     <Link
                         to="/shop"
-                        className="flex items-center gap-2 text-gray-500 text-sm font-medium hover:text-[#024ad8] transition-all"
+                        className="flex items-center gap-2 text-gray-500 text-sm font-medium hover:text-[#0075be] transition-all"
                     >
                         Continue Shopping <ArrowRight size={16} />
                     </Link>
@@ -95,7 +95,7 @@ const Wishlist = () => {
                                     <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
                                         <button
                                             onClick={() => handleDetails(product)}
-                                            className="w-full bg-black text-white py-3.5 rounded-sm font-bold shadow-lg hover:bg-[#024ad8] transition-all flex items-center justify-center gap-3 text-sm"
+                                            className="w-full bg-black text-white py-3.5 rounded-sm font-bold shadow-lg hover:bg-[#0075be] transition-all flex items-center justify-center gap-3 text-sm"
                                         >
                                             <Eye size={16} /> View Details
                                         </button>
@@ -105,15 +105,15 @@ const Wishlist = () => {
                                 {/* Content */}
                                 <div className="p-8 flex flex-col flex-1 border-t border-gray-50">
                                     <div className="flex justify-between items-start mb-4">
-                                        <span className="text-[9px] font-extrabold text-[#024ad8] uppercase tracking-[.4em] bg-blue-50/50 px-3 py-1 rounded-sm">{product.brand || 'Premium'}</span>
-                                        <div className="flex items-center text-[#024ad8] bg-gray-50 px-3 py-1 rounded-sm">
+                                        <span className="text-[9px] font-extrabold text-[#0075be] uppercase tracking-[.4em] bg-blue-50/50 px-3 py-1 rounded-sm">{product.brand || 'Premium'}</span>
+                                        <div className="flex items-center text-[#0075be] bg-gray-50 px-3 py-1 rounded-sm">
                                             <Star size={12} fill="currentColor" />
                                             <span className="text-[10px] font-extrabold ml-2 text-black">{product.rating || '4.8'}</span>
                                         </div>
                                     </div>
 
                                     <h3
-                                        className="text-sm font-bold text-black mb-4 leading-tight group-hover:text-[#024ad8] transition-colors cursor-pointer line-clamp-2"
+                                        className="text-sm font-bold text-black mb-4 leading-tight group-hover:text-[#0075be] transition-colors cursor-pointer line-clamp-2"
                                         onClick={() => handleDetails(product)}
                                     >
                                         {product.title || product.name}
@@ -121,7 +121,7 @@ const Wishlist = () => {
 
                                     <div className="mt-auto pt-6 flex items-center justify-between border-t border-gray-50">
                                         <div className="flex flex-col">
-                                            <span className="text-xl font-bold text-[#024ad8]">${(product.price || 0).toFixed(2)}</span>
+                                            <span className="text-xl font-bold text-[#0075be]">${(product.price || 0).toFixed(2)}</span>
                                             {product.countInStock > 0 ? (
                                                 <span className="text-xs text-green-600 font-medium mt-0.5">In Stock</span>
                                             ) : (
@@ -131,7 +131,7 @@ const Wishlist = () => {
 
                                         <button
                                             onClick={() => handleDetails(product)}
-                                            className="w-14 h-14 bg-black text-white hover:bg-[#024ad8] transition-all duration-500 rounded-sm flex items-center justify-center shadow-xl hover:shadow-[#024ad8]/20 transform hover:-translate-y-1 active:scale-95"
+                                            className="w-14 h-14 bg-black text-white hover:bg-[#0075be] transition-all duration-500 rounded-sm flex items-center justify-center shadow-xl hover:shadow-[#0075be]/20 transform hover:-translate-y-1 active:scale-95"
                                             title="Initialize Procurement"
                                         >
                                             <ShoppingBag size={24} />
@@ -146,7 +146,7 @@ const Wishlist = () => {
                 {/* Features Section */}
                 <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-gray-100 pt-12">
                     <div className="flex items-start gap-5">
-                        <div className="p-4 bg-white rounded-sm shadow-sm border border-gray-100 text-[#024ad8] flex-shrink-0">
+                        <div className="p-4 bg-white rounded-sm shadow-sm border border-gray-100 text-[#0075be] flex-shrink-0">
                             <Heart size={22} />
                         </div>
                         <div>
@@ -155,7 +155,7 @@ const Wishlist = () => {
                         </div>
                     </div>
                     <div className="flex items-start gap-5">
-                        <div className="p-4 bg-white rounded-sm shadow-sm border border-gray-100 text-[#024ad8] flex-shrink-0">
+                        <div className="p-4 bg-white rounded-sm shadow-sm border border-gray-100 text-[#0075be] flex-shrink-0">
                             <ShoppingBag size={22} />
                         </div>
                         <div>
@@ -164,7 +164,7 @@ const Wishlist = () => {
                         </div>
                     </div>
                     <div className="flex items-start gap-5">
-                        <div className="p-4 bg-white rounded-sm shadow-sm border border-gray-100 text-[#024ad8] flex-shrink-0">
+                        <div className="p-4 bg-white rounded-sm shadow-sm border border-gray-100 text-[#0075be] flex-shrink-0">
                             <Star size={22} />
                         </div>
                         <div>

@@ -77,33 +77,33 @@ const Signup = () => {
                         <form onSubmit={handleSendOTP} className="space-y-5">
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label className="block text-xs font-semibold text-[#024ad8] uppercase tracking-wider mb-2">First Name</label>
+                                    <label className="block text-xs font-semibold text-[#0075be] uppercase tracking-wider mb-2">First Name</label>
                                     <div className="relative group">
                                         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                            <User size={16} className="text-gray-300 group-focus-within:text-[#024ad8] transition-colors" />
+                                            <User size={16} className="text-gray-300 group-focus-within:text-[#0075be] transition-colors" />
                                         </div>
                                         <input
                                             type="text"
                                             required
                                             value={firstName}
                                             onChange={(e) => setFirstName(e.target.value)}
-                                            className="block w-full pl-11 pr-4 py-3.5 border border-gray-200 rounded-sm bg-gray-50/50 text-sm font-medium tracking-normal focus:outline-none focus:border-[#024ad8] focus:bg-white transition-all placeholder:text-gray-300"
+                                            className="block w-full pl-11 pr-4 py-3.5 border border-gray-200 rounded-sm bg-gray-50/50 text-sm font-medium tracking-normal focus:outline-none focus:border-[#0075be] focus:bg-white transition-all placeholder:text-gray-300"
                                             placeholder="John"
                                         />
                                     </div>
                                 </div>
                                 <div>
-                                    <label className="block text-xs font-semibold text-[#024ad8] uppercase tracking-wider mb-2">Last Name</label>
+                                    <label className="block text-xs font-semibold text-[#0075be] uppercase tracking-wider mb-2">Last Name</label>
                                     <div className="relative group">
                                         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                            <User size={16} className="text-gray-300 group-focus-within:text-[#024ad8] transition-colors" />
+                                            <User size={16} className="text-gray-300 group-focus-within:text-[#0075be] transition-colors" />
                                         </div>
                                         <input
                                             type="text"
                                             required
                                             value={lastName}
                                             onChange={(e) => setLastName(e.target.value)}
-                                            className="block w-full pl-11 pr-4 py-3.5 border border-gray-200 rounded-sm bg-gray-50/50 text-sm font-medium tracking-normal focus:outline-none focus:border-[#024ad8] focus:bg-white transition-all placeholder:text-gray-300"
+                                            className="block w-full pl-11 pr-4 py-3.5 border border-gray-200 rounded-sm bg-gray-50/50 text-sm font-medium tracking-normal focus:outline-none focus:border-[#0075be] focus:bg-white transition-all placeholder:text-gray-300"
                                             placeholder="Doe"
                                         />
                                     </div>
@@ -111,51 +111,51 @@ const Signup = () => {
                             </div>
 
                             <div>
-                                <label className="block text-xs font-semibold text-[#024ad8] uppercase tracking-wider mb-2">Email</label>
+                                <label className="block text-xs font-semibold text-[#0075be] uppercase tracking-wider mb-2">Email</label>
                                 <div className="relative group">
                                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                        <Mail size={16} className="text-gray-300 group-focus-within:text-[#024ad8] transition-colors" />
+                                        <Mail size={16} className="text-gray-300 group-focus-within:text-[#0075be] transition-colors" />
                                     </div>
                                     <input
                                         type="email"
                                         required
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
-                                        className="block w-full pl-11 pr-4 py-3.5 border border-gray-200 rounded-sm bg-gray-50/50 text-sm font-medium tracking-normal focus:outline-none focus:border-[#024ad8] focus:bg-white transition-all placeholder:text-gray-300"
+                                        className="block w-full pl-11 pr-4 py-3.5 border border-gray-200 rounded-sm bg-gray-50/50 text-sm font-medium tracking-normal focus:outline-none focus:border-[#0075be] focus:bg-white transition-all placeholder:text-gray-300"
                                         placeholder="name@domain.com"
                                     />
                                 </div>
                             </div>
 
                             <div>
-                                <label className="block text-xs font-semibold text-[#024ad8] uppercase tracking-wider mb-2">Password</label>
+                                <label className="block text-xs font-semibold text-[#0075be] uppercase tracking-wider mb-2">Password</label>
                                 <div className="relative group">
                                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                        <Lock size={16} className="text-gray-300 group-focus-within:text-[#024ad8] transition-colors" />
+                                        <Lock size={16} className="text-gray-300 group-focus-within:text-[#0075be] transition-colors" />
                                     </div>
                                     <input
                                         type="password"
                                         required
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
-                                        className="block w-full pl-11 pr-4 py-3.5 border border-gray-200 rounded-sm bg-gray-50/50 text-sm font-medium tracking-normal focus:outline-none focus:border-[#024ad8] focus:bg-white transition-all placeholder:text-gray-300"
+                                        className="block w-full pl-11 pr-4 py-3.5 border border-gray-200 rounded-sm bg-gray-50/50 text-sm font-medium tracking-normal focus:outline-none focus:border-[#0075be] focus:bg-white transition-all placeholder:text-gray-300"
                                         placeholder="••••••••"
                                     />
                                 </div>
                             </div>
 
                             <div>
-                                <label className="block text-xs font-semibold text-[#024ad8] uppercase tracking-wider mb-2">Confirm Password</label>
+                                <label className="block text-xs font-semibold text-[#0075be] uppercase tracking-wider mb-2">Confirm Password</label>
                                 <div className="relative group">
                                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                        <Lock size={16} className="text-gray-300 group-focus-within:text-[#024ad8] transition-colors" />
+                                        <Lock size={16} className="text-gray-300 group-focus-within:text-[#0075be] transition-colors" />
                                     </div>
                                     <input
                                         type="password"
                                         required
                                         value={confirmPassword}
                                         onChange={(e) => setConfirmPassword(e.target.value)}
-                                        className="block w-full pl-11 pr-4 py-3.5 border border-gray-200 rounded-sm bg-gray-50/50 text-sm font-medium tracking-normal focus:outline-none focus:border-[#024ad8] focus:bg-white transition-all placeholder:text-gray-300"
+                                        className="block w-full pl-11 pr-4 py-3.5 border border-gray-200 rounded-sm bg-gray-50/50 text-sm font-medium tracking-normal focus:outline-none focus:border-[#0075be] focus:bg-white transition-all placeholder:text-gray-300"
                                         placeholder="••••••••"
                                     />
                                 </div>
@@ -174,11 +174,11 @@ const Signup = () => {
                     <>
                         <div className="text-center mb-10">
                             <div className="w-20 h-20 bg-[#F8F9FA] border border-gray-100 rounded-sm flex items-center justify-center mx-auto mb-6 shadow-sm">
-                                <Mail size={36} className="text-[#024ad8]" />
+                                <Mail size={36} className="text-[#0075be]" />
                             </div>
                             <h1 className="text-3xl font-bold text-black mb-3 tracking-tight leading-tight">Verify Your Email</h1>
                             <p className="text-xs font-medium text-gray-400 tracking-wide">Enter the code sent to:</p>
-                            <p className="text-sm font-semibold text-[#024ad8] mt-2">{email}</p>
+                            <p className="text-sm font-semibold text-[#0075be] mt-2">{email}</p>
                         </div>
 
                         {errorVerifyOTP && (
@@ -190,7 +190,7 @@ const Signup = () => {
 
                         <form onSubmit={handleVerifyOTP} className="space-y-8">
                             <div>
-                                <label className="block text-xs font-semibold text-[#024ad8] uppercase tracking-wider mb-4 text-center">Verification Code</label>
+                                <label className="block text-xs font-semibold text-[#0075be] uppercase tracking-wider mb-4 text-center">Verification Code</label>
                                 <div className="relative group">
                                     <div className="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
                                         <KeyRound size={24} className="text-gray-200" />
@@ -201,7 +201,7 @@ const Signup = () => {
                                         maxLength="6"
                                         value={otp}
                                         onChange={(e) => setOtp(e.target.value)}
-                                        className="block w-full pl-16 pr-6 py-5 border border-gray-200 rounded-sm bg-gray-50/50 text-3xl tracking-[0.5em] font-bold text-center focus:outline-none focus:border-[#024ad8] focus:bg-white transition-all placeholder:text-gray-200"
+                                        className="block w-full pl-16 pr-6 py-5 border border-gray-200 rounded-sm bg-gray-50/50 text-3xl tracking-[0.5em] font-bold text-center focus:outline-none focus:border-[#0075be] focus:bg-white transition-all placeholder:text-gray-200"
                                         placeholder="000000"
                                     />
                                 </div>
@@ -210,7 +210,7 @@ const Signup = () => {
                             <button
                                 type="submit"
                                 disabled={loadingVerifyOTP || otp.length < 6}
-                                className="w-full flex justify-center py-4 px-8 bg-[#024ad8] text-white font-bold rounded-sm shadow-lg shadow-[#024ad8]/20 text-sm uppercase tracking-wider hover:bg-[#0133a1] transition-all disabled:opacity-30 hover:-translate-y-0.5"
+                                className="w-full flex justify-center py-4 px-8 bg-[#0075be] text-white font-bold rounded-sm shadow-lg shadow-[#0075be]/20 text-sm uppercase tracking-wider hover:bg-[#005d9c] transition-all disabled:opacity-30 hover:-translate-y-0.5"
                             >
                                 {loadingVerifyOTP ? 'Verifying...' : 'Verify & Register'}
                             </button>
@@ -231,7 +231,7 @@ const Signup = () => {
                 <div className="mt-10 text-center border-t border-gray-100 pt-8">
                     <p className="text-sm font-medium text-gray-400">
                         Already have an account?{' '}
-                        <Link to="/login" className="text-[#024ad8] font-semibold hover:underline ml-1">
+                        <Link to="/login" className="text-[#0075be] font-semibold hover:underline ml-1">
                             Sign In
                         </Link>
                     </p>

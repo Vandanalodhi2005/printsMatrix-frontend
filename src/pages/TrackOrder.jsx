@@ -86,15 +86,15 @@ const TrackOrder = () => {
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                                 <div className="space-y-1">
-                                    <p className="text-xs font-bold text-[#024ad8] uppercase tracking-wider">Payment</p>
+                                    <p className="text-xs font-bold text-[#0075be] uppercase tracking-wider">Payment</p>
                                     <p className="text-sm font-bold text-black">{order.isPaid ? 'Success' : 'Pending'}</p>
                                 </div>
                                 <div className="space-y-1">
-                                    <p className="text-xs font-bold text-[#024ad8] uppercase tracking-wider">Location</p>
+                                    <p className="text-xs font-bold text-[#0075be] uppercase tracking-wider">Location</p>
                                     <p className="text-sm font-bold text-black">{order.tracking?.currentLocation || 'Processing Center'}</p>
                                 </div>
                                 <div className="space-y-1">
-                                    <p className="text-xs font-bold text-[#024ad8] uppercase tracking-wider">Delivery Estimate</p>
+                                    <p className="text-xs font-bold text-[#0075be] uppercase tracking-wider">Delivery Estimate</p>
                                     <p className="text-sm font-bold text-black">{order.tracking?.estTime || '3-5 Business Days'}</p>
                                 </div>
                             </div>
@@ -159,11 +159,11 @@ const TrackOrder = () => {
                         <h2 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-8">Business Information</h2>
                         <div className="space-y-8">
                             <div className="space-y-2">
-                                <h3 className="font-bold text-[#024ad8] uppercase text-xs tracking-wider">Company</h3>
+                                <h3 className="font-bold text-[#0075be] uppercase text-xs tracking-wider">Company</h3>
                                 <p className="text-sm font-bold text-black">Innovation Dynamics Group LLC</p>
                             </div>
                             <div className="space-y-2">
-                                <h3 className="font-bold text-[#024ad8] uppercase text-xs tracking-wider">Warehouse Address</h3>
+                                <h3 className="font-bold text-[#0075be] uppercase text-xs tracking-wider">Warehouse Address</h3>
                                 <p className="text-sm text-gray-600 leading-relaxed">
                                     11397 Quincy St NE<br />
                                     Blaine, MN 55434<br />
@@ -171,7 +171,7 @@ const TrackOrder = () => {
                                 </p>
                             </div>
                             <div className="space-y-2">
-                                <h3 className="font-bold text-[#024ad8] uppercase text-xs tracking-wider">Direct Contact</h3>
+                                <h3 className="font-bold text-[#0075be] uppercase text-xs tracking-wider">Direct Contact</h3>
                                 <p className="text-sm font-bold text-black">+1 (651) 815-4630</p>
                                 <p className="text-sm font-bold text-black break-all">support@innovationdynamicsgroup.com</p>
                             </div>

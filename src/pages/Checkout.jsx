@@ -35,7 +35,7 @@ const Checkout = () => {
     const [agreedToTerms, setAgreedToTerms] = useState(false);
 
     // Style configuration
-    const inputStyle = "w-full px-4 py-3.5 bg-white border border-gray-200 rounded-sm focus:border-[#024ad8] outline-none transition-all text-black placeholder:text-gray-300 font-medium text-sm";
+    const inputStyle = "w-full px-4 py-3.5 bg-white border border-gray-200 rounded-sm focus:border-[#0075be] outline-none transition-all text-black placeholder:text-gray-300 font-medium text-sm";
     const labelStyle = "block text-xs font-semibold text-gray-500 mb-1.5";
 
     // ── Pre-load Clover SDK ──────────────────────────────────────────────────
@@ -239,11 +239,11 @@ const Checkout = () => {
                         Checkout
                     </h1>
                     <div className="mt-4 flex items-center gap-2 text-sm font-medium">
-                        <span className={step >= 1 ? "text-[#024ad8] bg-blue-50 px-3 py-1.5 border border-blue-100 rounded-sm" : "text-gray-300 px-3 py-1.5"}>
+                        <span className={step >= 1 ? "text-[#0075be] bg-blue-50 px-3 py-1.5 border border-blue-100 rounded-sm" : "text-gray-300 px-3 py-1.5"}>
                             1. Shipping
                         </span>
                         <ChevronRight size={16} className="text-gray-300" />
-                        <span className={step >= 2 ? "text-[#024ad8] bg-blue-50 px-3 py-1.5 border border-blue-100 rounded-sm" : "text-gray-300 px-3 py-1.5"}>
+                        <span className={step >= 2 ? "text-[#0075be] bg-blue-50 px-3 py-1.5 border border-blue-100 rounded-sm" : "text-gray-300 px-3 py-1.5"}>
                             2. Payment
                         </span>
                     </div>
@@ -268,7 +268,7 @@ const Checkout = () => {
                                         </div>
                                         <div className="flex-1 min-w-0">
                                             <p className="text-sm font-semibold text-black line-clamp-2 leading-snug">{item.title}</p>
-                                            <p className="text-xs text-[#024ad8] font-medium mt-1">Qty: {item.qty}</p>
+                                            <p className="text-xs text-[#0075be] font-medium mt-1">Qty: {item.qty}</p>
                                         </div>
                                         <div className="text-right flex-shrink-0">
                                             <p className="text-sm font-bold text-black">${(item.price * item.qty).toFixed(2)}</p>
@@ -284,7 +284,7 @@ const Checkout = () => {
                                 </div>
                                 <div className="flex justify-between text-sm text-gray-500">
                                     <span>Shipping</span>
-                                    <span className={shippingPrice === 0 ? "text-[#024ad8] font-medium text-xs" : "text-black font-semibold"}>
+                                    <span className={shippingPrice === 0 ? "text-[#0075be] font-medium text-xs" : "text-black font-semibold"}>
                                         {shippingPrice === 0 ? 'Calculated at next step' : `$${shippingPrice.toFixed(2)}`}
                                     </span>
                                 </div>
@@ -296,7 +296,7 @@ const Checkout = () => {
 
                             <div className="flex justify-between items-center mt-5 pt-5 border-t border-gray-100">
                                 <span className="text-sm font-semibold text-black">Total</span>
-                                <span className="text-2xl font-bold text-[#024ad8]">${totalPrice.toFixed(2)}</span>
+                                <span className="text-2xl font-bold text-[#0075be]">${totalPrice.toFixed(2)}</span>
                             </div>
 
                             <div className="mt-5 pt-5 border-t border-gray-50 flex items-center gap-2 text-gray-400">
@@ -311,7 +311,7 @@ const Checkout = () => {
                         {step === 1 ? (
                             <div className="bg-white rounded-sm shadow-sm border border-gray-100 p-7 sm:p-10">
                                 <div className="flex items-center gap-4 mb-8">
-                                    <div className="p-3 bg-[#F8F9FA] text-[#024ad8] rounded-sm">
+                                    <div className="p-3 bg-[#F8F9FA] text-[#0075be] rounded-sm">
                                         <Truck size={24} />
                                     </div>
                                     <h2 className="text-xl font-bold text-black">Shipping Address</h2>
@@ -391,7 +391,7 @@ const Checkout = () => {
                                         <button
                                             type="submit"
                                             disabled={loadingShipping}
-                                            className="w-full mt-4 bg-[#024ad8] text-white py-4 rounded-sm font-bold hover:bg-[#0133a1] transition-all flex items-center justify-center gap-3 disabled:opacity-70 text-sm shadow-lg"
+                                            className="w-full mt-4 bg-[#0075be] text-white py-4 rounded-sm font-bold hover:bg-[#005d9c] transition-all flex items-center justify-center gap-3 disabled:opacity-70 text-sm shadow-lg"
                                         >
                                             {loadingShipping ? <><Loader2 className="animate-spin" size={18} /> Calculating rates...</> : 'Get Shipping Rates'}
                                         </button>
@@ -403,10 +403,10 @@ const Checkout = () => {
                                                     <div
                                                         key={rate.id}
                                                         onClick={() => setSelectedRate(rate)}
-                                                        className={`p-4 border-2 rounded-sm cursor-pointer flex items-center justify-between transition-all ${selectedRate?.id === rate.id ? 'border-[#024ad8] bg-blue-50/50' : 'border-gray-100 hover:border-[#024ad8]/30 bg-white'}`}
+                                                        className={`p-4 border-2 rounded-sm cursor-pointer flex items-center justify-between transition-all ${selectedRate?.id === rate.id ? 'border-[#0075be] bg-blue-50/50' : 'border-gray-100 hover:border-[#0075be]/30 bg-white'}`}
                                                     >
                                                         <div className="flex items-center gap-4">
-                                                            <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${selectedRate?.id === rate.id ? 'border-[#024ad8] bg-[#024ad8]' : 'border-gray-300'}`}>
+                                                            <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${selectedRate?.id === rate.id ? 'border-[#0075be] bg-[#0075be]' : 'border-gray-300'}`}>
                                                                 {selectedRate?.id === rate.id && <div className="w-2 h-2 rounded-full bg-white" />}
                                                             </div>
                                                             <div>
@@ -430,7 +430,7 @@ const Checkout = () => {
                                                 <button
                                                     type="button"
                                                     onClick={submitShippingHandler}
-                                                    className="flex-1 bg-black text-white py-3 rounded-sm font-bold text-sm hover:bg-[#024ad8] transition-all flex items-center justify-center gap-3 shadow-lg"
+                                                    className="flex-1 bg-black text-white py-3 rounded-sm font-bold text-sm hover:bg-[#0075be] transition-all flex items-center justify-center gap-3 shadow-lg"
                                                 >
                                                     Continue to Payment <ChevronRight size={16} />
                                                 </button>
@@ -449,14 +449,14 @@ const Checkout = () => {
                             <div className="bg-white rounded-sm shadow-sm border border-gray-100 p-7 sm:p-10">
                                 <div className="flex items-center justify-between mb-8">
                                     <div className="flex items-center gap-4">
-                                        <div className="p-3 bg-[#F8F9FA] text-[#024ad8] rounded-sm">
+                                        <div className="p-3 bg-[#F8F9FA] text-[#0075be] rounded-sm">
                                             <CreditCard size={24} />
                                         </div>
                                         <h2 className="text-xl font-bold text-black">Payment Details</h2>
                                     </div>
                                     <button
                                         onClick={() => setStep(1)}
-                                        className="text-sm text-[#024ad8] hover:text-black font-medium transition-all hover:underline"
+                                        className="text-sm text-[#0075be] hover:text-black font-medium transition-all hover:underline"
                                     >
                                         Edit Shipping
                                     </button>
@@ -478,7 +478,7 @@ const Checkout = () => {
                                     <div className="space-y-5">
                                         <div>
                                             <label className={labelStyle}>Card Number</label>
-                                            <div className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-sm focus-within:border-[#024ad8] transition-all">
+                                            <div className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-sm focus-within:border-[#0075be] transition-all">
                                                 <div id="card-number" className="h-6"></div>
                                             </div>
                                         </div>
@@ -486,13 +486,13 @@ const Checkout = () => {
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                             <div>
                                                 <label className={labelStyle}>Expiry Date</label>
-                                                <div className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-sm focus-within:border-[#024ad8] transition-all">
+                                                <div className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-sm focus-within:border-[#0075be] transition-all">
                                                     <div id="card-date" className="h-6"></div>
                                                 </div>
                                             </div>
                                             <div>
                                                 <label className={labelStyle}>CVV</label>
-                                                <div className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-sm focus-within:border-[#024ad8] transition-all">
+                                                <div className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-sm focus-within:border-[#0075be] transition-all">
                                                     <div id="card-cvv" className="h-6"></div>
                                                 </div>
                                             </div>
@@ -500,24 +500,24 @@ const Checkout = () => {
 
                                         <div>
                                             <label className={labelStyle}>Billing Zip Code</label>
-                                            <div className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-sm focus-within:border-[#024ad8] transition-all">
+                                            <div className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-sm focus-within:border-[#0075be] transition-all">
                                                 <div id="card-postal-code" className="h-6"></div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="flex items-start gap-3 p-4 bg-gray-50/50 rounded-sm border border-gray-100 group cursor-pointer hover:bg-white transition-all select-none" onClick={() => setAgreedToTerms(!agreedToTerms)}>
-                                        <div className={`mt-0.5 w-5 h-5 rounded-sm border-2 flex items-center justify-center transition-all flex-shrink-0 ${agreedToTerms ? 'border-[#024ad8] bg-[#024ad8]' : 'border-gray-200'}`}>
+                                        <div className={`mt-0.5 w-5 h-5 rounded-sm border-2 flex items-center justify-center transition-all flex-shrink-0 ${agreedToTerms ? 'border-[#0075be] bg-[#0075be]' : 'border-gray-200'}`}>
                                             {agreedToTerms && <Check size={14} className="text-white" />}
                                         </div>
                                         <span className="text-[11px] leading-relaxed text-gray-500 font-medium tracking-tight">
                                             By placing your order, you confirm that you have read and agree to our
-                                            <Link to="/terms-conditions" target="_blank" className="text-[#024ad8] hover:underline mx-1">Terms & Conditions</Link>. By placing your order, you confirm that you have read and agree to our Terms & Conditions and understand how your personal information is collected and used as described in our Privacy Policy.
+                                            <Link to="/terms-conditions" target="_blank" className="text-[#0075be] hover:underline mx-1">Terms & Conditions</Link>. By placing your order, you confirm that you have read and agree to our Terms & Conditions and understand how your personal information is collected and used as described in our Privacy Policy.
                                         </span>
                                     </div>
 
                                     <div className="flex items-center gap-2 text-xs text-gray-400 bg-gray-50 p-3 rounded-sm border border-gray-100">
-                                        <Lock size={12} className="text-[#024ad8] flex-shrink-0" />
+                                        <Lock size={12} className="text-[#0075be] flex-shrink-0" />
                                         <span>Your payment info is encrypted and never stored on our servers.</span>
                                     </div>
 
@@ -530,7 +530,7 @@ const Checkout = () => {
                                             initPayment();
                                         }}
                                         disabled={loading}
-                                        className="w-full bg-[#024ad8] text-white py-4 rounded-sm font-bold text-sm hover:bg-black transition-all flex items-center justify-center gap-3 disabled:opacity-40 disabled:cursor-not-allowed shadow-lg"
+                                        className="w-full bg-[#0075be] text-white py-4 rounded-sm font-bold text-sm hover:bg-black transition-all flex items-center justify-center gap-3 disabled:opacity-40 disabled:cursor-not-allowed shadow-lg"
                                     >
                                         {loading ? <><Loader2 className="animate-spin" size={18} /> Processing...</> : 'Place Order & Pay'}
                                     </button>

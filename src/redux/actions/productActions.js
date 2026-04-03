@@ -26,11 +26,11 @@ import {
     PRODUCT_DELETE_REVIEW_FAIL,
 } from '../constants/productConstants';
 
-export const listProducts = (search = '', category = '', pageNumber = 1, brand = '', usageCategory = '') => async (dispatch) => {
+export const listProducts = (search = '', category = '', pageNumber = 1, brand = '', usageCategory = '', minPrice = '', maxPrice = '', sort = '') => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_LIST_REQUEST });
 
-        // Encode parameters to handle special characters like '&' in category names
+        // Encode parameters to handle special characters
         const searchParam = encodeURIComponent(search);
         const categoryParam = encodeURIComponent(category);
         const brandParam = encodeURIComponent(brand);
@@ -42,6 +42,15 @@ export const listProducts = (search = '', category = '', pageNumber = 1, brand =
         }
         if (usageCategory) {
             url += `&usageCategory=${usageCategoryParam}`;
+        }
+        if (minPrice) {
+            url += `&minPrice=${minPrice}`;
+        }
+        if (maxPrice) {
+            url += `&maxPrice=${maxPrice}`;
+        }
+        if (sort) {
+            url += `&sort=${sort}`;
         }
 
         const { data } = await axios.get(url);

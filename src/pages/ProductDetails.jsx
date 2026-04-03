@@ -15,7 +15,7 @@ import { getImageUrl } from '../utils/imageUtils';
 /* ── Micro components ─────────────────────────────────────────────────────── */
 const Loader = () => (
     <div className="flex justify-center items-center py-24">
-        <div className="w-14 h-14 rounded-sm border-4 border-gray-100 border-t-[#024ad8] animate-spin" />
+        <div className="w-14 h-14 rounded-sm border-4 border-gray-100 border-t-[#0075be] animate-spin" />
     </div>
 );
 
@@ -23,7 +23,7 @@ const Alert = ({ variant = 'info', children }) => {
     const cls = {
         danger: 'bg-red-50 border-gray-100 text-red-700 font-extrabold uppercase tracking-widest text-[10px]',
         success: 'bg-green-50 border-gray-100 text-green-700 font-extrabold uppercase tracking-widest text-[10px]',
-        info: 'bg-blue-50 border-gray-100 text-[#024ad8] font-extrabold uppercase tracking-widest text-[10px]',
+        info: 'bg-blue-50 border-gray-100 text-[#0075be] font-extrabold uppercase tracking-widest text-[10px]',
     };
     return <div className={`rounded-sm p-5 border text-center ${cls[variant] || cls.info}`}>{children}</div>;
 };
@@ -35,7 +35,7 @@ const Stars = ({ value, size = 16, interactive = false, onSet, onHover, onLeave 
                 key={s}
                 size={size}
                 fill={value >= s ? 'currentColor' : 'none'}
-                className={`${value >= s ? 'text-[#024ad8]' : 'text-gray-200'} ${interactive ? 'cursor-pointer transition-transform hover:scale-110' : ''}`}
+                className={`${value >= s ? 'text-[#0075be]' : 'text-gray-200'} ${interactive ? 'cursor-pointer transition-transform hover:scale-110' : ''}`}
                 onClick={interactive ? () => onSet?.(s) : undefined}
                 onMouseEnter={interactive ? () => onHover?.(s) : undefined}
                 onMouseLeave={interactive ? () => onLeave?.() : undefined}
@@ -118,9 +118,9 @@ const ProductDetails = () => {
             <div className="border-b border-gray-100 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
                     <nav className="flex items-center gap-4 text-[10px] font-extrabold uppercase tracking-[0.3em] text-gray-300">
-                        <Link to="/" className="hover:text-[#024ad8] transition-colors">Home</Link>
+                        <Link to="/" className="hover:text-[#0075be] transition-colors">Home</Link>
                         <ChevronRight size={10} className="text-gray-200" />
-                        <Link to="/shop" className="hover:text-[#024ad8] transition-colors">Shop</Link>
+                        <Link to="/shop" className="hover:text-[#0075be] transition-colors">Shop</Link>
                         <ChevronRight size={10} className="text-gray-200" />
                         <span className="text-black truncate max-w-xs block">
                             {product?.title || 'Product'}
@@ -157,7 +157,7 @@ const ProductDetails = () => {
                                     {/* Stock badge */}
                                     <div className="absolute top-4 left-4">
                                         {product.countInStock > 0 ? (
-                                            <span className="inline-flex items-center gap-1.5 bg-[#024ad8] text-white text-[9px] font-bold px-3 py-1.5 rounded-sm uppercase tracking-wider">
+                                            <span className="inline-flex items-center gap-1.5 bg-[#0075be] text-white text-[9px] font-bold px-3 py-1.5 rounded-sm uppercase tracking-wider">
                                                 <Check size={10} strokeWidth={3} /> In Stock
                                             </span>
                                         ) : (
@@ -173,11 +173,11 @@ const ProductDetails = () => {
                                     {images.length > 1 && (
                                         <>
                                             <button onClick={() => setActiveImg((p) => (p - 1 + images.length) % images.length)}
-                                                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white shadow-md rounded-sm flex items-center justify-center text-gray-500 hover:text-[#024ad8] opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white shadow-md rounded-sm flex items-center justify-center text-gray-500 hover:text-[#0075be] opacity-0 group-hover:opacity-100 transition-all duration-300">
                                                 <ChevronLeft size={20} />
                                             </button>
                                             <button onClick={() => setActiveImg((p) => (p + 1) % images.length)}
-                                                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white shadow-md rounded-sm flex items-center justify-center text-gray-500 hover:text-[#024ad8] opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white shadow-md rounded-sm flex items-center justify-center text-gray-500 hover:text-[#0075be] opacity-0 group-hover:opacity-100 transition-all duration-300">
                                                 <ChevronRight size={20} />
                                             </button>
                                         </>
@@ -189,7 +189,7 @@ const ProductDetails = () => {
                                     <div className="flex gap-3 overflow-x-auto pb-2">
                                         {images.map((img, i) => (
                                             <button key={i} onClick={() => setActiveImg(i)}
-                                                className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-sm overflow-hidden border-2 transition-all bg-white ${activeImg === i ? 'border-[#024ad8] shadow-md' : 'border-gray-100 hover:border-gray-300'}`}>
+                                                className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-sm overflow-hidden border-2 transition-all bg-white ${activeImg === i ? 'border-[#0075be] shadow-md' : 'border-gray-100 hover:border-gray-300'}`}>
                                                 <img src={getImageUrl(img, 200)} alt={`view ${i + 1}`}
                                                     className="w-full h-full object-contain p-2 mix-blend-multiply"
                                                     onError={(e) => { e.target.src = 'https://placehold.co/80x80?text=x'; }} />
@@ -205,7 +205,7 @@ const ProductDetails = () => {
                                 {/* Brand / category chips */}
                                 <div className="flex flex-wrap items-center gap-2 mb-5">
                                     {product.brand && (
-                                        <span className="text-[10px] font-bold text-[#024ad8] bg-blue-50 border border-blue-100 px-3 py-1 rounded-sm uppercase tracking-wider">
+                                        <span className="text-[10px] font-bold text-[#0075be] bg-blue-50 border border-blue-100 px-3 py-1 rounded-sm uppercase tracking-wider">
                                             {product.brand}
                                         </span>
                                     )}
@@ -291,7 +291,7 @@ const ProductDetails = () => {
 
                                             <button
                                                 onClick={buyNow}
-                                                className="flex-1 flex items-center justify-center gap-2 bg-[#024ad8] text-white font-semibold py-4 px-6 rounded-sm hover:bg-[#0133a1] transition-colors text-sm"
+                                                className="flex-1 flex items-center justify-center gap-2 bg-[#0075be] text-white font-semibold py-4 px-6 rounded-sm hover:bg-[#005d9c] transition-colors text-sm"
                                             >
                                                 <ShoppingBag size={17} />
                                                 Buy Now
@@ -313,7 +313,7 @@ const ProductDetails = () => {
                                         { icon: <Award size={16} />, label: 'Authentic', sub: 'HP authorized' },
                                     ].map((b, i) => (
                                         <div key={i} className="flex items-center gap-3 py-3">
-                                            <div className="text-[#024ad8] flex-shrink-0">
+                                            <div className="text-[#0075be] flex-shrink-0">
                                                 {b.icon}
                                             </div>
                                             <div>
@@ -335,11 +335,11 @@ const ProductDetails = () => {
                                         <button
                                             key={tab}
                                             onClick={() => setActiveTab(tab)}
-                                            className={`relative py-5 px-2 mr-8 sm:mr-12 text-xs font-bold uppercase tracking-wider transition-colors flex-shrink-0 whitespace-nowrap ${activeTab === tab ? 'text-[#024ad8]' : 'text-gray-400 hover:text-gray-700'}`}
+                                            className={`relative py-5 px-2 mr-8 sm:mr-12 text-xs font-bold uppercase tracking-wider transition-colors flex-shrink-0 whitespace-nowrap ${activeTab === tab ? 'text-[#0075be]' : 'text-gray-400 hover:text-gray-700'}`}
                                         >
                                             {tab}
                                             {activeTab === tab && (
-                                                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#024ad8]" />
+                                                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#0075be]" />
                                             )}
                                         </button>
                                     ))}
@@ -408,7 +408,7 @@ const ProductDetails = () => {
                                                         <div key={rev._id} className="border border-gray-100 rounded-sm p-5 bg-white">
                                                             <div className="flex items-start justify-between mb-3">
                                                                 <div className="flex items-center gap-3">
-                                                                    <div className="w-9 h-9 rounded-full bg-[#024ad8] flex items-center justify-center text-white font-semibold text-sm uppercase">
+                                                                    <div className="w-9 h-9 rounded-full bg-[#0075be] flex items-center justify-center text-white font-semibold text-sm uppercase">
                                                                         {rev.name?.charAt(0)?.toUpperCase() || 'U'}
                                                                     </div>
                                                                     <div>
@@ -452,13 +452,13 @@ const ProductDetails = () => {
                                                             value={comment}
                                                             onChange={(e) => setComment(e.target.value)}
                                                             placeholder="Share your experience with this product..."
-                                                            className="w-full p-4 bg-white border border-gray-200 rounded-sm text-sm text-gray-700 focus:outline-none focus:border-[#024ad8] resize-none placeholder:text-gray-300"
+                                                            className="w-full p-4 bg-white border border-gray-200 rounded-sm text-sm text-gray-700 focus:outline-none focus:border-[#0075be] resize-none placeholder:text-gray-300"
                                                         />
                                                     </div>
                                                     <button
                                                         type="submit"
                                                         disabled={loadingReview || rating === 0 || !comment.trim()}
-                                                        className="w-full py-3.5 bg-black text-white font-semibold rounded-sm hover:bg-[#024ad8] transition-colors text-sm disabled:opacity-30 disabled:cursor-not-allowed"
+                                                        className="w-full py-3.5 bg-black text-white font-semibold rounded-sm hover:bg-[#0075be] transition-colors text-sm disabled:opacity-30 disabled:cursor-not-allowed"
                                                     >
                                                         {loadingReview ? 'Submitting...' : 'Submit Review'}
                                                     </button>
@@ -467,7 +467,7 @@ const ProductDetails = () => {
                                                 <div className="bg-gray-50 border border-gray-100 rounded-sm p-8 text-center">
                                                     <p className="text-sm text-gray-500 mb-5">Please sign in to write a review.</p>
                                                     <Link to="/login"
-                                                        className="inline-block bg-black text-white font-semibold px-6 py-3 rounded-sm hover:bg-[#024ad8] transition-colors text-sm">
+                                                        className="inline-block bg-black text-white font-semibold px-6 py-3 rounded-sm hover:bg-[#0075be] transition-colors text-sm">
                                                         Sign In
                                                     </Link>
                                                 </div>
@@ -482,6 +482,15 @@ const ProductDetails = () => {
                     </>
                 ) : null}
             </div>
+
+            {/* Blue Legal Footer */}
+            <section className="bg-[#0075be] py-12 px-6 text-center text-white">
+                <div className="max-w-6xl mx-auto">
+                    <p className="text-[12px] md:text-[14px] font-bold leading-relaxed opacity-90 max-w-4xl mx-auto uppercase tracking-widest">
+                        Prints Matrix operates as an independent third-party retailer. Manufacturer warranties, where applicable, are provided directly by the respective brands. Prints Matrix does not claim authorization or official partnership with any manufacturer unless explicitly stated.
+                    </p>
+                </div>
+            </section>
         </div>
     );
 };

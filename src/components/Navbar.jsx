@@ -8,10 +8,9 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false);
     const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
-    const { cartCount } = useShop();
+    const { cartCount, cartTotal } = useShop();
     const { user, isAuthenticated, logout } = useAuth();
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -19,46 +18,30 @@ const Navbar = () => {
     const handleSearch = (e) => {
         if (e.key === 'Enter' && searchTerm.trim()) {
             navigate(`/shop?search=${encodeURIComponent(searchTerm.trim())}`);
-            setSearchTerm(''); // Clear after search
-            if (isMenuOpen) setIsMenuOpen(false); // Close mobile menu if searching from there
+            setSearchTerm('');
+            if (isMenuOpen) setIsMenuOpen(false);
         }
     };
 
-    // Toggle Mobile Menu
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-
-    const toggleShopDropdown = () => {
-        setIsShopDropdownOpen(!isShopDropdownOpen);
-    };
-
+    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const closeAllMenus = () => {
         setIsMenuOpen(false);
-        setIsShopDropdownOpen(false);
         setIsUserDropdownOpen(false);
     };
 
-    // Toggle User Dropdown (Desktop)
-    const toggleUserDropdown = () => {
-        setIsUserDropdownOpen(!isUserDropdownOpen);
-    };
-
     const handleLogout = () => {
-        logout(); // AuthContext logout
-        dispatch({ type: USER_LOGOUT }); // Redux logout
+        logout();
+        dispatch({ type: USER_LOGOUT });
         setIsUserDropdownOpen(false);
         navigate('/');
     };
 
-
-
     // Helper to determine active class
     const getLinkClasses = (path) => {
         const currentPath = window.location.pathname;
-        const baseClasses = "text-[11px] font-bold uppercase tracking-[0.12em] transition-all duration-300 hover:text-white/70 relative py-1";
-        const activeClasses = "after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-white";
-        const inactiveClasses = "text-white";
+        const baseClasses = "text-[12px] font-medium uppercase tracking-[0.12em] transition-all duration-300 hover:text-[#0075be] relative py-1";
+        const activeClasses = "text-[#0075be] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#0075be]";
+        const inactiveClasses = "text-gray-900/80";
 
         return currentPath === path ? `${baseClasses} ${activeClasses}` : `${baseClasses} ${inactiveClasses}`;
     };
@@ -66,118 +49,43 @@ const Navbar = () => {
     // Helper for mobile active classes
     const getMobileLinkClasses = (path) => {
         const currentPath = window.location.pathname;
-        const baseClasses = "block px-3 py-2 rounded-md text-base font-medium transition-colors";
-        const activeClasses = "text-white bg-white/20";
-        const inactiveClasses = "text-white hover:text-white/80 hover:bg-white/10";
+        const baseClasses = "block px-4 py-3 rounded-lg text-sm font-medium uppercase tracking-widest transition-all";
+        const activeClasses = "text-white bg-[#0075be]";
+        const inactiveClasses = "text-gray-700 hover:bg-gray-50";
 
         return currentPath === path ? `${baseClasses} ${activeClasses}` : `${baseClasses} ${inactiveClasses}`;
     };
 
     return (
-        <nav className="bg-[#024ad8] text-white shadow-lg border-b border-white/10 sticky top-0 z-50 font-sans backdrop-blur-md">
+        <nav className="bg-white text-gray-800 shadow-[0_2px_15px_rgba(0,0,0,0.08)] border-b border-gray-100 sticky top-0 z-50 font-sans">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-20">
+                <div className="flex justify-between items-center h-24">
 
                     {/* Logo Section */}
                     <div className="flex-shrink-0 flex items-center">
-                        <Link to="/" className="flex items-center gap-2 group">
-                            <div className="flex flex-col leading-none">
-                                <span className="font-bold text-2xl sm:text-3xl tracking-tighter lowercase">idg</span>
-                            </div>
-                            <div className="flex flex-col leading-tight text-[0.6rem] sm:text-[0.7rem] font-bold tracking-widest uppercase border-l-2 border-white/70 pl-3 py-0.5 group-hover:border-white transition-colors">
-                                <span>Innovation</span>
-                                <span>Dynamics</span>
-                                <span>Group</span>
-                            </div>
+                        <Link to="/" className="flex items-center gap-3">
+                            <img 
+                                src="/logo/Prints-matrix-logo.png" 
+                                alt="Prints Matrix" 
+                                className="h-10 sm:h-12 w-auto object-contain"
+                            />
                         </Link>
                     </div>
 
                     {/* Desktop Menu */}
-                    <div className="hidden lg:flex space-x-8 items-center">
+                    <div className="hidden lg:flex space-x-10 items-center">
                         <Link to="/" className={getLinkClasses('/')}>Home</Link>
                         <Link to="/about" className={getLinkClasses('/about')}>About Us</Link>
 
-                        <div
-                            className="relative"
-                            onMouseEnter={() => setIsShopDropdownOpen(true)}
-                            onMouseLeave={() => setIsShopDropdownOpen(false)}
-                        >
-                            <button
-                                onClick={toggleShopDropdown}
-                                className={`flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 focus:outline-none relative py-2 ${window.location.pathname.startsWith('/shop')
-                                        ? "text-white"
-                                        : 'text-white/80 hover:text-white'
-                                    }`}
-                            >
-                                Shop
-                                <ChevronDown size={14} className={`transition-transform duration-500 ${isShopDropdownOpen ? 'rotate-180' : ''}`} />
-                            </button>
+                        <Link to="/shop" className={getLinkClasses('/shop')}>Store</Link>
 
-                            {/* Dropdown Menu - Premium Wide Version */}
-                            <div className={`absolute left-1/2 -translate-x-1/2 mt-5 w-72 bg-white text-black rounded-sm shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-gray-100 transition-all duration-500 z-50 overflow-hidden ${isShopDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'}`}>
-                                <div className="p-4 grid grid-cols-1 gap-1">
-                                    <div className="px-4 py-2 border-b border-gray-50 mb-2">
-                                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#024ad8]/50">Browse By Category</span>
-                                    </div>
-
-                                    <Link to="/shop?filter=home-printers" onClick={closeAllMenus} className="group/item flex items-center justify-between px-4 py-3 rounded-sm hover:bg-[#024ad8]/5 transition-all">
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-8 h-8 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 group-hover/item:text-[#024ad8] group-hover/item:bg-white transition-all">
-                                                <Printer size={16} />
-                                            </div>
-                                            <span className="text-[11px] font-bold uppercase tracking-widest text-gray-600 group-hover/item:text-black">Home Printers</span>
-                                        </div>
-                                        <ArrowRight size={12} className="opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-[#024ad8]" />
-                                    </Link>
-
-                                    <Link to="/shop?filter=office-printers" onClick={closeAllMenus} className="group/item flex items-center justify-between px-4 py-3 rounded-sm hover:bg-[#024ad8]/5 transition-all">
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-8 h-8 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 group-hover/item:text-[#024ad8] group-hover/item:bg-white transition-all">
-                                                <Users size={16} />
-                                            </div>
-                                            <span className="text-[11px] font-bold uppercase tracking-widest text-gray-600 group-hover/item:text-black">Office Printers</span>
-                                        </div>
-                                        <ArrowRight size={12} className="opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-[#024ad8]" />
-                                    </Link>
-
-                                    <Link to="/shop?filter=laser-printers" onClick={closeAllMenus} className="group/item flex items-center justify-between px-4 py-3 rounded-sm hover:bg-[#024ad8]/5 transition-all">
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-8 h-8 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 group-hover/item:text-[#024ad8] group-hover/item:bg-white transition-all">
-                                                <Zap size={16} />
-                                            </div>
-                                            <span className="text-[11px] font-bold uppercase tracking-widest text-gray-600 group-hover/item:text-black">Laser Printers</span>
-                                        </div>
-                                        <ArrowRight size={12} className="opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-[#024ad8]" />
-                                    </Link>
-
-                                    <Link to="/shop?filter=inkjet-printers" onClick={closeAllMenus} className="group/item flex items-center justify-between px-4 py-3 rounded-sm hover:bg-[#024ad8]/5 transition-all">
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-8 h-8 bg-gray-50 rounded-full flex items-center justify-center text-gray-400 group-hover/item:text-[#024ad8] group-hover/item:bg-white transition-all">
-                                                <Droplets size={16} />
-                                            </div>
-                                            <span className="text-[11px] font-bold uppercase tracking-widest text-gray-600 group-hover/item:text-black">Inkjet Printers</span>
-                                        </div>
-                                        <ArrowRight size={12} className="opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-[#024ad8]" />
-                                    </Link>
-
-                                    <Link to="/shop?filter=ink-toner" onClick={closeAllMenus} className="mt-4 group/item flex items-center gap-4 px-4 py-4 bg-gray-900 text-white hover:bg-[#024ad8] transition-all">
-                                        <ShoppingCart size={16} className="text-[#024ad8] group-hover/item:text-white" />
-                                        <div className="flex flex-col">
-                                            <span className="text-[10px] font-black uppercase tracking-[0.2em] leading-none">Ink & Toner</span>
-                                            <span className="text-[8px] font-bold uppercase tracking-[0.1em] text-white/50 group-hover/item:text-white/80">Genuine Supplies</span>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-
-                        <Link to="/faqs" className={getLinkClasses('/faqs')}>FAQs</Link>
+                        <Link to="/faqs" className={getLinkClasses('/faqs')}>Faqs</Link>
                         <Link to="/contact" className={getLinkClasses('/contact')}>Contact Us</Link>
                     </div>
 
                     {/* Icons Section */}
                     <div className="hidden lg:flex items-center space-x-6">
-                        {/* Search Bar */}
+                        {/* Search */}
                         <div className="relative group">
                             <input
                                 type="text"
@@ -185,185 +93,146 @@ const Navbar = () => {
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                                 onKeyUp={handleSearch}
-                                className="bg-white/10 text-xs rounded-full pl-10 pr-4 py-2 border border-white/10 focus:outline-none focus:ring-2 focus:ring-[#024ad8] text-white w-32 focus:w-56 transition-all duration-700 placeholder-white/30"
+                                className="bg-gray-100/80 text-xs rounded-full pl-10 pr-4 py-2.5 border border-transparent focus:bg-white focus:border-[#0075be]/20 focus:outline-none focus:ring-4 focus:ring-[#0075be]/5 text-gray-800 w-36 focus:w-60 transition-all duration-500 placeholder-gray-400"
                             />
-                            <Search className="absolute left-3.5 top-2.5 text-white/30 w-3.5 h-3.5" />
+                            <Search className="absolute left-3.5 top-3 text-gray-400 w-4 h-4" />
                         </div>
 
-                        {/* User Icon / Dropdown */}
-                        <div className="relative group/user">
-                            {isAuthenticated ? (
-                                <button className="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-full border border-white/10 hover:bg-white hover:border-white transition-all duration-500">
-                                    <div className="w-6 h-6 bg-[#024ad8] rounded-full flex items-center justify-center text-[10px] font-black">
-                                        {user.name.charAt(0)}
-                                    </div>
-                                    <span className="text-[10px] font-black uppercase tracking-widest text-white group-hover/user:text-black transition-colors">{user.name.split(' ')[0]}</span>
-                                    <ChevronDown size={14} className="text-white group-hover/user:text-[#024ad8] group-hover/user:rotate-180 transition-all" />
-                                </button>
-                            ) : (
-                                <Link to="/login" className="flex items-center gap-2 group/login" aria-label="Login">
-                                    <div className="w-9 h-9 border border-white/20 rounded-full flex items-center justify-center group-hover/login:bg-white group-hover/login:border-white transition-all">
-                                         <User size={18} className="text-white group-hover/login:text-[#024ad8]" />
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <span className="text-[8px] font-black uppercase tracking-widest text-white/90">Elite Portal</span>
-                                        <span className="text-[10px] font-black uppercase tracking-widest text-white">LOGIN</span>
-                                    </div>
-                                </Link>
-                            )}
-
-                            {/* User Dropdown Redesigned */}
-                            {isAuthenticated && (
-                                <div className="absolute right-0 mt-4 w-60 bg-white text-black rounded-sm shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-gray-200 opacity-0 invisible group-hover/user:opacity-100 group-hover/user:visible transition-all duration-500 translate-y-2 group-hover/user:translate-y-0 z-50 overflow-hidden">
-                                    <div className="p-5 bg-gray-50 flex flex-col items-center">
-                                        <div className="w-16 h-16 bg-[#024ad8] text-white rounded-full flex items-center justify-center text-2xl font-black mb-3 shadow-lg">
-                                            {user.name.charAt(0)}
-                                        </div>
-                                        <p className="text-xs font-black uppercase tracking-widest text-gray-900 leading-tight mb-2">{user.name}</p>
-                                        <p className="text-[10px] text-gray-500 font-bold tracking-widest uppercase">Verified User</p>
-                                    </div>
-                                    <div className="p-2 grid grid-cols-1 gap-1">
-                                        {user?.isAdmin && (
-                                            <Link to="/admin/dashboard" className="flex items-center gap-4 px-4 py-3 rounded-sm hover:bg-[#024ad8]/10 text-[#024ad8] transition-colors border-b border-gray-100 mb-1">
-                                                <Zap size={16} className="animate-pulse" />
-                                                <span className="text-[10px] font-black uppercase tracking-widest">Admin Dashboard</span>
-                                            </Link>
-                                        )}
-                                        <Link to="/profile" className="flex items-center gap-4 px-4 py-3 rounded-sm hover:bg-gray-100 transition-colors">
-                                            <User size={16} className="text-[#024ad8]" />
-                                            <span className="text-[10px] font-bold uppercase tracking-widest">Profile</span>
-                                        </Link>
-                                        <Link to="/track-order" className="flex items-center gap-4 px-4 py-3 rounded-sm hover:bg-gray-100 transition-colors">
-                                            <Truck size={16} className="text-[#024ad8]" />
-                                            <span className="text-[10px] font-bold uppercase tracking-widest">Logistic Status</span>
-                                        </Link>
-                                        <div className="h-px bg-gray-200 my-1 mx-4"></div>
-                                        <button onClick={handleLogout} className="w-full flex items-center gap-4 px-4 py-3 rounded-sm hover:bg-red-50 text-red-700 transition-colors">
-                                            <LogOut size={16} />
-                                            <span className="text-[10px] font-bold uppercase tracking-widest">Logout</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            )}
+                        {/* Price Display */}
+                        <div className="text-sm font-black text-gray-900 tracking-tight">
+                            ${cartTotal?.toFixed(2) || '0.00'}
                         </div>
 
-
-                        <Link 
-                            to="/cart" 
-                            aria-label={`Shopping Cart, ${cartCount} items`}
-                            className="text-white hover:text-white/90 transition-colors duration-300 relative group"
-                        >
-                            <ShoppingCart size={22} />
+                        {/* Cart */}
+                        <Link to="/cart" className="relative group p-2">
+                            <ShoppingCart size={22} className="text-gray-800 group-hover:text-[#0075be] transition-colors" />
                             {cartCount > 0 && (
-                                <span className="absolute -top-2 -right-2 bg-white text-[#024ad8] text-xs font-bold w-4 h-4 rounded-full flex items-center justify-center">{cartCount}</span>
-                            )}
-                        </Link>
-                    </div>
-
-                    {/* Mobile Menu Button */}
-                    <div className="lg:hidden flex items-center gap-2">
-                        <Link to="/cart" aria-label={`Shopping Cart, ${cartCount} items`} className="text-white hover:text-white/90 transition-colors duration-300 relative p-3 flex items-center justify-center">
-                            <ShoppingCart size={22} className="relative z-10" />
-                            {cartCount > 0 && (
-                                <span className="absolute top-1.5 right-1.5 bg-white text-[#024ad8] text-[0.6rem] font-black w-4 h-4 rounded-full flex items-center justify-center shadow-md">
+                                <span className="absolute -top-1 -right-1 bg-[#0075be] text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center shadow-lg border border-white">
                                     {cartCount}
                                 </span>
                             )}
                         </Link>
-                        <button onClick={toggleMenu} aria-label="Toggle Menu" className="text-white hover:text-white/90 focus:outline-none transition-colors p-3 flex items-center justify-center rounded-sm hover:bg-white/10">
-                            {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
+
+                        {/* User */}
+                        <div className="relative group/user">
+                            {isAuthenticated ? (
+                                <button className="flex items-center gap-2 p-2 hover:bg-gray-50 rounded-full transition-all">
+                                    <div className="w-8 h-8 bg-[#0075be] rounded-full flex items-center justify-center text-[10px] font-black text-white">
+                                        {user.name.charAt(0)}
+                                    </div>
+                                    <ChevronDown size={14} className="text-gray-400 group-hover/user:rotate-180 transition-all cursor-pointer" />
+                                </button>
+                            ) : (
+                                <Link to="/login" className="p-2 flex items-center justify-center hover:bg-gray-50 rounded-full transition-all active:scale-95">
+                                    <User size={22} className="text-gray-800 hover:text-[#0075be] transition-colors" />
+                                </Link>
+                            )}
+
+                            {/* User Dropdown */}
+                            {isAuthenticated && (
+                                <div className="absolute right-0 pt-4 w-60 opacity-0 invisible group-hover/user:opacity-100 group-hover/user:visible transition-all duration-300 translate-y-2 group-hover/user:translate-y-0 z-50">
+                                    <div className="bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden">
+                                        <div className="p-5 bg-gray-50 flex flex-col items-center">
+                                            <div className="w-16 h-16 bg-[#0075be] text-white rounded-full flex items-center justify-center text-2xl font-black mb-3 shadow-lg">
+                                                {user.name.charAt(0)}
+                                            </div>
+                                            <p className="text-xs font-black uppercase tracking-widest text-gray-900 leading-tight mb-1">{user.name}</p>
+                                            <p className="text-[9px] text-gray-400 font-bold uppercase tracking-widest">LOYAL CUSTOMER</p>
+                                        </div>
+                                        <div className="p-2 grid grid-cols-1 gap-1">
+                                            {user?.isAdmin && (
+                                                <Link to="/admin/dashboard" className="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-yellow-50 text-yellow-700 transition-colors">
+                                                    <Zap size={16} />
+                                                    <span className="text-[10px] font-black uppercase tracking-widest">Admin Dashboard</span>
+                                                </Link>
+                                            )}
+                                            <Link to="/profile" className="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-gray-50 transition-colors">
+                                                <User size={16} className="text-gray-400" />
+                                                <span className="text-[10px] font-bold uppercase tracking-widest">My Profile</span>
+                                            </Link>
+                                            <Link to="/track-order" className="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-gray-50 transition-colors">
+                                                <Truck size={16} className="text-gray-400" />
+                                                <span className="text-[10px] font-bold uppercase tracking-widest">Track Order</span>
+                                            </Link>
+                                            <div className="h-px bg-gray-100 my-1 mx-4"></div>
+                                            <button onClick={handleLogout} className="w-full flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-red-50 text-red-600 transition-colors">
+                                                <LogOut size={16} />
+                                                <span className="text-[10px] font-bold uppercase tracking-widest">Logout Account</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Mobile Controls */}
+                    <div className="lg:hidden flex items-center gap-3">
+                        <Link to="/cart" className="relative w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-700">
+                            <ShoppingCart size={20} />
+                            {cartCount > 0 && (
+                                <span className="absolute -top-1 -right-1 bg-[#0075be] text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center shadow-md">
+                                    {cartCount}
+                                </span>
+                            )}
+                        </Link>
+                        <button onClick={toggleMenu} className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center text-gray-700 focus:outline-none">
+                            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
                     </div>
                 </div>
             </div>
 
-            {/* Mobile Menu Overlay */}
-            <div className={`lg:hidden transition-all duration-300 ease-in-out bg-[#024ad8] overflow-hidden ${isMenuOpen ? 'max-h-screen opacity-100 shadow-xl' : 'max-h-0 opacity-0'}`}>
-                <div className="px-4 pt-2 pb-6 space-y-2 border-t border-white/20">
+            {/* Mobile Menu */}
+            <div className={`lg:hidden transition-all duration-300 ease-in-out bg-white border-t border-gray-100 overflow-hidden ${isMenuOpen ? 'max-h-screen opacity-100 pb-10' : 'max-h-0 opacity-0'}`}>
+                <div className="px-4 py-6 space-y-3">
                     {/* Mobile Search */}
-                    <div className="relative mb-4 mt-4">
+                    <div className="relative mb-6">
                         <input
                             type="text"
-                            aria-label="Search products"
                             placeholder="Search products..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             onKeyUp={handleSearch}
-                            className="w-full bg-white/10 text-white placeholder-white/70 rounded-lg pl-10 pr-4 py-2 border border-white/20 focus:outline-none focus:ring-1 focus:ring-white"
+                            className="w-full bg-gray-50 text-gray-800 placeholder-gray-400 rounded-xl pl-12 pr-4 py-3 border border-gray-100 focus:outline-none focus:ring-2 focus:ring-[#0075be]/10 focus:bg-white"
                         />
-                        <Search className="absolute left-3 top-2.5 text-white/70 w-5 h-5" />
+                        <Search className="absolute left-4 top-3.5 text-gray-400 w-5 h-5" />
                     </div>
 
                     <Link to="/" onClick={toggleMenu} className={getMobileLinkClasses('/')}>Home</Link>
                     <Link to="/about" onClick={toggleMenu} className={getMobileLinkClasses('/about')}>About Us</Link>
-
-                    {/* Mobile Dropdown */}
-                    <div>
-                        <button
-                            onClick={toggleShopDropdown}
-                            aria-expanded={isShopDropdownOpen}
-                            className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium transition-colors focus:outline-none ${window.location.pathname.startsWith('/shop') ? 'text-white bg-white/20' : 'text-white hover:text-white/90 hover:bg-white/10'}`}
-                        > Shop <ChevronDown size={16} className={`transform transition-transform duration-300 ${isShopDropdownOpen ? 'rotate-180' : ''}`} />
-                        </button>
-                        <div className={`pl-6 space-y-1 transition-all duration-300 overflow-hidden ${isShopDropdownOpen ? 'max-h-60' : 'max-h-0'}`}>
-                            <Link to="/shop?filter=home-printers" onClick={closeAllMenus} className="block px-3 py-2 rounded-md text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">Home Printers</Link>
-                            <Link to="/shop?filter=office-printers" onClick={closeAllMenus} className="block px-3 py-2 rounded-md text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">Office Printers</Link>
-                            <Link to="/shop?filter=laser-printers" onClick={closeAllMenus} className="block px-3 py-2 rounded-md text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">Laser Printers</Link>
-                            <Link to="/shop?filter=inkjet-printers" onClick={closeAllMenus} className="block px-3 py-2 rounded-md text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">Inkjet Printers</Link>
-                            <Link to="/shop?filter=ink-toner" onClick={closeAllMenus} className="block px-3 py-2 rounded-md text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">Ink & Toner</Link>
-                        </div>
-                    </div>
-
-                    <Link to="/faqs" onClick={toggleMenu} className={getMobileLinkClasses('/faqs')}>FAQs</Link>
+                    <Link to="/shop" onClick={toggleMenu} className={getMobileLinkClasses('/shop')}>Store</Link>
+                    <Link to="/faqs" onClick={toggleMenu} className={getMobileLinkClasses('/faqs')}>Faqs</Link>
                     <Link to="/contact" onClick={toggleMenu} className={getMobileLinkClasses('/contact')}>Contact Us</Link>
 
-                    <div className="border-t border-white/20 pt-4 mt-4 flex items-center gap-4 px-3 flex-wrap">
+                    <div className="pt-6 mt-6 border-t border-gray-100">
                         {isAuthenticated ? (
-                            <>
-                                {user?.isAdmin && (
-                                    <Link to="/admin/dashboard" onClick={toggleMenu} className="w-full flex items-center gap-3 px-3 py-3 bg-white/20 rounded-lg text-white mb-2">
-                                        <Zap size={18} className="text-yellow-300" />
-                                        <span className="text-sm font-black uppercase tracking-widest">Admin Panel</span>
-                                    </Link>
-                                )}
-                                <div className="w-full flex items-center justify-between bg-white/10 p-3 rounded-lg border border-white/20 mb-2">
-                                    <Link to="/profile" onClick={toggleMenu} className="flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-full bg-[#024ad8] shadow-inner flex items-center justify-center text-white font-black text-lg">
-                                            {user.name.charAt(0)}
-                                        </div>
-                                        <div className="flex flex-col">
-                                            <span className="text-white/70 text-[9px] uppercase tracking-widest font-black">Welcome</span>
-                                            <p className="text-white font-black text-sm uppercase tracking-widest truncate max-w-[150px]">
-                                                {user.name}
-                                            </p>
-                                        </div>
-                                    </Link>
-                                    <button onClick={handleLogout} className="text-white/60 hover:text-red-400 p-2 rounded-full transition-colors">
-                                        <LogOut size={20} />
-                                    </button>
-                                </div>
-                            </>
+                            <div className="space-y-3">
+                                <Link to="/profile" onClick={toggleMenu} className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
+                                    <div className="w-12 h-12 rounded-full bg-[#0075be] flex items-center justify-center text-white font-black text-xl">
+                                        {user.name.charAt(0)}
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <p className="text-sm font-black text-gray-900 uppercase tracking-widest">{user.name}</p>
+                                        <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">View Profile</p>
+                                    </div>
+                                </Link>
+                                <button onClick={handleLogout} className="w-full flex items-center justify-center gap-3 p-4 text-red-600 font-bold uppercase tracking-widest text-xs border border-red-50 rounded-xl bg-red-50/30">
+                                    <LogOut size={18} />
+                                    Logout
+                                </button>
+                            </div>
                         ) : (
-                            <Link to="/login" onClick={toggleMenu} className="flex items-center gap-3 bg-white/10 p-3 rounded-lg border border-white/20 mb-2 w-full hover:bg-white/20 transition-colors">
-                                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white">
-                                    <User size={20} />
+                            <Link to="/login" onClick={toggleMenu} className="flex items-center gap-4 p-4 bg-[#0075be] rounded-xl text-white">
+                                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-white">
+                                    <User size={22} />
                                 </div>
                                 <div className="flex flex-col">
-                                    <span className="text-white/70 text-[9px] uppercase tracking-widest font-black">Account</span>
-                                    <span className="text-white font-black text-sm uppercase tracking-widest">Sign In</span>
+                                    <p className="text-sm font-black uppercase tracking-widest">Sign In</p>
+                                    <p className="text-[10px] text-white/70 font-bold uppercase tracking-widest">Access elite features</p>
                                 </div>
                             </Link>
                         )}
-
-                        <Link
-                            to="/track-order"
-                            onClick={toggleMenu}
-                            className="flex items-center gap-2 text-white hover:text-white/80 transition-colors w-full"
-                        >
-                            <Truck size={20} />
-                            <span>Track Order</span>
-                        </Link>
-
                     </div>
                 </div>
             </div>

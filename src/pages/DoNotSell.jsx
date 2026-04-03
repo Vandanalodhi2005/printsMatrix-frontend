@@ -98,7 +98,7 @@ const DoNotSell = () => {
                         <h2 className="text-xl font-bold text-black mb-2 mt-8">7. How to Submit a Request</h2>
                         <p>You may submit a request to exercise your rights using the method below:</p>
                         <h3 className="font-bold text-black mb-2 mt-4">Email Request</h3>
-                        <p>Send your request to: <a href="mailto:support@innovationdynamicsgroup.com" className="text-[#024ad8] hover:underline font-bold">support@innovationdynamicsgroup.com</a></p>
+                        <p>Send your request to: <a href="mailto:support@innovationdynamicsgroup.com" className="text-[#0075be] hover:underline font-bold">support@innovationdynamicsgroup.com</a></p>
                         <p className="mt-2 text-sm text-gray-500 font-bold uppercase tracking-widest">Subject Line: "CCPA Request"</p>
                         <p className="mt-4">Please include:</p>
                         <ul className="list-disc pl-6 space-y-1 mt-2 mb-4">

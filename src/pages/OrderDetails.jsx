@@ -40,25 +40,25 @@ const OrderDetails = () => {
             <style>
                 * { margin:0; padding:0; box-sizing:border-box; }
                 body { font-family: 'Segoe UI', Arial, sans-serif; color:#111; background:#fff; padding:48px; }
-                .header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:40px; border-bottom:3px solid #024ad8; padding-bottom:24px; }
-                .brand { font-size:22px; font-weight:800; color:#024ad8; letter-spacing:-0.5px; }
+                .header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:40px; border-bottom:3px solid #0075be; padding-bottom:24px; }
+                .brand { font-size:22px; font-weight:800; color:#0075be; letter-spacing:-0.5px; }
                 .brand span { color:#111; }
                 .invoice-meta { text-align:right; }
                 .invoice-meta h1 { font-size:28px; font-weight:800; color:#111; }
                 .invoice-meta p { font-size:13px; color:#888; margin-top:4px; }
                 .section { margin-bottom:28px; }
-                .section-title { font-size:11px; font-weight:700; color:#024ad8; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; }
+                .section-title { font-size:11px; font-weight:700; color:#0075be; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; }
                 .info-box { background:#f8f9fa; border-radius:6px; padding:16px; font-size:13px; color:#444; line-height:1.7; }
                 .info-box strong { color:#111; }
                 .two-col { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:28px; }
                 table { width:100%; border-collapse:collapse; margin-bottom:28px; }
-                thead th { background:#f0f4ff; padding:12px 8px; font-size:12px; font-weight:700; color:#024ad8; text-transform:uppercase; letter-spacing:0.05em; }
+                thead th { background:#f0f4ff; padding:12px 8px; font-size:12px; font-weight:700; color:#0075be; text-transform:uppercase; letter-spacing:0.05em; }
                 thead th:last-child, thead th:nth-child(3) { text-align:right; }
                 thead th:nth-child(2) { text-align:center; }
                 .totals { margin-left:auto; width:300px; }
                 .total-row { display:flex; justify-content:space-between; padding:8px 0; font-size:13px; color:#555; border-bottom:1px solid #f0f0f0; }
                 .total-row.grand { border-top:2px solid #111; border-bottom:none; padding-top:14px; margin-top:4px; }
-                .total-row.grand span { font-size:18px; font-weight:800; color:#024ad8; }
+                .total-row.grand span { font-size:18px; font-weight:800; color:#0075be; }
                 .status { display:inline-block; padding:4px 12px; border-radius:20px; font-size:11px; font-weight:700; }
                 .status.paid { background:#dcfce7; color:#166534; }
                 .status.pending { background:#fef9c3; color:#854d0e; }
@@ -361,13 +361,13 @@ const OrderDetails = () => {
                                     </div>
                                     <div className="pt-4 border-t border-gray-800 flex justify-between">
                                         <span className="text-base font-bold">{order.isPaid ? 'Total Paid' : 'Amount Due'}</span>
-                                        <span className="text-base font-bold text-[#024ad8]">${order.totalPrice.toFixed(2)}</span>
+                                        <span className="text-base font-bold text-[#0075be]">${order.totalPrice.toFixed(2)}</span>
                                     </div>
                                 </div>
                                 <div className="mt-5">
                                     <button
                                         onClick={downloadInvoice}
-                                        className="w-full py-3 bg-white text-black font-bold rounded-xl hover:bg-[#024ad8] hover:text-white transition-all text-sm flex items-center justify-center gap-2"
+                                        className="w-full py-3 bg-white text-black font-bold rounded-xl hover:bg-[#0075be] hover:text-white transition-all text-sm flex items-center justify-center gap-2"
                                     >
                                         <Download size={15} /> Download Invoice
                                     </button>
@@ -395,7 +395,7 @@ const OrderDetails = () => {
                                             </p>
                                             <button
                                                 onClick={() => setShowPayForm(true)}
-                                                className="w-full py-3 bg-[#024ad8] text-white font-bold rounded-xl hover:bg-black transition-all text-sm flex items-center justify-center gap-2"
+                                                className="w-full py-3 bg-[#0075be] text-white font-bold rounded-xl hover:bg-black transition-all text-sm flex items-center justify-center gap-2"
                                             >
                                                 <CreditCard size={15} /> Pay ${order.totalPrice.toFixed(2)} Now
                                             </button>
@@ -407,7 +407,7 @@ const OrderDetails = () => {
                                             {/* Card Number */}
                                             <div>
                                                 <label className="block text-xs font-semibold text-gray-500 mb-1.5">Card Number</label>
-                                                <div className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus-within:border-[#024ad8] transition-all">
+                                                <div className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus-within:border-[#0075be] transition-all">
                                                     <div id="od-card-number" className="h-5"></div>
                                                 </div>
                                             </div>
@@ -416,13 +416,13 @@ const OrderDetails = () => {
                                             <div className="grid grid-cols-2 gap-3">
                                                 <div>
                                                     <label className="block text-xs font-semibold text-gray-500 mb-1.5">Expiry</label>
-                                                    <div className="w-full px-3 py-3 bg-gray-50 border border-gray-200 rounded-lg focus-within:border-[#024ad8] transition-all">
+                                                    <div className="w-full px-3 py-3 bg-gray-50 border border-gray-200 rounded-lg focus-within:border-[#0075be] transition-all">
                                                         <div id="od-card-date" className="h-5"></div>
                                                     </div>
                                                 </div>
                                                 <div>
                                                     <label className="block text-xs font-semibold text-gray-500 mb-1.5">CVV</label>
-                                                    <div className="w-full px-3 py-3 bg-gray-50 border border-gray-200 rounded-lg focus-within:border-[#024ad8] transition-all">
+                                                    <div className="w-full px-3 py-3 bg-gray-50 border border-gray-200 rounded-lg focus-within:border-[#0075be] transition-all">
                                                         <div id="od-card-cvv" className="h-5"></div>
                                                     </div>
                                                 </div>
@@ -431,7 +431,7 @@ const OrderDetails = () => {
                                             {/* Billing Zip */}
                                             <div>
                                                 <label className="block text-xs font-semibold text-gray-500 mb-1.5">Billing Zip Code</label>
-                                                <div className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus-within:border-[#024ad8] transition-all">
+                                                <div className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus-within:border-[#0075be] transition-all">
                                                     <div id="od-card-zip" className="h-5"></div>
                                                 </div>
                                             </div>
@@ -458,7 +458,7 @@ const OrderDetails = () => {
                                                 <button
                                                     onClick={handlePayNow}
                                                     disabled={payLoading}
-                                                    className="flex-1 py-2.5 bg-[#024ad8] text-white font-bold rounded-lg text-sm hover:bg-black transition-all flex items-center justify-center gap-2 disabled:opacity-60"
+                                                    className="flex-1 py-2.5 bg-[#0075be] text-white font-bold rounded-lg text-sm hover:bg-black transition-all flex items-center justify-center gap-2 disabled:opacity-60"
                                                 >
                                                     {payLoading ? <><Loader2 size={14} className="animate-spin" /> Processing...</> : `Pay $${order.totalPrice.toFixed(2)}`}
                                                 </button>

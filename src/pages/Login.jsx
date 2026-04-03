@@ -57,7 +57,7 @@ const Login = () => {
 
     return (
         <div className="min-h-screen pt-32 pb-24 flex flex-col items-center justify-center bg-[#F8F9FA]">
-            <div className={`w-full max-w-md bg-white p-12 rounded-sm shadow-2xl border-t-8 transition-all duration-500 ${isAdminLogin ? 'border-[#024ad8]' : 'border-black'}`}>
+            <div className={`w-full max-w-md bg-white p-12 rounded-sm shadow-2xl border-t-8 transition-all duration-500 ${isAdminLogin ? 'border-[#0075be]' : 'border-black'}`}>
                 <div className="text-center mb-12">
                     <h1 className="text-3xl font-bold text-black mb-3 tracking-tight leading-tight">
                         {isAdminLogin ? 'Admin Login' : 'Sign In'}
@@ -83,34 +83,34 @@ const Login = () => {
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                        <label className="block text-xs font-semibold text-[#024ad8] uppercase tracking-wider mb-2">Email</label>
+                        <label className="block text-xs font-semibold text-[#0075be] uppercase tracking-wider mb-2">Email</label>
                         <div className="relative group">
                             <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
-                                <Mail size={18} className="text-gray-300 group-focus-within:text-[#024ad8] transition-colors" />
+                                <Mail size={18} className="text-gray-300 group-focus-within:text-[#0075be] transition-colors" />
                             </div>
                             <input
                                 type="email"
                                 required
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="block w-full pl-14 pr-5 py-3.5 border border-gray-200 rounded-sm bg-gray-50/50 text-sm font-medium tracking-normal focus:outline-none focus:border-[#024ad8] focus:bg-white transition-all placeholder:text-gray-300"
+                                className="block w-full pl-14 pr-5 py-3.5 border border-gray-200 rounded-sm bg-gray-50/50 text-sm font-medium tracking-normal focus:outline-none focus:border-[#0075be] focus:bg-white transition-all placeholder:text-gray-300"
                                 placeholder="name@domain.com"
                             />
                         </div>
                     </div>
 
                     <div>
-                        <label className="block text-xs font-semibold text-[#024ad8] uppercase tracking-wider mb-2">Password</label>
+                        <label className="block text-xs font-semibold text-[#0075be] uppercase tracking-wider mb-2">Password</label>
                         <div className="relative group">
                             <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
-                                <Lock size={18} className="text-gray-300 group-focus-within:text-[#024ad8] transition-colors" />
+                                <Lock size={18} className="text-gray-300 group-focus-within:text-[#0075be] transition-colors" />
                             </div>
                             <input
                                 type="password"
                                 required
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className="block w-full pl-14 pr-5 py-3.5 border border-gray-200 rounded-sm bg-gray-50/50 text-sm font-medium tracking-normal focus:outline-none focus:border-[#024ad8] focus:bg-white transition-all placeholder:text-gray-300"
+                                className="block w-full pl-14 pr-5 py-3.5 border border-gray-200 rounded-sm bg-gray-50/50 text-sm font-medium tracking-normal focus:outline-none focus:border-[#0075be] focus:bg-white transition-all placeholder:text-gray-300"
                                 placeholder="••••••••"
                             />
                         </div>
@@ -123,7 +123,7 @@ const Login = () => {
                                 type="checkbox"
                                 checked={isAdminLogin}
                                 onChange={(e) => setIsAdminLogin(e.target.checked)}
-                                className="h-4 w-4 text-[#024ad8] focus:ring-[#024ad8] border-gray-300 rounded-sm transition-all cursor-pointer"
+                                className="h-4 w-4 text-[#0075be] focus:ring-[#0075be] border-gray-300 rounded-sm transition-all cursor-pointer"
                             />
                             <label htmlFor="admin-login" className="ml-3 block text-xs font-medium text-gray-400 cursor-pointer group-hover:text-black transition-colors">
                                 Admin Login
@@ -131,7 +131,7 @@ const Login = () => {
                         </div>
 
                         <div>
-                            <Link to="/forgot-password" title="Forgot Password" className="font-semibold text-[#024ad8] hover:underline text-xs">
+                            <Link to="/forgot-password" title="Forgot Password" className="font-semibold text-[#0075be] hover:underline text-xs">
                                 Forgot Password?
                             </Link>
                         </div>
@@ -142,7 +142,7 @@ const Login = () => {
                         disabled={loading}
                         className={`w-full flex justify-center py-4 px-8 rounded-sm shadow-lg text-sm font-bold uppercase tracking-wider transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:-translate-y-0.5
                             ${isAdminLogin
-                                ? 'bg-[#024ad8] hover:bg-[#0133a1] text-white shadow-[#024ad8]/20'
+                                ? 'bg-[#0075be] hover:bg-[#005d9c] text-white shadow-[#0075be]/20'
                                 : 'bg-black hover:bg-gray-800 text-white shadow-black/20'
                             }
                         `}
@@ -154,7 +154,7 @@ const Login = () => {
                 <div className="mt-10 text-center border-t border-gray-100 pt-8">
                     <p className="text-sm font-medium text-gray-400">
                         Don't have an account?{' '}
-                        <Link to="/signup" className="text-[#024ad8] font-semibold hover:underline ml-1">
+                        <Link to="/signup" className="text-[#0075be] font-semibold hover:underline ml-1">
                             Sign Up
                         </Link>
                     </p>

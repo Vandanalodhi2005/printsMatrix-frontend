@@ -1,277 +1,134 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Facebook,
-  Twitter,
-  Linkedin,
-  Mail,
-  Phone,
-  MapPin,
-  Shield,
-  Award,
-} from "lucide-react";
+import { Mail, MapPin, Globe, CreditCard } from "lucide-react";
 
 const Footer = () => {
-  useEffect(() => {
-    const sealContainer = document.getElementById("siteseal");
-    if (!sealContainer) return;
-
-    const loadGodaddy = () => {
-      if (!sealContainer.getAttribute("data-loaded")) {
-        sealContainer.setAttribute("data-loaded", "true");
-        const script = document.createElement("script");
-        script.type = "text/javascript";
-        script.async = true;
-        script.src = "https://seal.godaddy.com/getSealBasic?sealID=fA5q8U4ngWQoJeQEXnOBnpptwPqM7bmoMSuTzJZg8anUXt6Iwh86nBMt5ys1";
-        sealContainer.appendChild(script);
-      }
-    };
-
-    const events = ['mousemove', 'touchmove', 'wheel', 'keydown'];
-    const initGodaddy = () => {
-      loadGodaddy();
-      events.forEach(e => window.removeEventListener(e, initGodaddy));
-    };
-    
-    events.forEach(e => window.addEventListener(e, initGodaddy, { once: true, passive: true }));
-
-    return () => {
-      events.forEach(e => window.removeEventListener(e, initGodaddy));
-    };
-  }, []);
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-black text-white relative border-t border-white/10 overflow-hidden font-sans">
-      <div className="absolute top-0 left-1/4 w-[500px] h-[300px] bg-[#024ad8]/5 blur-[120px] rounded-full pointer-events-none -translate-y-1/2"></div>
-
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-0 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/5">
-          <div className="lg:col-span-3 space-y-6">
-            <Link to="/" className="flex items-center gap-3 min-h-[40px] select-none h-10 overflow-hidden">
-              <span className="font-bold text-4xl tracking-tighter text-white lowercase leading-[0.8] py-1">
-                idg
-              </span>
-              <div className="h-8 w-px bg-white/20"></div>
-              <div className="flex flex-col text-[10px] uppercase font-bold tracking-[0.15em]">
-                <span className="text-blue-400">Innovation Dynamics</span>
-                <span className="text-neutral-300">Group LLC</span>
-              </div>
+    <footer className="bg-white border-t border-gray-100 font-sans">
+      {/* Upper Footer: Links & Info */}
+      <div className="max-w-7xl mx-auto px-6 py-16 md:py-20 text-left">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+          
+          {/* Column 1: Brand */}
+          <div className="space-y-8">
+            <Link to="/" className="inline-block">
+              <img 
+                src="/logo/Prints-matrix-logo.png" 
+                alt="Prints Matrix Logo" 
+                className="h-12 w-auto object-contain"
+              />
             </Link>
-            <p className="text-neutral-400 text-sm leading-relaxed max-w-sm">
-              Innovation Dynamics Group LLC is an independent U.S.-based retailer providing printers and related products with verified sourcing, reliable fulfillment, and a seamless shopping experience across the U.S. and Canada.
+            <p className="text-gray-500 text-sm font-medium leading-relaxed max-w-xs">
+              Find printers designed to align with your everyday tasks and long-term printing needs. Whether you need a compact home printer or a powerful office solution, explore options built for reliability and efficiency.
             </p>
-            {/* <div className="flex items-center gap-4">
-              <a
-                href="#"
-                className="p-2 bg-white/5 rounded hover:bg-[#024ad8] transition-colors text-white/50 hover:text-white"
-              >
-                <Linkedin size={18} />
-              </a>
-              <a
-                href="#"
-                className="p-2 bg-white/5 rounded hover:bg-[#024ad8] transition-colors text-white/50 hover:text-white"
-              >
-                <Twitter size={18} />
-              </a>
-              <a
-                href="#"
-                className="p-2 bg-white/5 rounded hover:bg-[#024ad8] transition-colors text-white/50 hover:text-white"
-              >
-                <Facebook size={18} />
-              </a>
-            </div> */}
           </div>
 
-          <div className="lg:col-span-9 grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="space-y-6">
-              <h4 className="text-xs font-black uppercase tracking-[0.25em] text-white/70">
-                Our Inventory
-              </h4>
-              <ul className="space-y-3">
-                {[
-                  { name: "Home Printers", link: "/shop?filter=home-printers" },
-                  { name: "Office Printers", link: "/shop?filter=office-printers" },
-                  { name: "Inkjet Printers", link: "/shop?filter=inkjet-printers" },
-                  { name: "Laser Printers", link: "/shop?filter=laser-printers" },
-                  { name: "Ink & Toner", link: "/shop?filter=ink-toner" },
-                ].map((item) => (
-                  <li key={item.name}>
-                    <Link
-                      to={item.link}
-                      className="text-sm font-semibold text-neutral-400 hover:text-[#024ad8] transition-colors block"
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Column 2: Quick Links */}
+          <div className="space-y-8">
+            <h4 className="text-lg font-black text-black tracking-tight">Quick Links</h4>
+            <ul className="space-y-4">
+              {[
+                { name: "Home", link: "/" },
+                { name: "About Us", link: "/about" },
+                { name: "Shop", link: "/shop" },
+                { name: "Blog", link: "/blog" },
+                { name: "FAQs", link: "/faq" },
+                { name: "Contact Us", link: "/contact" }
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link to={item.link} className="text-sm font-semibold text-gray-500 hover:text-[#0075be] transition-colors">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <div className="space-y-6">
-              <h4 className="text-xs font-black uppercase tracking-[0.25em] text-white/70">
-                Support
-              </h4>
-              <ul className="space-y-3">
-                {[
-                  { name: "Track Order", link: "/track-order" },
-                  { name: "Shipping Policy", link: "/shipping-policy" },
-                  { name: "Return & Exchange", link: "/return-exchange" },
-                  { name: "Refund & Return Policy", link: "/return-refund" },
-                  { name: "Buying Guide", link: "/buying-guide" },
-                  { name: "Support Hub", link: "/resources" },
-                ].map((item) => (
-                  <li key={item.name}>
-                    <Link
-                      to={item.link}
-                      className="text-sm font-semibold text-neutral-400 hover:text-[#024ad8] transition-colors block"
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Column 3: Important Links */}
+          <div className="space-y-8">
+            <h4 className="text-lg font-black text-black tracking-tight">Important Links</h4>
+            <ul className="space-y-4">
+              {[
+                { name: "Privacy Policy", link: "/privacy-policy" },
+                { name: "Terms and Conditions", link: "/terms-conditions" },
+                { name: "Return and Refund Policy", link: "/return-refund" },
+                { name: "Shipping Policy", link: "/shipping-policy" },
+                { name: "Cookie Policy", link: "/cookies-policy" },
+                { name: "Disclaimer", link: "/disclaimer" }
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link to={item.link} className="text-sm font-semibold text-gray-500 hover:text-[#0075be] transition-colors">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
+          {/* Column 4: Quick Contact */}
+          <div className="space-y-8">
+            <h4 className="text-lg font-black text-black tracking-tight">Quick Contact</h4>
             <div className="space-y-6">
-              <h4 className="text-xs font-black uppercase tracking-[0.25em] text-white/70">
-                Policy Center
-              </h4>
-              <ul className="space-y-3">
-                {[
-                  { name: "Privacy Policy", link: "/privacy-policy" },
-                  { name: "Terms & Conditions", link: "/terms-conditions" },
-                  { name: "Cookie Policy", link: "/cookies-policy" },
-                  { name: "Accessibility", link: "/accessibility" },
-                  { name: "Disclaimer", link: "/disclaimer" },
-                  { name: "Do Not Sell My Info", link: "/do-not-sell" },
-                ].map((item) => (
-                  <li key={item.name}>
-                    <Link
-                      to={item.link}
-                      className="text-sm font-semibold text-neutral-400 hover:text-[#024ad8] transition-colors block"
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="col-span-2 md:col-span-1 space-y-6">
-              <h4 className="text-xs font-black uppercase tracking-[0.25em] text-white/70">
-                Direct Contact
-              </h4>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3 group">
-                  <MapPin
-                    size={16}
-                    className="text-[#3b82f6] mt-0.5 shrink-0"
-                  />
-                  <span className="text-sm font-bold text-neutral-300 group-hover:text-white transition-colors">
-                    11397 Quincy St NE,
-                    <br />
-                    Blaine, MN 55434
+              <div className="flex items-start gap-3 group">
+                <MapPin size={18} className="text-[#0075be] mt-1 shrink-0" />
+                <div>
+                  <span className="text-[12px] font-black uppercase text-gray-400 block mb-1">Address</span>
+                  <span className="text-sm font-bold text-gray-700 leading-tight">
+                    95 Broadacre Dr, Kitchener, ON <br />
+                    N2R 0S5
                   </span>
                 </div>
-                <div className="flex items-center gap-3 group">
-                  <Mail size={16} className="text-[#3b82f6] shrink-0" />
-                  <span className="text-sm font-bold text-neutral-300 group-hover:text-white transition-colors truncate">
-                    support@innovationdynamicsgroup.com
-                  </span>
+              </div>
+
+              <div className="flex items-start gap-3 group">
+                <Mail size={18} className="text-[#0075be] mt-1 shrink-0" />
+                <div>
+                  <span className="text-[12px] font-black uppercase text-gray-400 block mb-1">Email</span>
+                  <span className="text-sm font-bold text-gray-700">support@printsmatrix.com</span>
                 </div>
-                <div className="flex items-center gap-3 group">
-                  <Phone size={16} className="text-[#024ad8] shrink-0" />
-                  <span className="text-sm font-bold text-neutral-400 group-hover:text-white transition-colors">
-                    +1 (651) 815-4630
-                  </span>
+              </div>
+
+              <div className="flex items-start gap-3 group">
+                <Globe size={18} className="text-[#0075be] mt-1 shrink-0" />
+                <div>
+                  <span className="text-[12px] font-black uppercase text-gray-400 block mb-1">Website</span>
+                  <span className="text-sm font-bold text-gray-700">www.printsmatrix.com</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="py-12 border-b grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <div className="flex flex-wrap border-radius-2xl md:flex-nowrap items-center gap-4 justify-center  lg:justify-start">
-            {/* GoDaddy Verified & Secured — official seal embed */}
-            <div className="h-[80px] w-[150px] rounded-sm flex items-center justify-center p-2 shadow-sm shrink-0 bg-white">
-              <span id="siteseal" className="flex items-center justify-center h-full w-full overflow-hidden" />
-            </div>
-
-            {/* Google Safe Browsing */}
-            <a
-              href="https://transparencyreport.google.com/safe-browsing/search?url=http:%2F%2Finnovationdynamicsgroup.com&hl=en"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="h-[80px] w-[150px] rounded-sm flex items-center justify-center shadow-sm shrink-0 group overflow-hidden"
-              >
-              <img
-                src="/footer_google.webp"
-                alt="Google Safe Browsing"
-                // width="150"
-                // height="100"
-                className="w-full h-full object-contain p-1 transition-all duration-500"
-              />
-            </a>
-
-            <a
-              href="https://www.trustpilot.com/review/innovationdynamicsgroup.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="h-[80px] w-[150px] rounded-sm flex items-center justify-center shadow-sm shrink-0 group overflow-hidden"
-            >
-              <img
-                src="/logo/start_inno.webp"
-                alt="Trustpilot Reviews"
-                // width="250"
-                // height="100"
-                className="w-full h-full object-contain p-1 transition-all duration-500"
-              />
-            </a>
-          </div>
-
-          <div className="flex flex-col items-center lg:items-end justify-center gap-4 w-full h-full">
-            <div className="w-full max-w-[240px] rounded-sm p-4 shadow-xl flex flex-col items-center gap-3 hover:-translate-y-1 transition-transform duration-300">
-             <a href="https://www.clover.com/" target="_blank" rel="noopener noreferrer">
-              <img
-                src="/clover-payment.png"
-                alt="Secure Payments Powered by Clover"
-                className="w-full h-auto object-contain"
-              />
-             </a>
-              <div className="w-full h-px bg-gray-100"></div>
-              <span className="text-[9px] font-black text-gray-500 tracking-[0.2em] uppercase text-center w-full">
-                256-Bit SSL Encrypted
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div className="pt-10 pb-4 flex flex-col gap-8 justify-center items-center">
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-6 w-full px-4 lg:px-0">
-            <p className="text-[10px] font-black text-neutral-400 uppercase tracking-[0.3em] text-center lg:text-left">
-              &copy; 2026{" "}
-              <span className="text-neutral-200">
-                Innovation Dynamics Group LLC
-              </span>{" "}
-              • Minnesota, USA
+      {/* Bottom Footer: Dark Blue Copyright Bar */}
+      <div className="bg-[#0b245a] py-8">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <p className="text-[13px] font-bold text-white/90">
+              Copyright © {currentYear} Prints Matrix
             </p>
 
-            <div className="flex items-center gap-6 px-6 py-2.5 bg-neutral-900/50 border border-white/5 hover:border-white/20 rounded-full transition-colors">
-              <img src="/payment/mastercard.svg" alt="MasterCard" className="h-5 w-auto opacity-80 hover:opacity-100 hover:scale-110 transition-all" />
-              <img src="/payment/amex.svg" alt="Amex" className="h-5 w-auto opacity-80 hover:opacity-100 hover:scale-110 transition-all" />
-              <img src="/payment/discover.svg" alt="Discover" className="h-5 w-14 bg-white p-0.5 rounded-sm opacity-80 hover:opacity-100 hover:scale-110 transition-all" />
-              <img src="/payment/paypal.svg" alt="PayPal" className="h-5 w-auto opacity-80 hover:opacity-100 hover:scale-110 transition-all" />
+            {/* Payment Icons */}
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <div className="bg-white px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" className="h-4 w-auto" />
+              </div>
+              <div className="bg-[#1a1f71] px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14 border border-white/10">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="VISA" className="h-3 w-auto invert brightness-0" />
+              </div>
+              <div className="bg-white px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-5 w-auto" />
+              </div>
+              <div className="bg-white px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Discover_Card_logo.svg" alt="Discover" className="h-3 w-auto" />
+              </div>
+              <div className="bg-[#016fcf] px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14 border border-white/10">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg" alt="Amex" className="h-5 w-auto" />
+              </div>
             </div>
           </div>
-
-          <p className="text-center text-[9px] text-neutral-300 font-medium leading-relaxed uppercase tracking-wider max-w-4xl mx-auto px-4">
-            <span className="text-neutral-400 font-bold">
-              Trademark Notice:
-            </span>{" "}
-
-            All product names, images, brand logos, and trademarks displayed on this website are the property of their respective owners and are used for identification purposes only. Innovation Dynamics Group LLC operates as an independent e-commerce retailer and is not affiliated with, endorsed by, or sponsored by any manufacturer unless explicitly stated. Product availability, specifications, and pricing are subject to change without prior notice. While we strive to provide accurate and up-to-date information, Innovation Dynamics Group LLC does not guarantee that all content on this site is complete, current, or free from errors.
-
-          </p>
         </div>
       </div>
     </footer>

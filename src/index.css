@@ -2,8 +2,9 @@
 
 @theme {
   --font-sans: 'Outfit', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --color-primary-blue: #024ad8;
-  --color-active-blue: #0133a1;
+  --font-heading: 'Outfit', sans-serif;
+  --color-primary-blue: #0075be;
+  --color-active-blue: #005d9c;
   /* Darker for hover/active */
 }
 
@@ -18,6 +19,15 @@ html, body {
   padding: 0;
   width: 100%;
   overflow-x: hidden;
+}
+body {
+  font-family: "Inter", sans-serif;
+}
+h1, h2, h3 {
+  font-weight: 700;
+}
+p {
+  font-weight: 400;
 }
 
 @font-face {

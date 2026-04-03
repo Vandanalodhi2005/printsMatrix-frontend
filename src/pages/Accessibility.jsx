@@ -27,7 +27,7 @@ const Accessibility = () => {
                                 We utilize the <strong>Web Content Accessibility Guidelines (WCAG 2.1)</strong> as our primary framework. These protocols ensure our digital touchpoints are Perceivable, Operable, Understandable, and Robust.
                             </p>
                             <div className="flex items-center gap-3">
-                                <div className="w-1.5 h-1.5 bg-[#024ad8] rounded-full"></div>
+                                <div className="w-1.5 h-1.5 bg-[#0075be] rounded-full"></div>
                                 <p className="text-xs font-bold text-black uppercase tracking-wider">
                                     Target Compliance: WCAG 2.1 Level AA
                                 </p>
@@ -61,16 +61,16 @@ const Accessibility = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                             <div className="space-y-6">
                                 <div className="space-y-2">
-                                    <p className="text-xs font-bold text-[#024ad8] uppercase tracking-wider">Direct Message</p>
+                                    <p className="text-xs font-bold text-[#0075be] uppercase tracking-wider">Direct Message</p>
                                     <p className="font-bold text-black text-sm break-all">support@innovationdynamicsgroup.com</p>
                                 </div>
                                 <div className="space-y-2">
-                                    <p className="text-xs font-bold text-[#024ad8] uppercase tracking-wider">Operational Voice</p>
+                                    <p className="text-xs font-bold text-[#0075be] uppercase tracking-wider">Operational Voice</p>
                                     <p className="font-bold text-black text-sm">+1 (651) 815-4630</p>
                                 </div>
                             </div>
                             <div className="space-y-2">
-                                <p className="text-xs font-bold text-[#024ad8] uppercase tracking-wider">Operational HQ</p>
+                                <p className="text-xs font-bold text-[#0075be] uppercase tracking-wider">Operational HQ</p>
                                 <div className="text-sm font-medium text-gray-500">
                                     <p>Innovation Dynamics Group LLC</p>
                                     <p>11397 Quincy St NE</p>

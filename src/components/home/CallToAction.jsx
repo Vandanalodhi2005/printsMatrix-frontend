@@ -5,24 +5,24 @@ const CallToAction = () => {
     return (
         <section className="py-20 bg-black text-white overflow-hidden relative">
             {/* Background Accent */}
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-[#024ad8] opacity-10 skew-x-12 translate-x-20"></div>
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-[#0075be] opacity-10 skew-x-12 translate-x-20"></div>
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
                     <div className="max-w-2xl text-center lg:text-left">
                         <span className="text-[11px] font-black uppercase tracking-[0.4em] text-blue-400 mb-6 block">Ready to Begin</span>
                         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tighter leading-tight mb-6">
-                            Find the Right Printer <br/> 
-                            <span className="text-blue-500">with Confidence</span>
+                            Find the Right Printer for Your<br/> 
+                            <span className="text-blue-500">Home & Office</span>
                         </h2>
                         <p className="text-gray-300 text-base sm:text-lg font-medium leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0">
-                            From home printing to business solutions, explore a range of printers designed to match your specific needs. Experience a new standard in procurement.
+                            Explore printers built for everyday home use and busy office work. From compact all-in-one models to fast laser printers, discover dependable performance with easy connectivity.
                         </p>
                         
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                             <Link 
                                 to="/shop" 
-                                className="px-10 py-5 bg-[#024ad8] text-white font-bold uppercase tracking-widest text-xs hover:bg-[#0239a5] transition-all rounded-sm text-center shadow-lg shadow-blue-900/20"
+                                className="px-10 py-5 bg-[#0075be] text-white font-bold uppercase tracking-widest text-xs hover:bg-[#0239a5] transition-all rounded-sm text-center shadow-lg shadow-blue-900/20"
                             >
                                 Shop Now
                             </Link>

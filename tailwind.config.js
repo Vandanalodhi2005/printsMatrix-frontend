@@ -7,8 +7,8 @@ export default {
     theme: {
         extend: {
             colors: {
-                'primary-blue': '#024ad8',
-                'active-blue': '#0133a1',
+                'primary-blue': '#0075be',
+                'active-blue': '#005d9c',
             }
         },
     },

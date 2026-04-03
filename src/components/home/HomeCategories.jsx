@@ -54,8 +54,8 @@ const HomeCategories = () => {
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                     <div className="max-w-2xl space-y-4">
                         <div className="flex items-center gap-4">
-                            <div className="w-12 h-1 bg-[#024ad8]"></div>
-                            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[#0133a1]">Catalog</span>
+                            <div className="w-12 h-1 bg-[#0075be]"></div>
+                            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[#005d9c]">Catalog</span>
                         </div>
                         <h2 className="text-3xl md:text-5xl font-black text-black tracking-tighter uppercase">What We Sell</h2>
                         <p className="text-gray-500 font-medium text-sm md:text-base leading-relaxed">
@@ -63,7 +63,7 @@ const HomeCategories = () => {
                         </p>
                     </div>
                     <div className="hidden md:block">
-                        <Link to="/shop" className="text-[10px] font-black uppercase tracking-[0.2em] text-black border-b-2 border-black pb-1 hover:text-[#024ad8] hover:border-[#024ad8] transition-all">
+                        <Link to="/shop" className="text-[10px] font-black uppercase tracking-[0.2em] text-black border-b-2 border-black pb-1 hover:text-[#0075be] hover:border-[#0075be] transition-all">
                             View Entire Store
                         </Link>
                     </div>
@@ -92,7 +92,7 @@ const HomeCategories = () => {
                                         />
                                     </picture>
                                     <div className="absolute top-6 left-6 flex flex-col items-center">
-                                        <div className="bg-white w-10 h-10 rounded-sm flex items-center justify-center text-black shadow-sm border border-gray-100 group-hover:bg-[#024ad8] group-hover:text-white transition-colors duration-500">
+                                        <div className="bg-white w-10 h-10 rounded-sm flex items-center justify-center text-black shadow-sm border border-gray-100 group-hover:bg-[#0075be] group-hover:text-white transition-colors duration-500">
                                             {type.icon}
                                         </div>
                                     </div>
@@ -101,21 +101,21 @@ const HomeCategories = () => {
                                 {/* Card Content Area */}
                                 <div className="p-8 lg:p-10 flex-grow flex flex-col border-t border-gray-50">
                                     <div className="flex items-center gap-3 mb-4">
-                                        <span className="text-[8px] font-black text-[#0133a1] uppercase tracking-[0.2em]">Category 0{index + 1}</span>
+                                        <span className="text-[8px] font-black text-[#005d9c] uppercase tracking-[0.2em]">Category 0{index + 1}</span>
                                         <div className="flex-grow h-px bg-gray-100"></div>
                                     </div>
-                                    <h3 className="text-xl md:text-2xl font-black text-black uppercase tracking-tighter mb-4 group-hover:text-[#024ad8] transition-colors">
+                                    <h3 className="text-xl md:text-2xl font-black text-black uppercase tracking-tighter mb-4 group-hover:text-[#0075be] transition-colors">
                                         {type.title}
                                     </h3>
                                     <p className="text-gray-500 text-sm leading-relaxed mb-8 flex-grow font-medium line-clamp-3">
                                         {type.description}
                                     </p>
                                     <div className="flex items-center justify-between">
-                                        <div className="flex items-center text-black font-black text-[10px] uppercase tracking-[0.2em] group-hover:text-[#024ad8] transition-colors">
+                                        <div className="flex items-center text-black font-black text-[10px] uppercase tracking-[0.2em] group-hover:text-[#0075be] transition-colors">
                                             EXPLORE SERIES <ArrowRight size={14} className="ml-3 group-hover:translate-x-2 transition-transform" />
                                         </div>
                                         <div className="w-8 h-8 rounded-full border border-gray-100 flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all">
-                                            <Check className="text-[#024ad8]" size={14} />
+                                            <Check className="text-[#0075be]" size={14} />
                                         </div>
                                     </div>
                                 </div>

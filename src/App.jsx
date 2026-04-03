@@ -63,7 +63,7 @@ const AdminSettings  = lazy(() => import('./components/admin/Pages/AdminSettings
 // ── Loading fallback ─────────────────────────────────────────────────────────
 const PageLoader = () => (
   <div className="min-h-[60vh] flex items-center justify-center bg-white">
-    <div className="animate-spin rounded-full h-10 w-10 border-4 border-[#024ad8] border-t-transparent" />
+    <div className="animate-spin rounded-full h-10 w-10 border-4 border-[#0075be] border-t-transparent" />
   </div>
 );
 

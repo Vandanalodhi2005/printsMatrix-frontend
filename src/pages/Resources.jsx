@@ -54,19 +54,19 @@ const Resources = () => {
                         <h2 className="text-2xl font-bold text-black mb-8">3. Key Features</h2>
                         <ul className="space-y-6 font-medium">
                             <li className="flex gap-6 items-start">
-                                <span className="text-xs font-bold text-[#024ad8] uppercase tracking-widest pt-1">PPM</span>
+                                <span className="text-xs font-bold text-[#0075be] uppercase tracking-widest pt-1">PPM</span>
                                 <p className="text-sm text-gray-600">Print Speed (Pages Per Minute) affecting efficiency in busy environments.</p>
                             </li>
                             <li className="flex gap-6 items-start">
-                                <span className="text-xs font-bold text-[#024ad8] uppercase tracking-widest pt-1">DPI</span>
+                                <span className="text-xs font-bold text-[#0075be] uppercase tracking-widest pt-1">DPI</span>
                                 <p className="text-sm text-gray-600">Print Resolution (Dots Per Inch) affecting sharpness and clarity.</p>
                             </li>
                             <li className="flex gap-6 items-start">
-                                <span className="text-xs font-bold text-[#024ad8] uppercase tracking-widest pt-1">Sync</span>
+                                <span className="text-xs font-bold text-[#0075be] uppercase tracking-widest pt-1">Sync</span>
                                 <p className="text-sm text-gray-600">USB, Ethernet, Wi-Fi, and Mobile printing compatibility options.</p>
                             </li>
                             <li className="flex gap-6 items-start">
-                                <span className="text-xs font-bold text-[#024ad8] uppercase tracking-widest pt-1">Cycle</span>
+                                <span className="text-xs font-bold text-[#0075be] uppercase tracking-widest pt-1">Cycle</span>
                                 <p className="text-sm text-gray-600">Maximum monthly capacity a printer can handle without damage.</p>
                             </li>
                         </ul>
@@ -77,11 +77,11 @@ const Resources = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                             <div className="space-y-6">
                                 <div className="space-y-2">
-                                    <p className="text-xs font-bold text-[#024ad8] uppercase tracking-wider">Direct Line</p>
+                                    <p className="text-xs font-bold text-[#0075be] uppercase tracking-wider">Direct Line</p>
                                     <p className="font-bold text-black text-sm">+1 (651) 815-4630</p>
                                 </div>
                                 <div className="space-y-2">
-                                    <p className="text-xs font-bold text-[#024ad8] uppercase tracking-wider">Email Support</p>
+                                    <p className="text-xs font-bold text-[#0075be] uppercase tracking-wider">Email Support</p>
                                     <p className="font-bold text-black text-sm break-all">support@innovationdynamicsgroup.com</p>
                                 </div>
                             </div>

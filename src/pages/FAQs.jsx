@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, Minus, HelpCircle } from 'lucide-react';
+import { Plus, Minus, MessageCircle, ArrowRight } from 'lucide-react';
 
 const FAQs = () => {
     const [openIndex, setOpenIndex] = useState(0);
@@ -10,155 +10,164 @@ const FAQs = () => {
 
     const faqs = [
         {
-            question: "1. What is Innovation Dynamics Group LLC?",
-            answer: "Innovation Dynamics Group LLC is an independent online retailer offering printers and printing supplies for home, office, and business use across the United States and Canada."
+            question: "Who is Prints Matrix?",
+            answer: "Prints Matrix is an independent online retailer offering printers, printing supplies, and related accessories for home users, professionals, and businesses. Our goal is to provide reliable products, clear information, and a straightforward shopping experience to help customers make informed printing decisions."
         },
         {
-            question: "2. Are you affiliated with brands like HP, Canon, or Epson?",
-            answer: "No. Innovation Dynamics Group LLC operates independently and is not affiliated with or endorsed by any manufacturer unless explicitly stated. All brand names and trademarks are used for identification purposes only."
+            question: "Are you an authorized dealer of printer brands?",
+            answer: "We operate independently and are not affiliated with, endorsed by, or sponsored by any printer manufacturer, unless explicitly stated. All brand names, trademarks, and product images displayed on our website are the property of their respective owners and are used strictly for identification and informational purposes."
         },
         {
-            question: "3. Where do you ship?",
-            answer: "We currently ship across the United States and Canada. Shipping availability may vary based on location and carrier service."
+            question: "What products do you sell?",
+            answer: "At Prints Matrix, we focus on a carefully selected range of high-quality inkjet, laser, and all-in-one printers, along with essential supplies like ink, toner, and printing accessories designed to support daily tasks and professional workloads."
         },
         {
-            question: "4. Do you offer free shipping?",
-            answer: "Yes, free shipping may be available on qualifying orders. Shipping eligibility and conditions are shown at checkout."
+            question: "Do your products include a manufacturer warranty?",
+            answer: "Yes, manufacturer warranties, where applicable, are provided directly by the respective brands. We ensure all products are sourced through trusted channels to maintain standard coverage for our customers."
         },
         {
-            question: "5. How long does delivery take?",
-            answer: "Estimated delivery times – United States: 3–7 business days; Canada: 3–8 business days. Delivery times are estimates and may vary depending on location, carrier delays, or external factors."
+            question: "How do I place an order?",
+            answer: "Placing an order is straightforward. Simply browse our catalog, select the items you need, and proceed through our secure checkout system. You will receive a confirmation email once your order is placed."
         },
         {
-            question: "6. How can I track my order?",
-            answer: "Once your order is shipped, you will receive a tracking number via email. You can use this to track your shipment through the carrier’s website."
+            question: "What payment methods do you accept?",
+            answer: "We accept all major credit cards and secure online payment methods to ensure a safe and reliable transaction experience for all our customers."
         },
         {
-            question: "7. What is your return policy?",
-            answer: "We offer a 30-day return window for eligible items. Products must be unused and in original packaging unless defective. For full details, please refer to our Return & Refund Policy."
+            question: "Do you ship internationally?",
+            answer: "Currently, we focus on reliable fulfillment and shipping within our primary service regions to ensure the highest standards of delivery speed and package safety."
         },
         {
-            question: "8. How long does it take to receive a refund?",
-            answer: "Refunds are processed within 3–5 business days after the returned item is received and inspected. Final timing may depend on your payment provider."
+            question: "How long does delivery take?",
+            answer: "Most orders are processed within 1-2 business days. Delivery typically takes between 3 to 7 business days, depending on your location and the specific logistics partner handling your shipment."
         },
         {
-            question: "9. What if I receive a damaged or incorrect item?",
-            answer: "If your order arrives damaged or incorrect: Contact us within 48 hours of delivery and provide photos of the product and packaging. We will arrange a replacement or refund as appropriate."
+            question: "Can I return or cancel my order?",
+            answer: "We accommodate returns and cancellations according to our transparent store policies. Please visit our Return & Refund Policy page for specific terms and instructions."
         },
         {
-            question: "10. Can I cancel my order?",
-            answer: "Orders can be canceled before shipment only. Once shipped, cancellations are not possible, but you may return the item according to our policy."
+            question: "How can I contact customer support?",
+            answer: "Our support team is always happy to help. You can reach us directly via email at support@printsmatrix.com for any product inquiries or order assistance."
         },
         {
-            question: "11. Do your products come with a warranty?",
-            answer: "Yes, most products include a manufacturer warranty, where applicable. Warranty terms are provided by the respective brand."
+            question: "Is my personal information secure?",
+            answer: "Yes, we maintain secure payment processing and rigorous data protection standards. Your personal information is handled with the highest level of transparency and technical security."
         },
         {
-            question: "12. Do you provide technical support?",
-            answer: "We offer general product guidance and assistance, but we do not provide official manufacturer technical support. For detailed technical issues or warranty claims, customers may need to contact the manufacturer directly."
+            question: "Do you offer technical support for printers?",
+            answer: "We provide comprehensive guidance on product selection and usage. For deep hardware-specific technical issues or warranty repairs, we recommend consulting the official manufacturer support channels."
         },
         {
-            question: "13. How is my personal information protected?",
-            answer: "We take privacy seriously and only collect necessary information to process orders and provide support. We do not sell or share personal data for advertising purposes. For more details, please review our Privacy Policy."
-        },
-        {
-            question: "14. Do you use cookies or tracking technologies?",
-            answer: "We use essential cookies only to ensure website functionality, such as cart and checkout. We do not use advertising or tracking cookies."
-        },
-        {
-            question: "15. How can I contact customer support?",
-            answer: "You can reach Innovation Dynamics Group LLC via email at support@innovationdynamicsgroup.com or call +1 (651) 815-4630. Our location is 11397 Quincy St NE, Blaine, MN 55434."
+            question: "Why should I choose Prints Matrix?",
+            answer: "Our mission is simple: to make printing easier, more reliable, and more accessible through clear guidance, dependable products, and responsible business practices. We focus on transparency and long-term value for every customer."
         }
     ];
 
     return (
-        <div className="bg-white min-h-screen pt-28 pb-16 px-6 font-sans text-left text-gray-800">
-            <div className="max-w-4xl mx-auto">
-                <header className="mb-12 border-b border-gray-100 pb-8 text-left">
-                    <h1 className="text-4xl font-bold text-black mb-4">Frequently Asked Questions</h1>
-                    <p className="text-gray-500 text-sm font-medium leading-relaxed max-w-2xl">Find answers to common questions about our products, shipping, orders, and more. Our team is here to help you make informed decisions.</p>
-                </header>
+        <div className="bg-white min-h-screen font-sans text-black overflow-hidden">
+            
+            {/* ── Section 1: Hero Banner ────────────────────────────────── */}
+            <section className="w-full bg-[#0075be] py-20 md:py-32 px-6 text-center text-white relative">
+                <div className="absolute inset-0 opacity-10 pointer-events-none">
+                    <div className="absolute top-0 left-1/4 w-64 h-64 bg-white rounded-full blur-[100px]"></div>
+                    <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-white rounded-full blur-[100px]"></div>
+                </div>
 
-                <div className="space-y-4 mb-20 font-medium text-left">
-                    {faqs.map((faq, index) => (
-                        <div
-                            key={index}
-                            className={`border rounded-sm overflow-hidden transition-all duration-300 bg-white ${openIndex === index
-                                    ? 'shadow-sm border-[#024ad8]/40'
-                                    : 'border-gray-100 hover:border-gray-200'
+                <div className="max-w-4xl mx-auto relative z-10">
+                    <h1 className="text-4xl md:text-7xl font-black mb-8 tracking-tighter leading-tight drop-shadow-sm">
+                        Frequently Asked <br />Questions
+                    </h1>
+                    <div className="w-20 h-1.5 bg-white mx-auto mb-10 rounded-full opacity-80"></div>
+                    <p className="text-lg md:text-2xl font-medium leading-relaxed opacity-90 max-w-2xl mx-auto">
+                        Find answers to common questions about Prints Matrix, our products, and our services.
+                    </p>
+                </div>
+            </section>
+
+            {/* ── Section 2: FAQ Accordion ──────────────────────────────── */}
+            <section className="py-20 md:py-32 px-6 bg-white">
+                <div className="max-w-4xl mx-auto">
+                    <div className="space-y-6">
+                        {faqs.map((faq, index) => (
+                            <div 
+                                key={index}
+                                className={`border rounded-[1.5rem] transition-all duration-500 overflow-hidden ${
+                                    openIndex === index 
+                                    ? 'border-[#0075be] bg-gray-50 shadow-xl shadow-blue-900/5' 
+                                    : 'border-gray-100 hover:border-gray-300'
                                 }`}
-                        >
-                            <button
-                                onClick={() => toggleAccordion(index)}
-                                className="w-full flex justify-between items-center p-6 text-left hover:bg-gray-50/50 transition-colors group"
                             >
-                                <span className={`font-bold text-sm transition-all duration-300 pr-4 ${openIndex === index ? 'text-[#024ad8]' : 'text-black'}`}>
-                                    {faq.question}
-                                </span>
-                                <div className={`p-2 rounded-sm transition-all duration-300 flex-shrink-0 ${openIndex === index ? 'bg-[#024ad8] text-white' : 'bg-gray-50 text-gray-400'}`}>
-                                    {openIndex === index ? (
-                                        <Minus size={14} />
-                                    ) : (
-                                        <Plus size={14} />
-                                    )}
-                                </div>
-                            </button>
-
-                            <div
-                                className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index
-                                        ? 'max-h-[500px] opacity-100'
-                                        : 'max-h-0 opacity-0'
+                                <button 
+                                    onClick={() => toggleAccordion(index)}
+                                    className="w-full flex items-center justify-between p-6 md:p-8 text-left transition-colors"
+                                >
+                                    <span className={`text-base md:text-xl font-black tracking-tight pr-4 ${openIndex === index ? 'text-[#0075be]' : 'text-black'}`}>
+                                        {faq.question}
+                                    </span>
+                                    <div className={`p-2 rounded-full shrink-0 transition-all duration-500 ${openIndex === index ? 'bg-[#0075be] text-white rotate-180' : 'bg-gray-100 text-gray-400'}`}>
+                                        {openIndex === index ? <Minus size={18} /> : <Plus size={18} />}
+                                    </div>
+                                </button>
+                                
+                                <div 
+                                    className={`transition-all duration-500 ease-in-out ${
+                                        openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
                                     }`}
-                            >
-                                <div className="px-6 pb-6 pt-0">
-                                    <div className="p-5 bg-gray-50 rounded-sm border border-gray-100 text-sm text-gray-600 font-medium leading-relaxed">
-                                        {faq.answer}
+                                >
+                                    <div className="px-6 md:px-8 pb-8 pt-0">
+                                        <div className="w-full h-px bg-gray-200 mb-6"></div>
+                                        <p className="text-gray-600 text-base md:text-lg font-medium leading-relaxed">
+                                            {faq.answer}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-12 border-t border-gray-100 font-medium">
-                    <div className="space-y-6">
-                        <div className="flex gap-4 items-start">
-                             <HelpCircle className="text-[#024ad8] flex-shrink-0 mt-1" size={18} />
-                             <div>
-                                <h3 className="font-bold text-black text-sm mb-2">Important Notice</h3>
-                                <p className="text-xs text-gray-500 leading-relaxed">
-                                    Product availability, pricing, and delivery timelines are subject to change without prior notice. Please verify all details before placing an order. Manufacturer warranties are handled directly by the respective brand and may vary by product.
-                                </p>
-                             </div>
-                        </div>
-                    </div>
-
-                    <div className="bg-gray-50 p-8 border border-gray-100 rounded-sm">
-                        <h2 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">Contact Inquiries</h2>
-                        <div className="space-y-6">
-                            <div className="space-y-1">
-                                <p className="text-xs font-bold text-[#024ad8] uppercase tracking-wider">Support Channel</p>
-                                <p className="text-sm font-bold text-black break-all">support@innovationdynamicsgroup.com</p>
-                                <p className="text-sm font-bold text-black">+1 (651) 815-4630</p>
-                            </div>
-                            <div className="space-y-1">
-                                <p className="text-xs font-bold text-[#024ad8] uppercase tracking-wider">Business Center</p>
-                                <div className="text-sm font-medium text-gray-500">
-                                    <p>11397 Quincy St NE</p>
-                                    <p>Blaine, MN 55434</p>
-                                    <p>United States</p>
-                                </div>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
+            </section>
 
-                <footer className="mt-24 pt-10 border-t border-gray-100 text-center">
-                    <p className="text-xs text-gray-300 font-medium tracking-wide">
-                        Innovation Dynamics Group LLC © 2026 • Dedicated Customer Assistance
+            {/* ── Section 3: Still Have Questions? ───────────────────────── */}
+            <section className="py-20 md:py-32 px-6 bg-gray-50 border-t border-gray-100">
+                <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+                    <div className="text-center md:text-left space-y-4">
+                        <div className="inline-flex items-center gap-2 bg-blue-100 text-[#0075be] px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+                            <MessageCircle size={14} /> Need more help?
+                        </div>
+                        <h2 className="text-3xl md:text-5xl font-black text-black tracking-tighter">
+                            Still Have Questions?
+                        </h2>
+                        <p className="text-gray-500 font-bold text-lg max-w-md leading-relaxed">
+                            If you didn’t find what you were looking for, feel free to contact us directly.
+                        </p>
+                    </div>
+
+                    <div className="shrink-0 w-full md:w-auto">
+                        <a 
+                            href="mailto:support@printsmatrix.com"
+                            className="group flex flex-col items-center md:items-start p-8 bg-white rounded-[2rem] shadow-2xl border border-gray-100 hover:-translate-y-2 transition-all duration-500"
+                        >
+                            <span className="text-[11px] font-black text-gray-400 uppercase tracking-widest mb-2">Direct Channel</span>
+                            <span className="text-xl md:text-2xl font-black text-[#0075be] mb-6 border-b-2 border-transparent group-hover:border-[#0075be] transition-all pb-1">
+                                support@printsmatrix.com
+                            </span>
+                            <div className="flex items-center gap-3 text-black font-black text-[11px] uppercase tracking-widest">
+                                Contact Support <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform duration-500" />
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            {/* ── Section 4: Legal Footer ───────────────────────────────── */}
+            <section className="bg-[#0075be] py-12 px-6 text-center text-white">
+                <div className="max-w-6xl mx-auto">
+                    <p className="text-[12px] md:text-[14px] font-bold leading-relaxed opacity-90 max-w-4xl mx-auto uppercase tracking-widest">
+                        Prints Matrix operates as an independent third-party retailer. Manufacturer warranties, where applicable, are provided directly by the respective brands. Prints Matrix does not claim authorization or official partnership with any manufacturer unless explicitly stated.
                     </p>
-                </footer>
-            </div>
+                </div>
+            </section>
+
         </div>
     );
 };

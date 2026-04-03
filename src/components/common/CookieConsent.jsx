@@ -43,13 +43,13 @@ const CookieConsent = () => {
                         </button>
                         <button 
                             onClick={handleDecline}
-                            className="flex-1 px-6 py-3 bg-[#024ad8] text-white font-bold text-sm rounded-md hover:bg-[#0238a8] transition-colors"
+                            className="flex-1 px-6 py-3 bg-[#0075be] text-white font-bold text-sm rounded-md hover:bg-[#0238a8] transition-colors"
                         >
                             Decline
                         </button>
                         <button 
                             onClick={handleAccept}
-                            className="flex-1 px-6 py-3 bg-[#024ad8] text-white font-bold text-sm rounded-md hover:bg-[#0238a8] transition-colors"
+                            className="flex-1 px-6 py-3 bg-[#0075be] text-white font-bold text-sm rounded-md hover:bg-[#0238a8] transition-colors"
                         >
                             Accept
                         </button>
