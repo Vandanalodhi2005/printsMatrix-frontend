@@ -78,7 +78,6 @@ const Navbar = () => {
                         <Link to="/about" className={getLinkClasses('/about')}>About Us</Link>
 
                         <Link to="/shop" className={getLinkClasses('/shop')}>Store</Link>
-
                         <Link to="/faqs" className={getLinkClasses('/faqs')}>Faqs</Link>
                         <Link to="/contact" className={getLinkClasses('/contact')}>Contact Us</Link>
                     </div>

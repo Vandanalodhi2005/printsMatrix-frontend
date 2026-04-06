@@ -96,11 +96,9 @@ const ProductDetails = () => {
     const images = product?.images?.length ? product.images : [];
     const mainImg = getImageUrl(images[activeImg], 800);
     const toCart = () => {
-        if (!isAuthenticated) { alert('Please sign in to add items to cart.'); navigate('/login'); return; }
         ctxAddToCart(product, qty); navigate('/cart');
     };
     const buyNow = () => {
-        if (!isAuthenticated) { alert('Please sign in to buy products.'); navigate('/login'); return; }
         ctxAddToCart(product, qty); navigate('/cart?redirect=shipping');
     };
 

@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { listProducts } from '../redux/actions/productActions';
 import { ChevronRight, ChevronLeft, Search, ShoppingBag } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
-import { useAuth } from '../context/AuthContext';
 import { getImageUrl } from '../utils/imageUtils';
 
 // ── Product Card Component ──────────────────────────────────────────────────
@@ -12,17 +11,23 @@ const ProductCard = ({ product, onDetails }) => {
     const imageUrl = getImageUrl(product.images, 400);
     const originalPrice = product.price * 1.15;
     const { addToCart } = useShop();
-    const { isAuthenticated } = useAuth();
     const navigate = useNavigate();
+    const [added, setAdded] = useState(false);
+
+    // Listen for auth-required event fired from Redux action
+    useEffect(() => {
+        const handler = () => navigate('/login');
+        window.addEventListener('cart:auth-required', handler);
+        return () => window.removeEventListener('cart:auth-required', handler);
+    }, [navigate]);
 
     const handleAddToCart = (e) => {
         e.stopPropagation();
-        if (!isAuthenticated) {
-            alert('Please sign in to add items to cart.');
-            navigate('/login');
-            return;
-        }
         addToCart(product, 1);
+        // Show brief "Added!" feedback only if user is logged in
+        // (if not, the event above redirects them instantly)
+        setAdded(true);
+        setTimeout(() => setAdded(false), 1500);
     };
 
     return (
@@ -42,10 +47,20 @@ const ProductCard = ({ product, onDetails }) => {
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
                     <button 
                         onClick={handleAddToCart}
-                        className="w-12 h-12 bg-white rounded-full shadow-xl shadow-black/10 flex items-center justify-center text-black hover:bg-[#0075be] hover:text-white transition-all transform translate-y-4 group-hover:translate-y-0 duration-500"
+                        className={`w-12 h-12 rounded-full shadow-xl shadow-black/10 flex items-center justify-center transition-all transform translate-y-4 group-hover:translate-y-0 duration-500 ${
+                            added
+                                ? 'bg-green-500 text-white scale-110'
+                                : 'bg-[#0045acff] text-white hover:bg-[#003a8c]'
+                        }`}
                         title="Add to Cart"
                     >
-                        <ShoppingBag size={20} />
+                        {added ? (
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        ) : (
+                            <ShoppingBag size={20} />
+                        )}
                     </button>
                 </div>
 

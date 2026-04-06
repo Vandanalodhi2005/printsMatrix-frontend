@@ -14,12 +14,8 @@ export const addToCart = (idOrSlug, qty) => async (dispatch, getState) => {
     } = getState();
 
     if (!userInfo) {
-        // Option 1: Alert the user (simple)
-        alert("Please sign in to add items to your cart.");
-
-        // Option 2: Redirect to login (requires window.location since we are in Redux)
-        window.location.href = '/login';
-
+        // Dispatch a custom event so the React layer can redirect via React Router
+        window.dispatchEvent(new CustomEvent('cart:auth-required'));
         return;
     }
 

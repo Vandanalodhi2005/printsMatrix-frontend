@@ -1,9 +1,29 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Mail, MapPin, Globe, CreditCard } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { pathname } = useLocation();
+  const isGuide = pathname === '/printer-setup-guide';
+
+  const guideLinks = [
+    { name: "123 HP Com Setup",        link: "/printer-setup-guide?page=0" },
+    { name: "HP Printer Setup & Install", link: "/printer-setup-guide?page=1" },
+    { name: "HP Printer Offline Fix",  link: "/printer-setup-guide?page=2" },
+    { name: "HP Printer Troubleshooting", link: "/printer-setup-guide?page=3" },
+    { name: "HP Printer Not Printing", link: "/printer-setup-guide?page=4" },
+  ];
+
+  const navLinks = [
+    { name: "Home",       link: "/" },
+    { name: "About Us",   link: "/about" },
+    { name: "Shop",       link: "/shop" },
+    { name: "Blog",       link: "/blog" },
+    { name: "FAQs",       link: "/faq" },
+    { name: "Contact Us", link: "/contact" },
+  ];
+
 
   return (
     <footer className="bg-white border-t border-gray-100 font-sans">
@@ -25,18 +45,13 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Column 2: Quick Links */}
+          {/* Column 2: Quick Links — swaps based on current page */}
           <div className="space-y-8">
-            <h4 className="text-lg font-black text-black tracking-tight">Quick Links</h4>
+            <h4 className="text-lg font-black text-black tracking-tight">
+              {isGuide ? 'Setup & Support' : 'Quick Links'}
+            </h4>
             <ul className="space-y-4">
-              {[
-                { name: "Home", link: "/" },
-                { name: "About Us", link: "/about" },
-                { name: "Shop", link: "/shop" },
-                { name: "Blog", link: "/blog" },
-                { name: "FAQs", link: "/faq" },
-                { name: "Contact Us", link: "/contact" }
-              ].map((item) => (
+              {(isGuide ? guideLinks : navLinks).map((item) => (
                 <li key={item.name}>
                   <Link to={item.link} className="text-sm font-semibold text-gray-500 hover:text-[#0075be] transition-colors">
                     {item.name}

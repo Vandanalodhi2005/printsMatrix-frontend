@@ -47,6 +47,8 @@ const Accessibility  = lazy(() => import('./pages/Accessibility'));
 const BuyingGuide    = lazy(() => import('./pages/BuyingGuide'));
 const Resources      = lazy(() => import('./pages/Resources'));
 const ReturnExchange = lazy(() => import('./pages/ReturnExchange'));
+const PrinterSetupGuide = lazy(() => import('./pages/PrinterSetupGuide'));
+const FindPrinter = lazy(() => import('./pages/FindPrinter'));
 
 // ── Admin (lazily loaded — never downloaded by regular users) ────────────────
 const AdminLogin     = lazy(() => import('./components/admin/Auth/AdminLogin'));
@@ -74,67 +76,79 @@ function App() {
     <AuthProvider>
       <ShopProvider>
         <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-          <ScrollToTopOnNavigation />
-          <div className="min-h-screen bg-gray-50 flex flex-col">
-            <Navbar />
-            <main className="flex-grow">
-              <Suspense fallback={<PageLoader />}>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/faqs" element={<FAQs />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/shop" element={<Printers />} />
-                  <Route path="/shop/:category" element={<Printers />} />
-                  <Route path="/product/:id" element={<ProductDetails />} />
-                  <Route path="/cart" element={<Cart />} />
-
-                  <Route path="/checkout" element={<Checkout />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/signup" element={<Signup />} />
-                  <Route path="/forgot-password" element={<ForgotPassword />} />
-                  <Route path="/reset-password" element={<ResetPassword />} />
-                  <Route path="/track-order" element={<TrackOrder />} />
-                  <Route path="/orders" element={<MyOrders />} />
-                  <Route path="/order/:id" element={<OrderDetails />} />
-                  <Route path="/profile" element={<Profile />} />
-                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                  <Route path="/terms-conditions" element={<TermsConditions />} />
-                  <Route path="/return-refund" element={<RefundPolicy />} />
-                  <Route path="/shipping-policy" element={<ShippingPolicy />} />
-                  <Route path="/cookies-policy" element={<CookiePolicy />} />
-                  <Route path="/disclaimer" element={<Disclaimer />} />
-                  <Route path="/do-not-sell" element={<DoNotSell />} />
-                  <Route path="/accessibility" element={<Accessibility />} />
-                  <Route path="/buying-guide" element={<BuyingGuide />} />
-                  <Route path="/resources" element={<Resources />} />
-                  <Route path="/return-exchange" element={<ReturnExchange />} />
-
-                  {/* Admin Routes */}
-                  <Route path="/admin/login" element={<AdminLogin />} />
-                  <Route path="/admin" element={<AdminLayout />}>
-                    <Route index element={<AdminDashboard />} />
-                    <Route path="dashboard" element={<AdminDashboard />} />
-                    <Route path="categories" element={<AdminCategories />} />
-                    <Route path="products" element={<AdminProducts />} />
-                    <Route path="customers" element={<AdminCustomers />} />
-                    <Route path="orders" element={<AdminOrders />} />
-                    <Route path="chat" element={<AdminChat />} />
-                    <Route path="analytics" element={<AdminAnalytics />} />
-                    <Route path="settings" element={<AdminSettings />} />
-                  </Route>
-                </Routes>
-              </Suspense>
-            </main>
-            <Footer />
-            <ScrollToTop />
-            <CookieConsent />
-          </div>
+          <InnerApp />
         </Router>
       </ShopProvider>
     </AuthProvider>
   );
 }
 
-export default App;
+const InnerApp = () => {
+  const location = useLocation();
+  const shouldHideNavbar = ['/printer-setup-guide', '/find-printer'].includes(location.pathname.toLowerCase().replace(/\/$/, ''));
 
+  return (
+    <>
+      <ScrollToTopOnNavigation />
+      <div className="min-h-screen bg-gray-50 flex flex-col">
+        {!shouldHideNavbar && <Navbar />}
+        <main className="flex-grow">
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/faqs" element={<FAQs />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/shop" element={<Printers />} />
+              <Route path="/shop/:category" element={<Printers />} />
+              <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/cart" element={<Cart />} />
+
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/track-order" element={<TrackOrder />} />
+              <Route path="/orders" element={<MyOrders />} />
+              <Route path="/order/:id" element={<OrderDetails />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-conditions" element={<TermsConditions />} />
+              <Route path="/return-refund" element={<RefundPolicy />} />
+              <Route path="/shipping-policy" element={<ShippingPolicy />} />
+              <Route path="/cookies-policy" element={<CookiePolicy />} />
+              <Route path="/disclaimer" element={<Disclaimer />} />
+              <Route path="/do-not-sell" element={<DoNotSell />} />
+              <Route path="/accessibility" element={<Accessibility />} />
+              <Route path="/buying-guide" element={<BuyingGuide />} />
+              <Route path="/resources" element={<Resources />} />
+              <Route path="/return-exchange" element={<ReturnExchange />} />
+              <Route path="/printer-setup-guide" element={<PrinterSetupGuide />} />
+              <Route path="/find-printer" element={<FindPrinter />} />
+
+              {/* Admin Routes */}
+              <Route path="/admin/login" element={<AdminLogin />} />
+              <Route path="/admin" element={<AdminLayout />}>
+                <Route index element={<AdminDashboard />} />
+                <Route path="dashboard" element={<AdminDashboard />} />
+                <Route path="categories" element={<AdminCategories />} />
+                <Route path="products" element={<AdminProducts />} />
+                <Route path="customers" element={<AdminCustomers />} />
+                <Route path="orders" element={<AdminOrders />} />
+                <Route path="chat" element={<AdminChat />} />
+                <Route path="analytics" element={<AdminAnalytics />} />
+                <Route path="settings" element={<AdminSettings />} />
+              </Route>
+            </Routes>
+          </Suspense>
+        </main>
+        <Footer />
+        <ScrollToTop />
+        <CookieConsent />
+      </div>
+    </>
+  );
+};
+
+export default App;
