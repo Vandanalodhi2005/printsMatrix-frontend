@@ -50,7 +50,6 @@ const Checkout = () => {
         script.id = 'clover-sdk';
         script.async = true;
         script.onload = () => {
-            console.log("Clover SDK loaded dynamically.");
             setCloverReady(true);
         };
         document.body.appendChild(script);

@@ -4,6 +4,7 @@ import {
     CART_REMOVE_ITEM,
     CART_SAVE_SHIPPING_ADDRESS,
     CART_SAVE_PAYMENT_METHOD,
+    CART_LOAD_ITEMS,
 } from '../constants/cartConstants';
 
 export const addToCart = (idOrSlug, qty) => async (dispatch, getState) => {
@@ -35,15 +36,76 @@ export const addToCart = (idOrSlug, qty) => async (dispatch, getState) => {
     });
 
     localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
+
+    // Sync with backend if logged in
+    if (userInfo) {
+        try {
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${userInfo.token}`,
+                },
+            };
+            await axios.post(`${import.meta.env.VITE_API_URL}/auth/cart`, { cartItems: getState().cart.cartItems }, config);
+        } catch (error) {
+            console.error('Failed to sync cart with backend:', error);
+        }
+    }
 };
 
-export const removeFromCart = (id) => (dispatch, getState) => {
+export const removeFromCart = (id) => async (dispatch, getState) => {
     dispatch({
         type: CART_REMOVE_ITEM,
         payload: id,
     });
 
     localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
+
+    const {
+        userLogin: { userInfo },
+    } = getState();
+
+    // Sync with backend if logged in
+    if (userInfo) {
+        try {
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${userInfo.token}`,
+                },
+            };
+            await axios.post(`${import.meta.env.VITE_API_URL}/auth/cart`, { cartItems: getState().cart.cartItems }, config);
+        } catch (error) {
+            console.error('Failed to sync cart with backend:', error);
+        }
+    }
+};
+
+export const fetchCart = () => async (dispatch, getState) => {
+    const {
+        userLogin: { userInfo },
+    } = getState();
+
+    if (!userInfo) return;
+
+    try {
+        const config = {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        };
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/auth/profile`, config);
+        
+        if (data.cart) {
+            dispatch({
+                type: CART_LOAD_ITEMS,
+                payload: data.cart,
+            });
+            localStorage.setItem('cartItems', JSON.stringify(data.cart));
+        }
+    } catch (error) {
+        console.error('Failed to fetch cart from backend:', error);
+    }
 };
 
 export const saveShippingAddress = (data) => (dispatch) => {

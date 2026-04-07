@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout as logoutAction } from '../redux/actions/userActions';
 import { listMyOrders } from '../redux/actions/orderActions';
-import { User, Package, LogOut, MapPin, CreditCard, ChevronDown, ChevronUp, Plus, X, Save, Shield } from 'lucide-react';
+import { User, Package, LogOut, MapPin, CreditCard, ChevronDown, ChevronUp, Plus, X, Save, Shield, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
@@ -118,15 +118,15 @@ const Profile = () => {
                                 <h2 className="text-2xl font-black text-black mb-1 uppercase tracking-tight">{user.name}</h2>
                                 <p className="text-[11px] font-bold text-gray-400 uppercase tracking-[0.2em] mb-8">{user.email}</p>
 
-                                <div className="w-full grid grid-cols-2 gap-4 mb-8">
+                                <div className="w-full mb-8">
                                     <div className="bg-gray-50 p-4 rounded-sm">
                                         <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1">Status</p>
                                         <p className="text-xs font-black text-[#0075be] uppercase">Verified</p>
                                     </div>
-                                    <div className="bg-gray-50 p-4 rounded-sm">
+                                    {/* <div className="bg-gray-50 p-4 rounded-sm">
                                         <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1">Tier</p>
                                         <p className="text-xs font-black text-black uppercase">Elite</p>
-                                    </div>
+                                    </div> */}
                                 </div>
 
                                 <button
@@ -350,10 +350,10 @@ const Profile = () => {
                                                 </div>
                                                 <div className="flex justify-between items-end">
                                                     <div className="space-y-1">
-                                                        <p className="text-[9px] font-bold text-gray-400 uppercase tracking-[0.2em] leading-none">Validity</p>
+                                                    <p className="text-[9px] font-bold text-gray-400 uppercase tracking-[0.2em] leading-none">Validity</p>
                                                         <p className="text-xs font-black text-black tracking-widest uppercase">{card.expiry}</p>
                                                     </div>
-                                                    <img src="https://static-00.iconduck.com/assets.00/visa-icon-2048x628-6663f7vq.png" alt="Card Type" className="h-4 object-contain opacity-20 group-hover/card:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                                                    <CreditCard className="h-6 w-6 text-[#0075be] opacity-50 group-hover/card:opacity-100 transition-opacity" />
                                                 </div>
                                             </div>
                                         </div>
