@@ -25,40 +25,40 @@ const PrinterSetupGuide = () => {
       subheading: "Start your printer setup in minutes.",
       description: "Follow our step-by-step 123 hp com setup guide to install drivers, connect your printer to Wi-Fi, and complete the setup process smoothly. Get your printer ready for first-time use without confusion.",
       cta: "Start Printer Setup & Install",
-      gradient: "from-blue-600 via-blue-500 to-indigo-400",
-      image: "/guide/guide1.png"
+      gradient: "from-white via-sky-50 to-blue-100",
+      image: "/guide/setup.jpg"
     },
     2: {
       heading: "Printer Setup & Install",
       subheading: "Quick and simple installation process.",
       description: "Complete your HP printer setup & install with easy instructions. Learn how to configure your printer, install drivers, connect via Wi-Fi or USB, and start printing without delays.",
       cta: "Start Printer Setup & Install",
-      gradient: "from-blue-700 via-blue-600 to-cyan-500",
-      image: "/guide/banner1.jpg"
+      gradient: "from-white via-blue-50 to-indigo-100",
+      image: "/guide/install.jpg"
     },
     3: {
       heading: "Fix Printer Offline Issue",
       subheading: "Bring your printer back online quickly.",
       description: "Resolve HP printer offline problems with step-by-step solutions. Restore connection, fix network issues, clear print queue, and get your printer working again smoothly.",
       cta: "Fix Your Offline Printer",
-      gradient: "from-blue-800 via-blue-700 to-purple-500",
-      image: "/guide/banner2.jpg"
+      gradient: "from-white via-cyan-50 to-sky-100",
+      image: "/guide/offline.jpg"
     },
     4: {
       heading: "HP Printer Troubleshooting",
       subheading: "Fix common printer issues easily.",
       description: "Use our complete HP printer troubleshooting guide to fix printing errors, connection issues, driver problems, and scanner malfunctions with simple steps.",
       cta: "Start Troubleshooting",
-      gradient: "from-blue-900 via-blue-800 to-slate-700",
-      image: "/guide/banner3.jpg"
+      gradient: "from-white via-slate-50 to-blue-100",
+      image: "/guide/repair.jpg"
     },
     5: {
       heading: "HP Printer Not Printing Fix",
       subheading: "Get your printer working again.",
       description: "Fix HP printer not printing issues with easy troubleshooting steps. Check connection, clear print queue, resolve driver errors, and restore printing quickly.",
       cta: "Fix Printing Issue",
-      gradient: "from-indigo-600 via-blue-600 to-blue-400",
-      image: "/guide/banner4.jpg"
+      gradient: "from-white via-indigo-50 to-blue-100",
+      image: "/guide/output.jpg"
     }
   };
 
@@ -469,10 +469,10 @@ const PrinterSetupGuide = () => {
   const current = pageContents[currentPage];
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-800 selection:bg-blue-100 pb-12 overflow-x-hidden">
+    <div className="min-h-screen font-sans text-slate-800 selection:bg-blue-100 pb-12 overflow-x-hidden" style={{background: 'linear-gradient(135deg, #ffffff 0%, #f0f6ff 30%, #e8f2ff 60%, #f5f8ff 100%)'}}>
       
       {/* ── NAVIGATION ────────────────────────────────────────── */}
-      <nav className="sticky top-0 z-[100] bg-white border-b border-gray-100 shadow-sm">
+      <nav className="sticky top-0 z-[100] bg-white/80 backdrop-blur-md border-b border-blue-100 shadow-[0_4px_24px_0_rgba(0,69,172,0.08)]">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-6">
             {phases.map((phase) => (
@@ -499,16 +499,16 @@ const PrinterSetupGuide = () => {
 
       <main>
         {/* ── HERO (CONTENT-SPECIFIC 3D ASSETS) ───────────────────── */}
-        <section className={`relative pt-20 pb-24 px-6 transition-all bg-gradient-to-br ${current.gradient} overflow-hidden`}>
+        <section className={`relative pt-20 pb-24 px-6 transition-all bg-gradient-to-br ${current.gradient} overflow-hidden border-b border-blue-100`}>
            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative z-10">
-              <motion.div key={`text-${currentPage}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-white space-y-8 text-center lg:text-left">
+              <motion.div key={`text-${currentPage}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-slate-800 space-y-8 text-center lg:text-left">
                 <div className="space-y-4">
-                   <h1 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight shadow-sm">{current.heading}</h1>
-                   <h3 className="text-xl font-medium opacity-90">{current.subheading}</h3>
+                   <h1 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight text-[#0045ac]">{current.heading}</h1>
+                   <h3 className="text-xl font-medium text-slate-600">{current.subheading}</h3>
                 </div>
-                <p className="text-lg opacity-80 leading-relaxed max-w-xl mx-auto lg:mx-0">{current.description}</p>
+                <p className="text-lg text-slate-500 leading-relaxed max-w-xl mx-auto lg:mx-0">{current.description}</p>
                 <div className="flex pt-6 justify-center lg:justify-start">
-                   <button className="bg-white text-blue-700 px-10 py-4 rounded-lg font-bold text-xs uppercase tracking-widest shadow-lg hover:bg-gray-50 transition-all flex items-center gap-3">
+                   <button className="bg-[#0045ac] text-white px-10 py-4 rounded-lg font-bold text-xs uppercase tracking-widest shadow-lg hover:bg-blue-700 transition-all flex items-center gap-3">
                      {current.cta} <Zap size={16} fill="currentColor" />
                    </button>
                 </div>
@@ -531,8 +531,8 @@ const PrinterSetupGuide = () => {
         </section>
 
         {/* ── STRIP ────────────────────────────────────────────────── */}
-        <section className="relative z-20 mt-[-40px] max-w-7xl mx-auto px-6">
-           <div className="bg-white p-8 rounded-[3rem] shadow-xl border border-gray-100">
+        <section className="relative z-20 mt-[-40px] max-w-7xl mx-auto px-6 drop-shadow-xl">
+           <div className="bg-white/90 backdrop-blur-sm p-8 rounded-[3rem] shadow-[0_8px_40px_0_rgba(0,69,172,0.10)] border border-blue-50">
               <div className="flex gap-10 overflow-x-auto pb-2 scrollbar-hide">
                 {troubleshootingItems.map((item) => (
                   <div key={item.id} className="flex-none w-[220px] group cursor-pointer border border-transparent hover:border-blue-100 p-4 rounded-2xl transition-all">
@@ -548,9 +548,9 @@ const PrinterSetupGuide = () => {
         </section>
 
         {/* ── CONTENT AREA (Equal to above icon div) ────────────────── */}
-        <section className="max-w-7xl mx-auto px-6 py-20">
+        <section className="max-w-7xl mx-auto px-6 py-20" style={{background: 'linear-gradient(180deg, transparent 0%, #f0f6ff44 100%)'}}>
            <AnimatePresence mode="wait">
-              <motion.div key={`content-${currentPage}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-white p-10 md:p-14 lg:p-20 rounded-[3rem] border border-gray-100 shadow-sm transition-all duration-500">
+              <motion.div key={`content-${currentPage}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-white/95 backdrop-blur-sm p-10 md:p-14 lg:p-20 rounded-[3rem] border border-blue-50 shadow-[0_8px_48px_0_rgba(0,69,172,0.08)] transition-all duration-500">
                   {currentPage === 1 && renderPage1Text()}
                   {currentPage === 2 && renderPage2Text()}
                   {currentPage === 3 && renderPage3Text()}
