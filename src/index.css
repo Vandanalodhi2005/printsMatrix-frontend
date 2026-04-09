@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Outfit', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --font-heading: 'Outfit', sans-serif;
+  --font-sans: Georgia, serif;
+  --font-heading: Georgia, serif;
   --color-primary-blue: #0075be;
   --color-active-blue: #005d9c;
   /* Darker for hover/active */
 }
 
 :root {
-  font-family: 'Outfit', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Georgia, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -21,7 +21,7 @@ html, body {
   overflow-x: hidden;
 }
 body {
-  font-family: "Inter", sans-serif;
+  font-family: Georgia, serif;
 }
 h1, h2, h3 {
   font-weight: 700;

@@ -407,7 +407,7 @@ const PrinterSetupGuide = () => {
   // ── PAGE 4: HP PRINTER TROUBLESHOOTING (100% WORD-FOR-WORD) ────────
 
   const renderPage4Text = () => (
-    <div className="space-y-16 animate-in slide-in-from-left-4 duration-500">
+    <div className="space-y-16 animate-in slide-in-from-left-4 duration-500 border border-slate-100">
       {/* ── Header Section ── */}
       <div className="p-8 rounded-[2rem] bg-gradient-to-br from-slate-900 to-[#0a2558] text-white border border-slate-800 shadow-xl relative overflow-hidden">
         <div className="absolute bottom-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full -mb-24 -mr-24 blur-3xl shadow-inner" />
