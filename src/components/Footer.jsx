@@ -5,14 +5,14 @@ import { Mail, MapPin, Globe, CreditCard } from "lucide-react";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { pathname } = useLocation();
-  const isGuide = pathname === '/printer-setup-guide';
+  const isGuide = pathname.toLowerCase().replace(/\/$/, '') === '/printer-setup-guide';
 
   const guideLinks = [
-    { name: "123 HP Com Setup",        link: "/printer-setup-guide?page=0" },
-    { name: "HP Printer Setup & Install", link: "/printer-setup-guide?page=1" },
-    { name: "HP Printer Offline Fix",  link: "/printer-setup-guide?page=2" },
-    { name: "HP Printer Troubleshooting", link: "/printer-setup-guide?page=3" },
-    { name: "HP Printer Not Printing", link: "/printer-setup-guide?page=4" },
+    { name: "Easy 123 Printer Setup",        link: "/printer-setup-guide?page=1" },
+    { name: "Printer Setup & Install",      link: "/printer-setup-guide?page=2" },
+    { name: "Fix Printer Offline Issue",    link: "/printer-setup-guide?page=3" },
+    { name: "HP Printer Troubleshooting",   link: "/printer-setup-guide?page=4" },
+    { name: "HP Printer Not Printing Fix",  link: "/printer-setup-guide?page=5" },
   ];
 
   const navLinks = [
