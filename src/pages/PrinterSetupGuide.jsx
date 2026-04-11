@@ -526,9 +526,10 @@ const PrinterSetupGuide = () => {
       className="min-h-screen font-sans text-slate-800 overflow-x-hidden"
       style={{ background: 'linear-gradient(155deg, #f8fbff 0%, #eef4ff 45%, #f2f7ff 100%)' }}
     >
-      {/* ── HP-STYLE NAVIGATION ─────────────────────────────────── */}
-      <nav
-        className="sticky top-0 z-[100] border-b border-gray-200"
+      <div className="min-h-screen flex flex-col">
+        {/* ── HP-STYLE NAVIGATION ─────────────────────────────────── */}
+        <nav
+          className="sticky top-0 z-[100] border-b border-gray-200"
         style={{
           background: '#f8f9fa',
           boxShadow: '0 2px 4px rgba(0,0,0,0.02)',
@@ -583,10 +584,10 @@ const PrinterSetupGuide = () => {
         </div>
       </nav>
 
-      <main>
+      <main className="flex-grow flex flex-col">
         {/* ── HERO ─────────────────────────────────────────────────── */}
         <section
-          className="relative pt-14 sm:pt-20 pb-36 sm:pb-40 px-4 sm:px-6 overflow-hidden"
+          className="relative flex-grow flex flex-col justify-center pt-14 sm:pt-20 pb-36 sm:pb-40 px-4 sm:px-6 overflow-hidden"
           style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f0f6ff 55%, #e4eeff 100%)' }}
         >
           {/* Decorative blobs */}
@@ -687,16 +688,16 @@ const PrinterSetupGuide = () => {
         </section>
 
         {/* ── DIAGNOSTIC GRID STRIP ─────────────────────────────────── */}
-        <section className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 -mt-16 sm:-mt-24">
+        <section className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 -mt-16 sm:-mt-24 pb-12 sm:pb-16">
           <div
-            className="bg-white rounded-[2.5rem] border border-blue-100/50 shadow-[0_20px_60px_-15px_rgba(0,69,172,0.12)] p-6 sm:p-8"
+            className="bg-white  rounded-[2.5rem] border border-blue-100/50 shadow-[0_20px_60px_-15px_rgba(0,69,172,0.12)] p-6 sm:p-8"
           >
             <div className="flex flex-col sm:flex-row items-center justify-between mb-8 px-2 gap-4">
               <div className="flex items-center gap-3">
                 <div className="w-1.5 h-6 bg-[#0045ac] rounded-full" />
-                <p className="text-[12px] font-black text-slate-800 uppercase tracking-[0.2em]">Diagnostic Command Center</p>
+                <p className="text-[12px] font-black text-slate-800 font-Arial-regular tracking-[0.2em]">Diagnostic Command Center</p>
               </div>
-              <p className="text-[10px] font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full uppercase tracking-widest border border-blue-100 shadow-sm shadow-blue-100/50">System Diagnostic Active</p>
+              <p className="text-[10px] font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full font-Arial-regular tracking-widest border border-blue-100 shadow-sm shadow-blue-100/50">System Diagnostic Active</p>
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5">
@@ -728,7 +729,10 @@ const PrinterSetupGuide = () => {
             </div>
           </div>
         </section>
+      </main>
+      </div>
 
+      <main>
         {/* ── CONTENT AREA ─────────────────────────────────────────── */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
           <AnimatePresence mode="wait">
@@ -869,7 +873,7 @@ const PrinterSetupGuide = () => {
         style={{ background: 'linear-gradient(135deg, #0a2558 0%, #0045ac 100%)' }}
       >
         <div className="max-w-5xl mx-auto text-center">
-          <p className="text-blue-100 text-sm font-medium leading-loose tracking-wide opacity-90">
+          <p className="text-blue-100 text-sm font-medium leading-loose font-sans tracking-wide opacity-90">
             Prints Matrix operates as an independent third-party retailer. Manufacturer warranties, where applicable, are provided directly by the respective brands. Prints Matrix does not claim authorization or official partnership with any manufacturer unless explicitly stated.
           </p>
         </div>

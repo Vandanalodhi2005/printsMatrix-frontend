@@ -38,7 +38,7 @@ const PrinterTypes = () => {
                 <div className="text-center mb-20 space-y-4">
                     <h2 className="text-4xl sm:text-6xl font-bold text-black tracking-tight leading-[1.1]">
                         Explore Printers <br className="hidden sm:block" />
-                        <span className="text-[#0075be] italic font-black">That Fit Your Needs</span>
+                        <span className="text-[#0075be] font-black">That Fit Your Needs</span>
                     </h2>
                     <div className="w-24 h-2 bg-[#facc15] mx-auto rounded-full"></div>
                     <p className="mt-8 text-gray-500 font-medium max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">

@@ -49,6 +49,8 @@ const Resources      = lazy(() => import('./pages/Resources'));
 const ReturnExchange = lazy(() => import('./pages/ReturnExchange'));
 const PrinterSetupGuide = lazy(() => import('./pages/PrinterSetupGuide'));
 const FindPrinter = lazy(() => import('./pages/FindPrinter'));
+const Blog = lazy(() => import('./pages/Blog'));
+const BlogDetails = lazy(() => import('./pages/BlogDetails'));
 
 // ── Admin (lazily loaded — never downloaded by regular users) ────────────────
 const AdminLogin     = lazy(() => import('./components/admin/Auth/AdminLogin'));
@@ -102,6 +104,8 @@ const InnerApp = () => {
               <Route path="/shop" element={<Printers />} />
               <Route path="/shop/:category" element={<Printers />} />
               <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:id" element={<BlogDetails />} />
               <Route path="/cart" element={<Cart />} />
 
               <Route path="/checkout" element={<Checkout />} />

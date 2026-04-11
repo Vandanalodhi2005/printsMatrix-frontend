@@ -76,8 +76,8 @@ const Navbar = () => {
                     <div className="hidden lg:flex space-x-10 items-center">
                         <Link to="/" className={getLinkClasses('/')}>Home</Link>
                         <Link to="/about" className={getLinkClasses('/about')}>About Us</Link>
-
                         <Link to="/shop" className={getLinkClasses('/shop')}>Store</Link>
+                        <Link to="/blog" className={getLinkClasses('/blog')}>Blog</Link>
                         <Link to="/faqs" className={getLinkClasses('/faqs')}>Faqs</Link>
                         <Link to="/contact" className={getLinkClasses('/contact')}>Contact Us</Link>
                     </div>
@@ -201,6 +201,7 @@ const Navbar = () => {
                     <Link to="/" onClick={toggleMenu} className={getMobileLinkClasses('/')}>Home</Link>
                     <Link to="/about" onClick={toggleMenu} className={getMobileLinkClasses('/about')}>About Us</Link>
                     <Link to="/shop" onClick={toggleMenu} className={getMobileLinkClasses('/shop')}>Store</Link>
+                    <Link to="/blog" onClick={toggleMenu} className={getMobileLinkClasses('/blog')}>Blog</Link>
                     <Link to="/faqs" onClick={toggleMenu} className={getMobileLinkClasses('/faqs')}>Faqs</Link>
                     <Link to="/contact" onClick={toggleMenu} className={getMobileLinkClasses('/contact')}>Contact Us</Link>
 

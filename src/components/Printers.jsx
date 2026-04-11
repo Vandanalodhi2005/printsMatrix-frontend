@@ -337,7 +337,7 @@ const Printers = ({ isFeatured = false, hideDisclaimer = false }) => {
                 <div className="mt-20">
                     <section className="bg-[#0075be] py-12 px-6 text-center text-white">
                         <div className="max-w-6xl mx-auto">
-                            <p className="text-[11px] md:text-[13px] font-bold leading-relaxed opacity-90 max-w-4xl mx-auto uppercase tracking-widest">
+                            <p className="text-[11px] md:text-[13px] font-bold leading-relaxed opacity-90 max-w-4xl mx-auto font-sans">
                                 Prints Matrix operates as an independent third-party retailer. Manufacturer warranties, where applicable, are provided directly by the respective brands. Prints Matrix does not claim authorization or official partnership with any manufacturer unless explicitly stated.
                             </p>
                         </div>
