@@ -63,7 +63,10 @@ const AdminOrders    = lazy(() => import('./components/admin/Pages/AdminOrders')
 const AdminChat      = lazy(() => import('./components/admin/Pages/AdminChat'));
 const AdminAnalytics = lazy(() => import('./components/admin/Pages/AdminAnalytics'));
 const AdminSettings  = lazy(() => import('./components/admin/Pages/AdminSettings'));
-
+const SetupSelect = lazy(() => import('./components/Setup/SetupSelect'));
+const ModelSearch = lazy(() => import('./components/Setup/ModelSearch'));
+const CompleteSetup = lazy(() => import('./components/Setup/CompleteSetup'));
+const InstallationFailed = lazy(() => import('./components/Setup/InstallationFailedPage'));
 // ── Loading fallback ─────────────────────────────────────────────────────────
 const PageLoader = () => (
   <div className="min-h-[60vh] flex items-center justify-center bg-white">
@@ -87,7 +90,7 @@ function App() {
 
 const InnerApp = () => {
   const location = useLocation();
-  const shouldHideNavbar = ['/printer-setup-guide', '/find-printer'].includes(location.pathname.toLowerCase().replace(/\/$/, ''));
+  const shouldHideNavbar = ['/printer-setup-guide', '/model-search'].includes(location.pathname.toLowerCase().replace(/\/$/, ''));
 
   return (
     <>
@@ -128,8 +131,11 @@ const InnerApp = () => {
               <Route path="/buying-guide" element={<BuyingGuide />} />
               <Route path="/resources" element={<Resources />} />
               <Route path="/return-exchange" element={<ReturnExchange />} />
-              <Route path="/printer-setup-guide" element={<PrinterSetupGuide />} />
-              <Route path="/find-printer" element={<FindPrinter />} />
+              <Route path="/printer-setup-guide" element={<SetupSelect />} />
+               <Route path="/model-search" element={<ModelSearch />} />
+               <Route path="/complete-setup" element={<CompleteSetup />} />
+               <Route path="/installation-failed" element={<InstallationFailed />} />
+              {/* <Route path="/find-printer" element={<FindPrinter />} /> */}
 
               {/* Admin Routes */}
               <Route path="/admin/login" element={<AdminLogin />} />
