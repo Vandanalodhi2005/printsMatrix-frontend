@@ -51,65 +51,66 @@ function CompleteSetup() {
       <Helmet>
         <title>Complete Setup | HP Smart App</title>
       </Helmet>
-      <div className="w-full min-h-screen bg-white flex flex-col">
+      <div className="w-full min-h-screen bg-white flex flex-col pt-16 md:pt-0">
         {/* Top blue section */}
         <section
-          className="w-full min-h-[560px] flex items-start justify-center relative px-[6%]"
+          className="w-full md:min-h-[560px] min-h-fit flex items-start justify-center relative px-4 md:px-[6%] py-12 md:py-0"
           style={{
-            height: '560px',
             backgroundImage: 'url(/hero_background_image.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
         >
-          <div className="w-full max-w-[1200px] flex flex-row items-start justify-between relative h-full">
-            <div className="flex flex-col justify-center h-full w-full max-w-[700px] pt-8">
-              <h1 className="text-white text-3xl md:text-4xl mb-8 leading-tight drop-shadow-lg">Complete setup using HP Smart App</h1>
+          <div className="w-full max-w-[1200px] flex flex-col md:flex-row items-center md:items-start justify-between relative h-full">
+            <div className="flex flex-col justify-center h-full w-full max-w-2xl md:pt-8 text-center md:text-left">
+              <h1 className="text-white text-3xl md:text-4xl lg:text-5xl mb-6 md:mb-8 font-bold leading-tight drop-shadow-lg">Complete setup using HP Smart App</h1>
               <p className="text-white text-lg md:text-xl mb-6 font-normal drop-shadow whitespace-normal">
                 HP Smart App will connect the printer to your computer, install print drivers, and set up scanning features (if applicable)
               </p>
-              <ol className="text-white text-lg mb-6 pl-6 list-decimal">
-                <li className="mb-1">Make sure your printer is powered on</li>
-                <li>Install HP Smart App to complete setup</li>
-              </ol>
-              <button
-                className="bg-white text-blue-700 font-semibold px-7 py-3 rounded-full text-lg shadow hover:bg-blue-50 transition mb-6 w-fit"
-                onClick={() => {
-                  const issue = localStorage.getItem('issue');
-                  if (issue === 'Set Up a New Printer') {
-                    setShowFinalStep(true);
-                  } else {
-                    setShowModal(true);
-                  }
-                }}
-              >
-                Install HP Smart App
-              </button>
+              <div className="flex flex-col items-center md:items-start w-full">
+                <ol className="text-white text-lg mb-8 md:pl-6 list-decimal text-left w-fit">
+                  <li className="mb-2">Make sure your printer is powered on</li>
+                  <li>Install HP Smart App to complete setup</li>
+                </ol>
+                <button
+                  className="bg-white text-blue-700 font-bold px-10 py-4 rounded-full text-lg shadow-lg hover:bg-blue-50 transition-all active:scale-95 mb-8 w-full md:w-fit"
+                  onClick={() => {
+                    const issue = localStorage.getItem('issue');
+                    if (issue === 'Set Up a New Printer') {
+                      setShowFinalStep(true);
+                    } else {
+                      setShowModal(true);
+                    }
+                  }}
+                >
+                  Install HP Smart App
+                </button>
+              </div>
               <div className="bg-transparent text-white text-sm md:text-base mb-4">
                 <span className="font-semibold">To use all available printer features</span>, you must install the HP Smart app on a mobile device or the latest version of Windows or macOS. Available on:
               </div>
-              <div className="flex flex-row gap-3 mb-2">
-                <a href="https://apps.apple.com/app/hp-smart/id469284907" target="_blank" rel="noopener noreferrer">
-                  <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" className="h-10" />
+              <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-2">
+                <a href="https://apps.apple.com/app/hp-smart/id469284907" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
+                  <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" className="h-10 md:h-12" />
                 </a>
-                <a href="https://play.google.com/store/apps/details?id=com.hp.printercontrol&hl=en&gl=US" target="_blank" rel="noopener noreferrer">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" className="h-10" />
+                <a href="https://play.google.com/store/apps/details?id=com.hp.printercontrol&hl=en&gl=US" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" className="h-10 md:h-12" />
                 </a>
-                <a href="https://apps.microsoft.com/store/detail/hp-smart/9WZDNCRFHWLH" target="_blank" rel="noopener noreferrer">
-                  <img src="https://get.microsoft.com/images/en-us%20dark.svg" alt="Microsoft Store" className="h-10 object-contain" />
+                <a href="https://apps.microsoft.com/store/detail/hp-smart/9WZDNCRFHWLH" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
+                  <img src="https://get.microsoft.com/images/en-us%20dark.svg" alt="Microsoft Store" className="h-10 md:h-12 object-contain" />
                 </a>
               </div>
             </div>
-            <div className="hidden md:flex flex-col items-center h-full absolute right-12 bottom-0 z-10">
+            <div className="hidden lg:flex flex-col items-center h-full absolute right-0 bottom-0 z-10">
               <div className="relative flex flex-col items-center">
                 <img
                   src="/hp-printer-software.png"
                   alt="HP Printer Software"
-                  className="h-[170px] w-auto max-w-none drop-shadow-xl"
-                  style={{ marginTop: '200px' }}
+                  className="h-[180px] xl:h-[220px] w-auto max-w-none drop-shadow-2xl"
+                  style={{ marginTop: '220px' }}
                 />
 
-                <span className="absolute left-1/2 -translate-x-1/2 bottom-2 text-white text-xs font-normal drop-shadow bg-black/30 px-2 rounded whitespace-nowrap">
+                <span className="absolute left-1/2 -translate-x-1/2 bottom-2 text-white text-xs font-medium drop-shadow-md bg-black/40 px-3 py-1 rounded-full whitespace-nowrap">
                   HP Printer Software
                 </span>
               </div>
@@ -119,9 +120,9 @@ function CompleteSetup() {
         {/* Lower white section or FinalStep form */}
         {/* FinalStep as popup modal */}
         {showFinalStep && (
-          <div className="fixed inset-0 z-50 bg-black bg-opacity-30 flex items-center justify-center">
-            <div className="bg-white rounded-xl shadow-2xl w-full max-w-2xl p-8 mx-2 relative">
-              <button onClick={() => setShowFinalStep(false)} className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-300 text-gray-600 text-2xl z-10 shadow-md transition-all"><FaXmark /></button>
+          <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
+            <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-6 md:p-10 relative overflow-y-auto max-h-[90vh]">
+              <button onClick={() => setShowFinalStep(false)} className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-800 transition-all z-10"><FaXmark /></button>
               <FinalStep
                 onBack={() => setShowFinalStep(false)}
                 onSubmit={handleFinalSubmit}
@@ -134,24 +135,45 @@ function CompleteSetup() {
           </div>
         )}
         {/* Lower white section */}
-        <div className="w-full max-w-[1200px] mx-auto mt-16 px-3 md:px-0">
-          <div className="flex flex-col w-full max-w-[900px]">
-            <div className="flex md:flex-row flex-col md:items-center items-start mb-2 gap-2 md:gap-0">
-              <FaPrint className="text-blue-500 text-2xl md:mr-3 mr-0 mb-2 md:mb-0" />
-              <h2 className=" md:text-xl text-lg font-semibold text-gray-800">Set up scanning from a control panel (if applicable):</h2>
+        <div className="w-full max-w-[1200px] mx-auto mt-12 md:mt-20 mb-20 px-6 md:px-[6%]">
+          <div className="flex flex-col w-full max-w-4xl">
+            <div className="flex items-start mb-4">
+              <div className="bg-blue-50 p-3 rounded-lg mr-4">
+                <FaPrint className="text-blue-500 text-xl md:text-2xl" />
+              </div>
+              <div>
+                <h2 className="text-lg md:text-xl font-bold text-gray-800 mb-2">Set up scanning from a control panel (if applicable):</h2>
+                <div className="text-gray-600 text-sm md:text-base leading-relaxed">
+                  Set up additional scanning features (Windows only). Get started by selecting <span className="font-semibold text-blue-600">Install HP Smart App</span> above.<br />
+                  <span className="text-gray-400 italic text-xs md:text-sm mt-2 block">Note: To scan from a macOS computer, install the HP Smart app.</span>
+                </div>
+              </div>
             </div>
-            <div className="text-gray-700 md:mb-4 mb-3 md:ml-9 ml-0 text-sm md:text-base">
-              Set up additional scanning features (Windows only). Get started by selecting <span className="font-semibold">Install HP Smart App</span> above.<br />
-              <span className="text-gray-500">Note: To scan from a macOS computer, install the HP Smart app.</span>
-            </div>
-            <div className="border-b border-gray-200 my-6" />
-            <div className="flex md:flex-row flex-col md:items-center items-start mb-2 gap-2 md:gap-0">
-              <FaCircleQuestion className="text-blue-500 text-2xl md:mr-3 mr-0 mb-2 md:mb-0" />
-              <span className="text-gray-800 md:text-base text-sm">Need help troubleshooting during printer setup? <a href="#" className="text-blue-500 underline font-medium">Solve Setup Issues</a></span>
-            </div>
-            <div className="flex md:flex-row flex-col md:items-center items-start mb-2 gap-2 md:gap-0">
-              <FaCircleInfo className="text-blue-500 text-2xl md:mr-3 mr-0 mb-2 md:mb-0" />
-              <span className="text-gray-800 md:text-base text-sm">Find additional setup information and videos <a href="#" className="text-blue-500 underline font-medium">Visit HP Support</a></span>
+            
+            <div className="h-px bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 my-8 md:my-10" />
+            
+            <div className="grid md:grid-cols-2 gap-6 md:gap-10">
+              <div className="flex items-start p-4 hover:bg-gray-50 rounded-xl transition-colors">
+                <FaCircleQuestion className="text-blue-500 text-xl md:text-2xl mt-1 mr-4 flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-1">Troubleshooting</h3>
+                  <p className="text-sm text-gray-500 mb-2">Need help during printer setup?</p>
+                  <a href="#" className="text-blue-600 hover:text-blue-700 font-medium text-sm flex items-center gap-1 group underline decoration-blue-200 underline-offset-4">
+                    Solve Setup Issues
+                  </a>
+                </div>
+              </div>
+              
+              <div className="flex items-start p-4 hover:bg-gray-50 rounded-xl transition-colors">
+                <FaCircleInfo className="text-blue-500 text-xl md:text-2xl mt-1 mr-4 flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-1">HP Support</h3>
+                  <p className="text-sm text-gray-500 mb-2">Find additional information and videos.</p>
+                  <a href="#" className="text-blue-600 hover:text-blue-700 font-medium text-sm flex items-center gap-1 group underline decoration-blue-200 underline-offset-4">
+                    Visit HP Support
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
