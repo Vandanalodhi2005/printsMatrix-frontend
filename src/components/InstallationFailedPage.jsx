@@ -50,7 +50,7 @@ export default function InstallationFailedPage() {
                   Contact Hp Support to Resolve this Issue
                 </div>
                 <div className="text-center text-gray-800 mb-2 text-lg">
-                  Toll-Free (USA/CA) : <span className="font-bold text-black text-xl">+1 (855) 618-4642</span>
+                  Toll-Free (USA/CA) : <span className="font-bold text-black text-xl">+1-877-238-0240</span>
                 </div>
                 <button
                   className="mx-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl text-base sm:text-lg flex items-center justify-center transition-all shadow-xl gap-2 mb-6"
