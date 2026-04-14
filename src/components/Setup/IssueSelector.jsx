@@ -26,10 +26,6 @@ const issues = [
 function StepOne({ onSelect }) {
   return (
     <div className="text-center mb-4">
-      <div className="text-blue-700 font-bold text-sm tracking-widest mb-2">STEP 1 OF 2</div>
-      <div className="w-full h-1 bg-gray-200 rounded-full mb-6">
-        <div className="h-1 bg-orange-400 rounded-full" style={{ width: '50%' }}></div>
-      </div>
       <h2 className="text-2xl font-bold text-gray-800 mb-1">Select The Issue</h2>
       <p className="text-gray-500 text-base">Select what you need help with to continue:</p>
       <div className="grid grid-cols-2 gap-4 mt-8
@@ -80,10 +76,6 @@ function StepThree({ onBack }) {
   const navigate = useNavigate();
   return (
     <div className="text-center mb-4">
-      <div className="text-blue-700 font-bold text-sm tracking-widest mb-2">STEP 2 OF 2</div>
-      <div className="w-full h-1 bg-gray-200 rounded-full mb-6">
-        <div className="h-1 bg-orange-400 rounded-full" style={{ width: '100%' }}></div>
-      </div>
       <h2 className="text-2xl font-bold text-gray-800 mb-1">How Is Your Printer Connected?</h2>
       <p className="text-gray-500 text-base mb-6">Choose how your printer connects to your device to continue.</p>
       <div className="grid grid-cols-2 gap-4 mb-4">

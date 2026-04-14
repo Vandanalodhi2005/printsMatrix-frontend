@@ -1,15 +1,17 @@
 @import "tailwindcss";
 
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
 @theme {
-  --font-sans: Georgia, serif;
-  --font-heading: Georgia, serif;
+  --font-sans: 'Outfit', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
   --color-primary-blue: #0075be;
   --color-active-blue: #005d9c;
   /* Darker for hover/active */
 }
 
 :root {
-  font-family: Georgia, serif;
+  font-family: 'Outfit', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -21,30 +23,13 @@ html, body {
   overflow-x: hidden;
 }
 body {
-  font-family: Georgia, serif;
+  font-family: 'Outfit', sans-serif;
 }
 h1, h2, h3 {
   font-weight: 700;
 }
 p {
   font-weight: 400;
-}
-
-@font-face {
-  font-family: 'GDSherpa';
-  src: url('https://img6.wsimg.com/ux-assets/@ux/fonts/4.5.0/GDSherpa-vf4.woff2') format('woff2');
-  font-display: swap;
-}
-
-.godaddy-hack {
-  font-family: 'GDSherpa';
-  position: fixed;
-  top: 0;
-  left: 0;
-  opacity: 0.01;
-  pointer-events: none;
-  z-index: -9999;
-  font-size: 1px;
 }
 
 @keyframes spin-slow {

@@ -90,7 +90,7 @@ function App() {
 
 const InnerApp = () => {
   const location = useLocation();
-  const shouldHideNavbar = ['/printer-setup-guide', '/model-search'].includes(location.pathname.toLowerCase().replace(/\/$/, ''));
+  const shouldHideNavbar = ['/printer-setup-guide', '/model-search', '/complete-setup', '/installation-failed'].includes(location.pathname.toLowerCase().replace(/\/$/, ''));
 
   return (
     <>
