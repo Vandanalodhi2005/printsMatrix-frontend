@@ -25,7 +25,7 @@ function inlineCssPlugin() {
             if (htmlFileKey && cssContent) {
                 const htmlFile = bundle[htmlFileKey];
                 // Strip out the Vite-injected <link rel="stylesheet">
-                htmlFile.source = htmlFile.source.replace(/<link[^>]*rel="stylesheet"[^>]*>/i, '');
+                htmlFile.source = htmlFile.source.replace(/<link[^>]*rel=["']stylesheet["'][^>]*>/gi, '');
                 // Inline the CSS
                 htmlFile.source = htmlFile.source.replace(
                     '</head>',
@@ -38,7 +38,7 @@ function inlineCssPlugin() {
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss() /*, inlineCssPlugin()*/],
+  plugins: [react(), tailwindcss(), inlineCssPlugin()],
   build: {
     rollupOptions: {
       output: {
