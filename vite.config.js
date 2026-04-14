@@ -38,7 +38,7 @@ function inlineCssPlugin() {
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss(), inlineCssPlugin()],
+  plugins: [react(), tailwindcss() /*, inlineCssPlugin()*/],
   build: {
     rollupOptions: {
       output: {
