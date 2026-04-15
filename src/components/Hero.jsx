@@ -34,7 +34,7 @@ const Hero = () => {
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10 w-full">
-                <motion.div 
+                <motion.div
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
@@ -50,14 +50,14 @@ const Hero = () => {
                                 Home & Office
                             </motion.h1>
                         </div>
-                        
+
                         <motion.p variants={itemVariants} className="text-sm md:text-base text-white/90 leading-relaxed font-medium max-w-lg mx-auto lg:mx-0">
                             Explore printers built for everyday home use and busy office work. From compact all-in-one models to fast laser printers, discover dependable performance with easy connectivity.
                         </motion.p>
 
                         <motion.div variants={itemVariants} className="pt-4 flex justify-center lg:justify-start">
-                            <Link 
-                                to="/shop" 
+                            <Link
+                                to="/shop"
                                 className="group inline-flex items-center gap-3 px-10 py-5 bg-white text-gray-900 font-bold uppercase tracking-widest text-sm hover:bg-[#facc15] transition-all duration-300 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] active:scale-95"
                             >
                                 <ShoppingCart size={20} className="transition-transform group-hover:scale-110" />
@@ -68,7 +68,7 @@ const Hero = () => {
                     </div>
 
                     {/* Image Right */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
@@ -77,21 +77,17 @@ const Hero = () => {
                         <div className="relative group w-full max-w-lg lg:max-w-xl">
                             <div className="absolute -inset-4 bg-white/10 rounded-[3rem] blur-2xl opacity-30 group-hover:opacity-50 transition duration-1000" />
                             <div className="relative overflow-hidden rounded-[2.5rem] shadow-2xl border-4 border-white/10 aspect-[4/3]">
-                                <picture>
-                                    <source srcSet="/home.jpg" type="image/jpg" />
-                                    <img
-                                        src={home}
-                                        alt="Home and Office Printing Solutions"
-                                        className="w-full h-full object-cover transform transition-transform duration-[2000ms] group-hover:scale-105"
-                                        fetchpriority="high"
-                                    />
-                                </picture>
+                                <img
+                                    src={home}
+                                    alt="Home and Office Printing Solutions"
+                                    className="w-full h-full object-cover transform transition-transform duration-[2000ms] group-hover:scale-105"
+                                />
                             </div>
                         </div>
                     </motion.div>
                 </motion.div>
             </div>
-            
+
             {/* Subtle bottom divider */}
             <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
                 <svg className="relative block w-full h-[40px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">

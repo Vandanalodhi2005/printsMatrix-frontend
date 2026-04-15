@@ -84,9 +84,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://code.jivosite.com" />
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-  
-  <!-- Preload LCP Image — only for the primary setup flow to avoid unused warnings on landing -->
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200" fetchpriority="high" />
+
+  <!-- Preload LCP Image -->
+  <link rel="preload" as="image"
+    href="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200"
+    fetchpriority="high" />
+  <link rel="preload" as="image" href="/home.jpg" fetchpriority="high" />
 
   <!-- ── Critical inline CSS — prevents blank white flash before fonts load ── -->
   <style>
@@ -98,8 +101,9 @@
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
     }
+
     /* Prevent layout shift from #root being 0-height before React mounts */
-    #root { 
+    #root {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -112,12 +116,9 @@
     Step 2: onload switches rel to stylesheet once the CSS is ready.
     Step 3: <noscript> ensures fonts still load without JavaScript.
   -->
-  <link
-    rel="preload"
-    as="style"
+  <link rel="preload" as="style"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
-    onload="this.onload=null;this.rel='stylesheet'"
-  />
+    onload="this.onload=null;this.rel='stylesheet'" />
   <noscript>
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" />
@@ -130,7 +131,7 @@
   <div id="root"></div>
 
   <script type="module" src="/src/main.jsx"></script>
-  
+
   <!-- ── Deferred 3rd Party Scripts (improves interactive score) ─────────── -->
   <script>
     // Load JivoChat only on first user interaction (scroll, mouse, or touch)
@@ -142,17 +143,17 @@
       s.src = "//code.jivosite.com/widget/Tt7Z2rjzUJ";
       s.async = true;
       document.body.appendChild(s);
-      
+
       // Cleanup listeners
       window.removeEventListener('scroll', loadJivo);
       window.removeEventListener('mousemove', loadJivo);
       window.removeEventListener('touchstart', loadJivo);
     }
-    
+
     window.addEventListener('scroll', loadJivo, { passive: true });
     window.addEventListener('mousemove', loadJivo, { passive: true });
     window.addEventListener('touchstart', loadJivo, { passive: true });
-    
+
     // Safety fallback: load after 8 seconds if no interaction
     setTimeout(loadJivo, 8000);
   </script>

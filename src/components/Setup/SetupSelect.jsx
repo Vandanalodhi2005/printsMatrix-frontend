@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Hero from './Hero';
 import IssueSelector from './IssueSelector';
+import FooterSetup from './FooterSetup';
 
 const SetupSelect = () => {
   return (
@@ -11,6 +12,7 @@ const SetupSelect = () => {
       </Helmet>
       <Hero />
       <IssueSelector />
+      <FooterSetup />
     </>
   );
 };

@@ -125,8 +125,9 @@ const InnerApp = () => {
   // their own specialized HeaderSetup component internally.
   const hideNavbar = ['/printer-setup-guide', '/model-search', '/complete-setup', '/installation-failed'].includes(path);
 
-  // Hide Footer on setup-flow routes consistently.
-  const hideFooter = ['/model-search', '/complete-setup', '/installation-failed'].includes(path);
+  // Hide Footer on setup-flow routes consistently. 
+  // /printer-setup-guide will render its own specialized FooterSetup component internally.
+  const hideFooter = ['/printer-setup-guide', '/model-search', '/complete-setup', '/installation-failed'].includes(path);
 
   return (
     <>
