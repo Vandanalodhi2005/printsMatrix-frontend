@@ -83,10 +83,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://code.jivosite.com" />
-  <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
   
   <!-- Preload LCP Image -->
-  <link rel="preload" as="image" href="/hero_background_image.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200" fetchpriority="high" />
   <link rel="preload" as="image" href="/home.jpg" fetchpriority="high" />
 
   <!-- ── Critical inline CSS — prevents blank white flash before fonts load ── -->
@@ -128,15 +128,28 @@
   
   <!-- ── Deferred 3rd Party Scripts (improves interactive score) ─────────── -->
   <script>
-    // Delay JivoChat loading to free up the main thread for React
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        const s = document.createElement('script');
-        s.src = "//code.jivosite.com/widget/Tt7Z2rjzUJ";
-        s.async = true;
-        document.body.appendChild(s);
-      }, 3000); // 3 second delay
-    });
+    // Load JivoChat only on first user interaction (scroll, mouse, or touch)
+    // This perfectly eliminates the "Unused CSS" audit and optimizes network activity.
+    function loadJivo() {
+      if (window.jivoLoaded) return;
+      window.jivoLoaded = true;
+      const s = document.createElement('script');
+      s.src = "//code.jivosite.com/widget/Tt7Z2rjzUJ";
+      s.async = true;
+      document.body.appendChild(s);
+      
+      // Cleanup listeners
+      window.removeEventListener('scroll', loadJivo);
+      window.removeEventListener('mousemove', loadJivo);
+      window.removeEventListener('touchstart', loadJivo);
+    }
+    
+    window.addEventListener('scroll', loadJivo, { passive: true });
+    window.addEventListener('mousemove', loadJivo, { passive: true });
+    window.addEventListener('touchstart', loadJivo, { passive: true });
+    
+    // Safety fallback: load after 8 seconds if no interaction
+    setTimeout(loadJivo, 8000);
   </script>
 </body>
 

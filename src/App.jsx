@@ -40,8 +40,9 @@ const ScrollToTopOnNavigation = () => {
   return null;
 };
 
-import Home from './pages/Home';
-import Printers from './components/Printers';
+const Home = lazyWithRetry(() => import('./pages/Home'));
+const Printers = lazyWithRetry(() => import('./components/Printers'));
+const SetupSelect = lazyWithRetry(() => import('./components/Setup/SetupSelect'));
 
 // ── Lazy-loaded pages (code-split into separate chunks) ──────────────────────
 const About = lazyWithRetry(() => import('./pages/About'));
@@ -74,8 +75,6 @@ const PrinterSetupGuide = lazyWithRetry(() => import('./pages/PrinterSetupGuide'
 const FindPrinter = lazyWithRetry(() => import('./pages/FindPrinter'));
 const Blog = lazyWithRetry(() => import('./pages/Blog'));
 const BlogDetails = lazyWithRetry(() => import('./pages/BlogDetails'));
-
-import SetupSelect from './components/Setup/SetupSelect';
 
 // ── Admin (lazily loaded — never downloaded by regular users) ────────────────
 const AdminLogin = lazyWithRetry(() => import('./components/admin/Auth/AdminLogin'));

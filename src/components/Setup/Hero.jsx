@@ -5,7 +5,7 @@ const Hero = () => {
     <section
       className="flex flex-col items-center justify-center text-center min-h-[320px] w-full"
       style={{
-        backgroundImage: "url('/hero_background_image.webp'), url('/hero_background_image.jpg')",
+        background: `linear-gradient(rgba(0, 75, 172, 0.85), rgba(0, 75, 172, 0.85)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
