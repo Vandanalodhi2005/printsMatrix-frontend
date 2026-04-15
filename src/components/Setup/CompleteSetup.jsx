@@ -8,11 +8,12 @@ import useHeaderSettings from '../../hooks/useHeaderSettings';
 import HeaderSetup from './HeaderSetup';
 
 function CompleteSetup() {
-  const { showHeader, showLogo, loading } = useHeaderSettings();
+  const { showHeader, showLogo } = useHeaderSettings();
   const navigate = useNavigate();
   const [showFinalStep, setShowFinalStep] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showError, setShowError] = useState(false);
+  const [loading, setLoading] = useState(false);
   const nameRef = useRef();
   const [userName, setUserName] = useState('');
   // Use local state for printerModel, initialize from localStorage
