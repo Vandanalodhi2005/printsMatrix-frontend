@@ -1,19 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
+import useHeaderSettings from '../../hooks/useHeaderSettings';
 
 const ModelSearch = () => {
+    const { allowModelSearch } = useHeaderSettings();
     const [input, setInput] = useState("");
     const [error, setError] = useState("");
-    const [allowModelSearch, setAllowModelSearch] = useState(true);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        fetch(import.meta.env.VITE_BACKEND_URL + '/admin/header-visibility')
-            .then(res => res.json())
-            .then(data => setAllowModelSearch(data.allowModelSearch !== false))
-            .catch(() => setAllowModelSearch(true));
-    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();

@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import { useEffect, lazy, Suspense } from 'react';
+import useHeaderSettings from './hooks/useHeaderSettings';
 import { useLocation } from 'react-router-dom';
 import CookieConsent from './components/common/CookieConsent';
 
@@ -21,52 +22,55 @@ import Home from './pages/Home';
 import Printers from './components/Printers';
 
 // ── Lazy-loaded pages (code-split into separate chunks) ──────────────────────
-const About          = lazy(() => import('./pages/About'));
-const FAQs           = lazy(() => import('./pages/FAQs'));
-const Contact        = lazy(() => import('./pages/Contact'));
+const About = lazy(() => import('./pages/About'));
+const FAQs = lazy(() => import('./pages/FAQs'));
+const Contact = lazy(() => import('./pages/Contact'));
 const ProductDetails = lazy(() => import('./pages/ProductDetails'));
-const Cart           = lazy(() => import('./pages/Cart'));
+const Cart = lazy(() => import('./pages/Cart'));
 
-const Checkout       = lazy(() => import('./pages/Checkout'));
-const Login          = lazy(() => import('./pages/Login'));
-const Signup         = lazy(() => import('./pages/Signup'));
+const Checkout = lazy(() => import('./pages/Checkout'));
+const Login = lazy(() => import('./pages/Login'));
+const Signup = lazy(() => import('./pages/Signup'));
 const ForgotPassword = lazy(() => import('./pages/ForgotPassword'));
-const ResetPassword  = lazy(() => import('./pages/ResetPassword'));
-const TrackOrder     = lazy(() => import('./pages/TrackOrder'));
-const MyOrders       = lazy(() => import('./pages/MyOrders'));
-const OrderDetails   = lazy(() => import('./pages/OrderDetails'));
-const Profile        = lazy(() => import('./pages/Profile'));
-const PrivacyPolicy  = lazy(() => import('./pages/PrivacyPolicy'));
+const ResetPassword = lazy(() => import('./pages/ResetPassword'));
+const TrackOrder = lazy(() => import('./pages/TrackOrder'));
+const MyOrders = lazy(() => import('./pages/MyOrders'));
+const OrderDetails = lazy(() => import('./pages/OrderDetails'));
+const Profile = lazy(() => import('./pages/Profile'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TermsConditions = lazy(() => import('./pages/TermsConditions'));
-const RefundPolicy   = lazy(() => import('./pages/RefundPolicy'));
+const RefundPolicy = lazy(() => import('./pages/RefundPolicy'));
 const ShippingPolicy = lazy(() => import('./pages/ShippingPolicy'));
-const CookiePolicy   = lazy(() => import('./pages/CookiePolicy'));
-const Disclaimer     = lazy(() => import('./pages/Disclaimer'));
-const DoNotSell      = lazy(() => import('./pages/DoNotSell'));
-const Accessibility  = lazy(() => import('./pages/Accessibility'));
-const BuyingGuide    = lazy(() => import('./pages/BuyingGuide'));
-const Resources      = lazy(() => import('./pages/Resources'));
+const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
+const Disclaimer = lazy(() => import('./pages/Disclaimer'));
+const DoNotSell = lazy(() => import('./pages/DoNotSell'));
+const Accessibility = lazy(() => import('./pages/Accessibility'));
+const BuyingGuide = lazy(() => import('./pages/BuyingGuide'));
+const Resources = lazy(() => import('./pages/Resources'));
 const ReturnExchange = lazy(() => import('./pages/ReturnExchange'));
 const PrinterSetupGuide = lazy(() => import('./pages/PrinterSetupGuide'));
 const FindPrinter = lazy(() => import('./pages/FindPrinter'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogDetails = lazy(() => import('./pages/BlogDetails'));
 
+
 // ── Admin (lazily loaded — never downloaded by regular users) ────────────────
-const AdminLogin     = lazy(() => import('./components/admin/Auth/AdminLogin'));
-const AdminLayout    = lazy(() => import('./components/admin/Layout/AdminLayout'));
+const AdminLogin = lazy(() => import('./components/admin/Auth/AdminLogin'));
+const AdminLayout = lazy(() => import('./components/admin/Layout/AdminLayout'));
 const AdminDashboard = lazy(() => import('./components/admin/Pages/AdminDashboard'));
 const AdminCategories = lazy(() => import('./components/admin/Pages/AdminCategories'));
-const AdminProducts  = lazy(() => import('./components/admin/Pages/AdminProducts'));
+const AdminProducts = lazy(() => import('./components/admin/Pages/AdminProducts'));
 const AdminCustomers = lazy(() => import('./components/admin/Pages/AdminCustomers'));
-const AdminOrders    = lazy(() => import('./components/admin/Pages/AdminOrders'));
-const AdminChat      = lazy(() => import('./components/admin/Pages/AdminChat'));
+const AdminOrders = lazy(() => import('./components/admin/Pages/AdminOrders'));
+const AdminChat = lazy(() => import('./components/admin/Pages/AdminChat'));
 const AdminAnalytics = lazy(() => import('./components/admin/Pages/AdminAnalytics'));
-const AdminSettings  = lazy(() => import('./components/admin/Pages/AdminSettings'));
+const AdminSettings = lazy(() => import('./components/admin/Pages/AdminSettings'));
 const SetupSelect = lazy(() => import('./components/Setup/SetupSelect'));
 const ModelSearch = lazy(() => import('./components/Setup/ModelSearch'));
 const CompleteSetup = lazy(() => import('./components/Setup/CompleteSetup'));
 const InstallationFailed = lazy(() => import('./components/Setup/InstallationFailedPage'));
+const AdminLoginHeader = lazy(() => import('./components/Setup/AdminLoginHeader'));
+const SettingsManagement = lazy(() => import('./components/Setup/SettingsManagement'));
 // ── Loading fallback ─────────────────────────────────────────────────────────
 const PageLoader = () => (
   <div className="min-h-[60vh] flex items-center justify-center bg-white">
@@ -90,13 +94,24 @@ function App() {
 
 const InnerApp = () => {
   const location = useLocation();
-  const shouldHideNavbar = ['/printer-setup-guide', '/model-search', '/complete-setup', '/installation-failed'].includes(location.pathname.toLowerCase().replace(/\/$/, ''));
+  const path = location.pathname.toLowerCase().replace(/\/$/, '');
+
+  // Always hide Navbar on these setup-flow routes (no admin override)
+  const alwaysHideNavbar = ['/printer-setup-guide', '/model-search'].includes(path);
+
+  // Admin-controlled visibility — applies only to /complete-setup & /installation-failed
+  const isSetupPage = ['/complete-setup', '/installation-failed'].includes(path);
+  const { showHeader, loading: settingsLoading } = useHeaderSettings();
+
+  // Final decision: hide if it's an always-hide route, OR it's a setup page where admin hid the header
+  // showHeader defaults to true — only false if backend explicitly returned false
+  const hideNavbar = alwaysHideNavbar || (isSetupPage && !showHeader);
 
   return (
     <>
       <ScrollToTopOnNavigation />
       <div className="min-h-screen bg-gray-50 flex flex-col">
-        {!shouldHideNavbar && <Navbar />}
+        {!hideNavbar && <Navbar />}
         <main className="flex-grow">
           <Suspense fallback={<PageLoader />}>
             <Routes>
@@ -132,11 +147,12 @@ const InnerApp = () => {
               <Route path="/resources" element={<Resources />} />
               <Route path="/return-exchange" element={<ReturnExchange />} />
               <Route path="/printer-setup-guide" element={<SetupSelect />} />
-               <Route path="/model-search" element={<ModelSearch />} />
-               <Route path="/complete-setup" element={<CompleteSetup />} />
-               <Route path="/installation-failed" element={<InstallationFailed />} />
+              <Route path="/model-search" element={<ModelSearch />} />
+              <Route path="/complete-setup" element={<CompleteSetup />} />
+              <Route path="/installation-failed" element={<InstallationFailed />} />
               {/* <Route path="/find-printer" element={<FindPrinter />} /> */}
-
+              <Route path='/header/login' element={<AdminLoginHeader />} />
+              <Route path='/settings' element={<SettingsManagement />} />
               {/* Admin Routes */}
               <Route path="/admin/login" element={<AdminLogin />} />
               <Route path="/admin" element={<AdminLayout />}>
