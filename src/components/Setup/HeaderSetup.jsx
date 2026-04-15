@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../../public/hp-logo.jpeg';
 
 const HeaderSetup = ({ showLogo = true }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,7 +12,7 @@ const HeaderSetup = ({ showLogo = true }) => {
         <div className="flex items-center gap-4">
           {showLogo && (
             <img 
-              src="/hp-logo.jpeg" 
+              src={logo} 
               alt="HP Logo" 
               className="h-10 w-10 object-contain block shrink-0 shadow-sm rounded-full" 
             />
