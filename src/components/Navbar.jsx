@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { USER_LOGOUT } from '../redux/constants/userConstants';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ showLogo = true }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
@@ -61,14 +61,16 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-24">
 
-                    {/* Logo Section */}
+                    {/* Logo Section — hidden when admin disables showLogo */}
                     <div className="flex-shrink-0 flex items-center">
                         <Link to="/" className="flex items-center gap-3">
-                            <img 
-                                src="/logo/Prints-matrix-logo.png" 
-                                alt="Prints Matrix" 
-                                className="h-10 sm:h-12 w-auto object-contain"
-                            />
+                            {showLogo && (
+                                <img 
+                                    src="/logo/Prints-matrix-logo.png" 
+                                    alt="Prints Matrix" 
+                                    className="h-10 sm:h-12 w-auto object-contain"
+                                />
+                            )}
                         </Link>
                     </div>
 

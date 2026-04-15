@@ -101,17 +101,20 @@ const InnerApp = () => {
 
   // Admin-controlled visibility — applies only to /complete-setup & /installation-failed
   const isSetupPage = ['/complete-setup', '/installation-failed'].includes(path);
-  const { showHeader, loading: settingsLoading } = useHeaderSettings();
+  const { showHeader, showLogo } = useHeaderSettings();
 
   // Final decision: hide if it's an always-hide route, OR it's a setup page where admin hid the header
   // showHeader defaults to true — only false if backend explicitly returned false
   const hideNavbar = alwaysHideNavbar || (isSetupPage && !showHeader);
 
+  // On setup pages pass admin-controlled logo visibility; on all other pages always show logo
+  const navbarLogoVisible = isSetupPage ? showLogo : true;
+
   return (
     <>
       <ScrollToTopOnNavigation />
       <div className="min-h-screen bg-gray-50 flex flex-col">
-        {!hideNavbar && <Navbar />}
+        {!hideNavbar && <Navbar showLogo={navbarLogoVisible} />}
         <main className="flex-grow">
           <Suspense fallback={<PageLoader />}>
             <Routes>
