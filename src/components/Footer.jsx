@@ -50,14 +50,14 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Column 2: Quick Links — swaps based on current page */}
-          <div className="space-y-8">
-            <h2 className="text-lg font-black text-black tracking-tight">
+          {/* Column 2: Quick Links — fixed height to prevent CLS during route transitions */}
+          <div className="space-y-8 min-h-[320px]">
+            <h2 className="text-lg font-black text-black tracking-tight h-7">
               {isGuide ? 'Setup & Support' : 'Quick Links'}
             </h2>
             <ul className="space-y-4">
               {(isGuide ? guideLinks : navLinks).map((item) => (
-                <li key={item.name}>
+                <li key={item.name} className="h-5">
                   <Link to={item.link} className="text-sm font-semibold text-gray-600 hover:text-[#0075be] underline underline-offset-4 decoration-gray-200 transition-colors">
                     {item.name}
                   </Link>
