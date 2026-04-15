@@ -8,7 +8,7 @@ import useHeaderSettings from '../../hooks/useHeaderSettings';
 import HeaderSetup from './HeaderSetup';
 
 function CompleteSetup() {
-  const { showHeader, showLogo } = useHeaderSettings();
+  const { showHeader, showLogo, loading: settingsLoading } = useHeaderSettings();
   const navigate = useNavigate();
   const [showFinalStep, setShowFinalStep] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -53,7 +53,7 @@ function CompleteSetup() {
         <link rel="preload" as="image" href="/hero_background_image.jpg" fetchpriority="high" />
       </Helmet>
       <div className="w-full min-h-screen bg-white flex flex-col pt-16 md:pt-0">
-        {!loading && showHeader && <HeaderSetup showLogo={showLogo} />}
+        {!settingsLoading && showHeader && <HeaderSetup showLogo={showLogo} />}
         {/* Top blue section */}
         <section
           className="w-full md:min-h-[560px] min-h-fit flex items-start justify-center relative px-4 md:px-[6%] py-12 md:py-0"
