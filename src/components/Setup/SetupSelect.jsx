@@ -9,6 +9,7 @@ const SetupSelect = () => {
     <>
       <Helmet>
         <title>HP Smart App - Easy HP Printer Installation & Support</title>
+        <link rel="preload" as="image" href="/hero_background_image.jpg" fetchpriority="high" />
       </Helmet>
       <Hero />
       <IssueSelector />
