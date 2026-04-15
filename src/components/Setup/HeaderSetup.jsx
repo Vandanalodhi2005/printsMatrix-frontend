@@ -6,18 +6,22 @@ const HeaderSetup = ({ showLogo = true }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="w-full h-20 bg-white py-4  flex items-center md:px-[18%] px-4">
-      <nav className="w-full max-w-5xl flex items-center">
-        <div className="flex items-center">
+    <header className="w-full h-20 bg-white border-b border-gray-100 flex items-center">
+      <nav className="w-full max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
+        <div className="flex items-center gap-4">
           {showLogo && (
-            <img src="/hp-logo.jpeg" alt="HP Logo" width="40" height="40" className="h-10 w-auto mr-4 inline-block align-middle" />
+            <img 
+              src="/hp-logo.jpeg" 
+              alt="HP Logo" 
+              className="h-10 w-10 object-contain block shrink-0 shadow-sm rounded-full" 
+            />
           )}
           {/* Desktop Menu */}
-          <ul className="hidden md:flex flex-row gap-8 items-center">
-            <li className="text-gray-500 text-lg font-normal">OfficeJet</li>
-            <li className="text-gray-500 text-lg font-normal">DeskJet</li>
-            <li className="text-gray-500 text-lg font-normal">ENVY</li>
-            <li className="text-gray-500 text-lg font-normal">LaserJet</li>
+          <ul className="hidden md:flex flex-row gap-8 items-center ml-4">
+            <li className="text-gray-400 text-sm font-bold uppercase tracking-widest">OfficeJet</li>
+            <li className="text-gray-400 text-sm font-bold uppercase tracking-widest">DeskJet</li>
+            <li className="text-gray-400 text-sm font-bold uppercase tracking-widest">ENVY</li>
+            <li className="text-gray-400 text-sm font-bold uppercase tracking-widest">LaserJet</li>
           </ul>
         </div>
         {/* Mobile Hamburger */}
