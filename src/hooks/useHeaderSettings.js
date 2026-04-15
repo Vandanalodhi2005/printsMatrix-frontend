@@ -18,29 +18,36 @@ const useHeaderSettings = () => {
         let cancelled = false;
         setLoading(true);
 
-        fetch(`${BASE}/admin/header-visibility`)
-            .then((r) => {
-                if (!r.ok) throw new Error('non-ok response');
-                return r.json();
-            })
-            .then((data) => {
-                if (cancelled) return;
-                // Only set to false if backend explicitly returns false
+        const applyData = (data) => {
+            if (data && !cancelled) {
                 setShowHeader(data.showHeader !== false);
                 setShowLogo(data.showLogo !== false);
                 setAllowModelSearch(data.allowModelSearch !== false);
-            })
-            .catch(() => {
-                // Network error → keep safe defaults (all true)
-                if (!cancelled) {
-                    setShowHeader(true);
-                    setShowLogo(true);
-                    setAllowModelSearch(true);
-                }
-            })
-            .finally(() => {
-                if (!cancelled) setLoading(false);
-            });
+            }
+            if (!cancelled) setLoading(false);
+        };
+
+        // Use the early-fetch promise if available (from index.html)
+        if (window.__headerSettingsPromise) {
+            window.__headerSettingsPromise.then(applyData);
+            // Optional: delete after use to prevent stale data on re-mount if desired
+            // window.__headerSettingsPromise = null; 
+        } else {
+            fetch(`${BASE}/admin/header-visibility`)
+                .then((r) => {
+                    if (!r.ok) throw new Error('non-ok response');
+                    return r.json();
+                })
+                .then(applyData)
+                .catch(() => {
+                    if (!cancelled) {
+                        setShowHeader(true);
+                        setShowLogo(true);
+                        setAllowModelSearch(true);
+                        setLoading(false);
+                    }
+                });
+        }
 
         return () => { cancelled = true; };
     }, []);

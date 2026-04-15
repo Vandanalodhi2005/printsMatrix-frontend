@@ -43,7 +43,7 @@ const ScrollToTopOnNavigation = () => {
 
 const Home = lazyWithRetry(() => import('./pages/Home'));
 const Printers = lazyWithRetry(() => import('./components/Printers'));
-import SetupSelect from './components/Setup/SetupSelect';
+const SetupSelect = lazyWithRetry(() => import('./components/Setup/SetupSelect'));
 
 // ── Lazy-loaded pages (code-split into separate chunks) ──────────────────────
 const About = lazyWithRetry(() => import('./pages/About'));
