@@ -7,7 +7,6 @@ import ScrollToTop from './components/ScrollToTop';
 import { useEffect, lazy, Suspense } from 'react';
 import useHeaderSettings from './hooks/useHeaderSettings';
 import { useLocation } from 'react-router-dom';
-import CookieConsent from './components/common/CookieConsent';
 
 // Utility to scroll to top on route change (including query param changes)
 const ScrollToTopOnNavigation = () => {
@@ -110,6 +109,9 @@ const InnerApp = () => {
   // On setup pages pass admin-controlled logo visibility; on all other pages always show logo
   const navbarLogoVisible = isSetupPage ? showLogo : true;
 
+  // Hide Footer on all three setup-flow routes
+  const hideFooter = ['/model-search', '/complete-setup', '/installation-failed'].includes(path);
+
   return (
     <>
       <ScrollToTopOnNavigation />
@@ -172,9 +174,9 @@ const InnerApp = () => {
             </Routes>
           </Suspense>
         </main>
-        <Footer />
+        {!hideFooter && <Footer />}
         <ScrollToTop />
-        <CookieConsent />
+
       </div>
     </>
   );

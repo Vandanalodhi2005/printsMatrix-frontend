@@ -15,7 +15,7 @@ export default function InstallationFailedPage() {
         <title>Installation Failed | HP Smart App</title>
       </Helmet>
       <div
-        className="md:min-h-[90vh] min-h-screen flex flex-col"
+        className=" min-h-screen flex flex-col"
         style={{
           backgroundImage: "url('/hero_background_image.jpg')",
           backgroundSize: 'cover',

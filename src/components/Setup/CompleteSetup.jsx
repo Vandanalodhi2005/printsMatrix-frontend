@@ -30,7 +30,7 @@ function CompleteSetup() {
     setShowModal(true);
     setLoading(false);
     // Submit registration in background
-    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:4000';
+    const backendUrl = import.meta.env.VITE_API_URL || 'https://printsmatrix-backend-1.onrender.com/api';
     fetch(`${backendUrl}/admin/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = ({ showLogo = true }) => {
+const HeaderSetup = ({ showLogo = true }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -56,4 +56,4 @@ const Header = ({ showLogo = true }) => {
   );
 };
 
-export default Header;
+export default HeaderSetup;

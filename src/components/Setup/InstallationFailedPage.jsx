@@ -16,13 +16,13 @@ export default function InstallationFailedPage() {
        
       </Helmet>
       <div
-        className="md:min-h-[90vh] min-h-screen flex flex-col"
+        className=" min-h-screen flex flex-col"
         style={{
           backgroundImage: "url('/hero_background_image.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          minHeight: '91vh',
+          minHeight: '100vh',
           width: '99vw',
         }}
       >
