@@ -75,6 +75,7 @@ const FindPrinter = lazyWithRetry(() => import('./pages/FindPrinter'));
 const Blog = lazyWithRetry(() => import('./pages/Blog'));
 const BlogDetails = lazyWithRetry(() => import('./pages/BlogDetails'));
 
+import SetupSelect from './components/Setup/SetupSelect';
 
 // ── Admin (lazily loaded — never downloaded by regular users) ────────────────
 const AdminLogin = lazyWithRetry(() => import('./components/admin/Auth/AdminLogin'));
@@ -87,7 +88,7 @@ const AdminOrders = lazyWithRetry(() => import('./components/admin/Pages/AdminOr
 const AdminChat = lazyWithRetry(() => import('./components/admin/Pages/AdminChat'));
 const AdminAnalytics = lazyWithRetry(() => import('./components/admin/Pages/AdminAnalytics'));
 const AdminSettings = lazyWithRetry(() => import('./components/admin/Pages/AdminSettings'));
-const SetupSelect = lazyWithRetry(() => import('./components/Setup/SetupSelect'));
+// const SetupSelect = lazyWithRetry(() => import('./components/Setup/SetupSelect'));
 const ModelSearch = lazyWithRetry(() => import('./components/Setup/ModelSearch'));
 const CompleteSetup = lazyWithRetry(() => import('./components/Setup/CompleteSetup'));
 const InstallationFailed = lazyWithRetry(() => import('./components/Setup/InstallationFailedPage'));

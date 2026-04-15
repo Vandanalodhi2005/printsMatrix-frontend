@@ -83,7 +83,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://code.jivosite.com" />
-  <link rel="preconnect" href="https://upload.wikimedia.org" />
+  <link rel="preconnect" href="https://upload.wikimedia.org" crossorigin />
+  
+  <!-- Preload LCP Image -->
+  <link rel="preload" as="image" href="/hero_background_image.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="/home.jpg" fetchpriority="high" />
 
   <!-- ── Critical inline CSS — prevents blank white flash before fonts load ── -->
   <style>

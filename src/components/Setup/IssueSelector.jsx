@@ -27,7 +27,7 @@ function StepOne({ onSelect }) {
   return (
     <div className="text-center mb-4">
       <h2 className="text-2xl font-bold text-gray-800 mb-1">Select The Issue</h2>
-      <p className="text-gray-500 text-base">Select what you need help with to continue:</p>
+      <p className="text-gray-600 text-base">Select what you need help with to continue:</p>
       <div className="grid grid-cols-2 gap-4 mt-8
         sm:grid-cols-2
         xs:grid-cols-1 xs:gap-3 xs:mt-6
@@ -53,8 +53,8 @@ function StepOne({ onSelect }) {
           <span className="font-semibold text-gray-700 text-base xs:text-sm">{issues[4].label}</span>
         </button>
 
-        <p className="text-gray-500 mt-6 text-sm">
-          Need help? Contact our support team via <a href="/contact" className="text-blue-600 hover:underline">chat</a> or <a href="mailto:support@printsmatrix.com" className="text-blue-600 hover:underline">email</a>.
+        <p className="text-gray-600 mt-6 text-sm">
+          Need help? Contact our support team via <a href="/contact" className="text-blue-700 underline decoration-blue-200 underline-offset-4 font-bold">chat</a> or <a href="mailto:support@printsmatrix.com" className="text-blue-700 underline decoration-blue-200 underline-offset-4 font-bold">email</a>.
         </p>
       </div>
     </div>
@@ -77,7 +77,7 @@ function StepThree({ onBack }) {
   return (
     <div className="text-center mb-4">
       <h2 className="text-2xl font-bold text-gray-800 mb-1">How Is Your Printer Connected?</h2>
-      <p className="text-gray-500 text-base mb-6">Choose how your printer connects to your device to continue.</p>
+      <p className="text-gray-600 text-base mb-6">Choose how your printer connects to your device to continue.</p>
       <div className="grid grid-cols-2 gap-4 mb-4">
         {connections.map((conn) => (
           <button
@@ -97,8 +97,8 @@ function StepThree({ onBack }) {
 
         
       </div> */}
-      <p className="text-gray-500 mt-8 text-sm">
-        Need help? Contact our support team via <a href="/contact" className="text-blue-600 hover:underline">chat</a> or <a href="mailto:support@printsmatrix.com" className="text-blue-600 hover:underline">email</a>.
+      <p className="text-gray-600 mt-8 text-sm">
+        Need help? Contact our support team via <a href="/contact" className="text-blue-700 underline decoration-blue-200 underline-offset-4 font-bold">chat</a> or <a href="mailto:support@printsmatrix.com" className="text-blue-700 underline decoration-blue-200 underline-offset-4 font-bold">email</a>.
       </p>
     </div>
   );

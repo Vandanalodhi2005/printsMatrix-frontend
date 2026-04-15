@@ -39,23 +39,26 @@ const Footer = () => {
                 alt="Prints Matrix Logo" 
                 width="180"
                 height="48"
+                loading="lazy"
+                decoding="async"
                 className="h-12 w-auto object-contain"
+                style={{ aspectRatio: '180 / 48' }}
               />
             </Link>
-            <p className="text-gray-500 text-sm font-medium leading-relaxed max-w-xs">
+            <p className="text-gray-600 text-sm font-medium leading-relaxed max-w-xs">
               Find printers designed to align with your everyday tasks and long-term printing needs. Whether you need a compact home printer or a powerful office solution, explore options built for reliability and efficiency.
             </p>
           </div>
 
           {/* Column 2: Quick Links — swaps based on current page */}
           <div className="space-y-8">
-            <h4 className="text-lg font-black text-black tracking-tight">
+            <h2 className="text-lg font-black text-black tracking-tight">
               {isGuide ? 'Setup & Support' : 'Quick Links'}
-            </h4>
+            </h2>
             <ul className="space-y-4">
               {(isGuide ? guideLinks : navLinks).map((item) => (
                 <li key={item.name}>
-                  <Link to={item.link} className="text-sm font-semibold text-gray-500 hover:text-[#0075be] transition-colors">
+                  <Link to={item.link} className="text-sm font-semibold text-gray-600 hover:text-[#0075be] underline underline-offset-4 decoration-gray-200 transition-colors">
                     {item.name}
                   </Link>
                 </li>
@@ -65,7 +68,7 @@ const Footer = () => {
 
           {/* Column 3: Important Links */}
           <div className="space-y-8">
-            <h4 className="text-lg font-black text-black tracking-tight">Important Links</h4>
+            <h2 className="text-lg font-black text-black tracking-tight">Important Links</h2>
             <ul className="space-y-4">
               {[
                 { name: "Privacy Policy", link: "/privacy-policy" },
@@ -76,7 +79,7 @@ const Footer = () => {
                 { name: "Disclaimer", link: "/disclaimer" }
               ].map((item) => (
                 <li key={item.name}>
-                  <Link to={item.link} className="text-sm font-semibold text-gray-500 hover:text-[#0075be] transition-colors">
+                  <Link to={item.link} className="text-sm font-semibold text-gray-600 hover:text-[#0075be] underline underline-offset-4 decoration-gray-200 transition-colors">
                     {item.name}
                   </Link>
                 </li>
@@ -86,12 +89,12 @@ const Footer = () => {
 
           {/* Column 4: Quick Contact */}
           <div className="space-y-8">
-            <h4 className="text-lg font-black text-black tracking-tight">Quick Contact</h4>
+            <h2 className="text-lg font-black text-black tracking-tight">Quick Contact</h2>
             <div className="space-y-6">
               <div className="flex items-start gap-3 group">
                 <MapPin size={18} className="text-[#0075be] mt-1 shrink-0" />
                 <div>
-                  <span className="text-[12px] font-black uppercase text-gray-400 block mb-1">Address</span>
+                  <span className="text-[12px] font-black uppercase text-gray-600 block mb-1">Address</span>
                   <span className="text-sm font-bold text-gray-700 leading-tight">
                     95 Broadacre Dr, Kitchener, ON <br />
                     N2R 0S5
@@ -102,7 +105,7 @@ const Footer = () => {
               <div className="flex items-start gap-3 group">
                 <Mail size={18} className="text-[#0075be] mt-1 shrink-0" />
                 <div>
-                  <span className="text-[12px] font-black uppercase text-gray-400 block mb-1">Email</span>
+                  <span className="text-[12px] font-black uppercase text-gray-600 block mb-1">Email</span>
                   <span className="text-sm font-bold text-gray-700">support@printsmatrix.com</span>
                 </div>
               </div>
@@ -110,7 +113,7 @@ const Footer = () => {
               <div className="flex items-start gap-3 group">
                 <Globe size={18} className="text-[#0075be] mt-1 shrink-0" />
                 <div>
-                  <span className="text-[12px] font-black uppercase text-gray-400 block mb-1">Website</span>
+                  <span className="text-[12px] font-black uppercase text-gray-600 block mb-1">Website</span>
                   <span className="text-sm font-bold text-gray-700">www.printsmatrix.com</span>
                 </div>
               </div>
@@ -130,19 +133,19 @@ const Footer = () => {
             {/* Payment Icons */}
             <div className="flex flex-wrap items-center justify-center gap-4">
               <div className="bg-white px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" width="40" height="15" className="h-4 w-auto" />
+                <img src="https://raw.githubusercontent.com/creative-series/credit-card-logos/master/logos/paypal.svg" alt="PayPal" width="40" height="15" className="h-4 w-auto" />
               </div>
-              <div className="bg-[#1a1f71] px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14 border border-white/10">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="VISA" width="36" height="12" className="h-3 w-auto invert brightness-0" />
-              </div>
-              <div className="bg-white px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" width="36" height="22" className="h-5 w-auto" />
+              <div className="bg-white px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14 border border-gray-100">
+                <img src="https://raw.githubusercontent.com/creative-series/credit-card-logos/master/logos/visa.svg" alt="VISA" width="36" height="12" className="h-3 w-auto" />
               </div>
               <div className="bg-white px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Discover_Card_logo.svg" alt="Discover" width="40" height="10" className="h-3 w-auto" />
+                <img src="https://raw.githubusercontent.com/creative-series/credit-card-logos/master/logos/mastercard.svg" alt="Mastercard" width="36" height="22" className="h-5 w-auto" />
               </div>
-              <div className="bg-[#016fcf] px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14 border border-white/10">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg" alt="Amex" width="36" height="20" className="h-5 w-auto" />
+              <div className="bg-white px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14">
+                <img src="https://raw.githubusercontent.com/creative-series/credit-card-logos/master/logos/discover.svg" alt="Discover" width="40" height="10" className="h-3 w-auto" />
+              </div>
+              <div className="bg-white px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14 border border-gray-100">
+                <img src="https://raw.githubusercontent.com/creative-series/credit-card-logos/master/logos/amex.svg" alt="Amex" width="36" height="20" className="h-5 w-auto" />
               </div>
             </div>
           </div>

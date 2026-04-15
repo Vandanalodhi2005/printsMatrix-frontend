@@ -127,7 +127,7 @@ const About = () => {
             {/* ── Section 5: Legal Disclaimer Banner ──────────────────────── */}
             <section className="bg-[#0075be] py-12 px-6 text-center text-white">
                 <div className="max-w-6xl mx-auto">
-                    <p className="text-[12px] md:text-[14px] font-bold leading-relaxed opacity-90 max-w-4xl mx-auto tracking-wide font-sans">
+                    <p className="text-[12px] md:text-[14px] font-bold leading-relaxed max-w-4xl mx-auto tracking-wide font-sans">
                         Prints Matrix operates as an independent third-party retailer. Manufacturer warranties, where applicable, are provided directly by the respective brands. Prints Matrix does not claim authorization or official partnership with any manufacturer unless explicitly stated.
                     </p>
                 </div>

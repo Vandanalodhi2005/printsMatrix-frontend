@@ -41,7 +41,7 @@ const Navbar = ({ showLogo = true }) => {
         const currentPath = window.location.pathname;
         const baseClasses = "text-[12px] font-medium uppercase tracking-[0.12em] transition-all duration-300 hover:text-[#0075be] relative py-1";
         const activeClasses = "text-[#0075be] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#0075be]";
-        const inactiveClasses = "text-gray-900/80";
+        const inactiveClasses = "text-gray-700";
 
         return currentPath === path ? `${baseClasses} ${activeClasses}` : `${baseClasses} ${inactiveClasses}`;
     };
@@ -71,7 +71,9 @@ const Navbar = ({ showLogo = true }) => {
                                     width="180"
                                     height="48"
                                     fetchpriority="high"
+                                    decoding="async"
                                     className="h-10 sm:h-12 w-auto object-contain"
+                                    style={{ aspectRatio: '180 / 48' }}
                                 />
                             )}
                         </Link>
@@ -97,7 +99,7 @@ const Navbar = ({ showLogo = true }) => {
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                                 onKeyUp={handleSearch}
-                                className="bg-gray-100/80 text-xs rounded-full pl-10 pr-4 py-2.5 border border-transparent focus:bg-white focus:border-[#0075be]/20 focus:outline-none focus:ring-4 focus:ring-[#0075be]/5 text-gray-800 w-36 focus:w-60 transition-all duration-500 placeholder-gray-400"
+                                className="bg-gray-100/80 text-xs rounded-full pl-10 pr-4 py-2.5 border border-transparent focus:bg-white focus:border-[#0075be]/20 focus:outline-none focus:ring-4 focus:ring-[#0075be]/5 text-gray-800 w-36 focus:w-60 transition-all duration-500 placeholder-gray-500"
                             />
                             <Search className="absolute left-3.5 top-3 text-gray-400 w-4 h-4" />
                         </div>
