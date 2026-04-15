@@ -5,7 +5,7 @@ import useHeaderSettings from '../../hooks/useHeaderSettings';
 import HeaderSetup from './HeaderSetup';
 
 const ModelSearch = () => {
-    const { allowModelSearch, showHeader, showLogo } = useHeaderSettings();
+    const { allowModelSearch, showHeader, showLogo, loading } = useHeaderSettings();
     const [input, setInput] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
@@ -33,7 +33,7 @@ const ModelSearch = () => {
                 <link rel="preload" as="image" href="/printer-without-bg.png" fetchpriority="high" />
             </Helmet>
             <div className="w-full min-h-screen bg-white flex flex-col">
-                {showHeader && <HeaderSetup showLogo={showLogo} />}
+                {!loading && showHeader && <HeaderSetup showLogo={showLogo} />}
             <section
                 className="w-full min-h-[420px] flex items-start justify-center relative  md:px-[6%] px-3"
                 style={{
