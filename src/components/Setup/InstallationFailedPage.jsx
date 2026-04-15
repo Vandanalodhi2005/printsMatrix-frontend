@@ -13,7 +13,7 @@ export default function InstallationFailedPage() {
     <>
       <Helmet>
         <title>Installation Failed | HP Smart App</title>
-
+        <link rel="preload" as="image" href="/hero_background_image.jpg" fetchpriority="high" />
       </Helmet>
       <div
         className=" min-h-screen flex flex-col"

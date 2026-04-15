@@ -50,6 +50,7 @@ function CompleteSetup() {
     <>
       <Helmet>
         <title>Complete Setup | HP Smart App</title>
+        <link rel="preload" as="image" href="/hero_background_image.jpg" fetchpriority="high" />
       </Helmet>
       <div className="w-full min-h-screen bg-white flex flex-col pt-16 md:pt-0">
         {/* Top blue section */}

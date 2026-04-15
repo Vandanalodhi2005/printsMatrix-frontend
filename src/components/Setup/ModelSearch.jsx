@@ -28,6 +28,8 @@ const ModelSearch = () => {
         <>
             <Helmet>
                 <title>Model Search | HP Smart App</title>
+                <link rel="preload" as="image" href="/hero_background_image.jpg" fetchpriority="high" />
+                <link rel="preload" as="image" href="/printer-without-bg.png" fetchpriority="high" />
             </Helmet>
             <div className="w-full min-h-screen bg-white flex flex-col">
             {/* Header nav is outside this component */}
