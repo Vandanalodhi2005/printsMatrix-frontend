@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import { useEffect, lazy, Suspense } from 'react';
 import { useLocation } from 'react-router-dom';
+import useHeaderSettings from './hooks/useHeaderSettings';
 
 /**
  * Wraps React.lazy() with automatic page-reload recovery.
@@ -116,13 +117,16 @@ function App() {
 
 const InnerApp = () => {
   const location = useLocation();
+  const { showHeader } = useHeaderSettings();
   const path = location.pathname.toLowerCase().replace(/\/$/, '');
 
-  // Always hide main Navbar on all setup-flow routes.
-  // /complete-setup & /installation-failed now render their own HeaderSetup internally.
-  const hideNavbar = ['/printer-setup-guide', '/model-search', '/complete-setup', '/installation-failed'].includes(path);
+  // Hide Navbar on specific setup-flow routes ONLY IF the admin has disabled the global header.
+  // Note: /complete-setup and /installation-failed often have their own minimal headers, 
+  // but if showHeader is true, we allow the main Navbar for consistent site navigation.
+  const isSetupRoute = ['/printer-setup-guide', '/model-search', '/complete-setup', '/installation-failed'].includes(path);
+  const hideNavbar = isSetupRoute && !showHeader;
 
-  // Hide Footer on all three setup-flow routes
+  // Hide Footer on setup-flow routes consistently.
   const hideFooter = ['/model-search', '/complete-setup', '/installation-failed'].includes(path);
 
   return (
