@@ -26,39 +26,39 @@ const FooterSetup = () => {
 
 
   return (
-    <footer className="bg-white border-t border-gray-100 font-sans">
+    <footer className="bg-slate-900 border-t border-slate-800 font-sans">
       {/* Upper Footer: Links & Info */}
       <div className="max-w-7xl mx-auto px-6 py-16 md:py-20 text-left">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           
           {/* Column 1: Brand */}
           <div className="space-y-8">
-            <Link to="/" className="inline-block">
+            <Link to="/" className="inline-block brightness-0 invert">
               <img 
                 src="/logo/Prints-matrix-logo.png" 
                 alt="Prints Matrix Logo" 
-                width="180"
-                height="48"
+                width="140"
+                height="37"
                 loading="lazy"
                 decoding="async"
-                className="h-12 w-auto object-contain"
-                style={{ aspectRatio: '180 / 48' }}
+                className="h-9 w-auto object-contain"
+                style={{ aspectRatio: '140 / 37' }}
               />
             </Link>
-            <p className="text-gray-600 text-sm font-medium leading-relaxed max-w-xs">
+            <p className="text-slate-400 text-sm font-medium leading-relaxed max-w-xs">
               Find printers designed to align with your everyday tasks and long-term printing needs. Whether you need a compact home printer or a powerful office solution, explore options built for reliability and efficiency.
             </p>
           </div>
 
           {/* Column 2: Quick Links — fixed height to prevent CLS during route transitions */}
           <div className="space-y-8 min-h-[320px]">
-            <h2 className="text-lg font-black text-black tracking-tight h-7">
+            <h2 className="text-lg font-black text-white tracking-tight h-7">
               {isGuide ? 'Setup & Support' : 'Quick Links'}
             </h2>
             <ul className="space-y-4">
               {(isGuide ? guideLinks : navLinks).map((item) => (
                 <li key={item.name} className="h-5">
-                  <Link to={item.link} className="text-sm font-semibold text-gray-600 hover:text-[#0075be] underline underline-offset-4 decoration-gray-200 transition-colors">
+                  <Link to={item.link} className="text-sm font-semibold text-slate-400 hover:text-white underline underline-offset-4 decoration-slate-700 transition-colors">
                     {item.name}
                   </Link>
                 </li>
@@ -68,7 +68,7 @@ const FooterSetup = () => {
 
           {/* Column 3: Important Links */}
           <div className="space-y-8">
-            <h2 className="text-lg font-black text-black tracking-tight">Important Links</h2>
+            <h2 className="text-lg font-black text-white tracking-tight">Important Links</h2>
             <ul className="space-y-4">
               {[
                 { name: "Privacy Policy", link: "/privacy-policy" },
@@ -79,7 +79,7 @@ const FooterSetup = () => {
                 { name: "Disclaimer", link: "/disclaimer" }
               ].map((item) => (
                 <li key={item.name}>
-                  <Link to={item.link} className="text-sm font-semibold text-gray-600 hover:text-[#0075be] underline underline-offset-4 decoration-gray-200 transition-colors">
+                  <Link to={item.link} className="text-sm font-semibold text-slate-400 hover:text-white underline underline-offset-4 decoration-slate-700 transition-colors">
                     {item.name}
                   </Link>
                 </li>
@@ -89,13 +89,13 @@ const FooterSetup = () => {
 
           {/* Column 4: Quick Contact */}
           <div className="space-y-8">
-            <h2 className="text-lg font-black text-black tracking-tight">Quick Contact123</h2>
+            <h2 className="text-lg font-black text-white tracking-tight">Quick Contact</h2>
             <div className="space-y-6">
               <div className="flex items-start gap-3 group">
-                <MapPin size={18} className="text-[#0075be] mt-1 shrink-0" />
+                <MapPin size={18} className="text-white mt-1 shrink-0" />
                 <div>
-                  <span className="text-[12px] font-black uppercase text-gray-600 block mb-1">Address</span>
-                  <span className="text-sm font-bold text-gray-700 leading-tight">
+                  <span className="text-[12px] font-black uppercase text-slate-500 block mb-1">Address</span>
+                  <span className="text-sm font-bold text-slate-300 leading-tight">
                     95 Broadacre Dr, Kitchener, ON <br />
                     N2R 0S5
                   </span>
@@ -103,18 +103,18 @@ const FooterSetup = () => {
               </div>
 
               <div className="flex items-start gap-3 group">
-                <Mail size={18} className="text-[#0075be] mt-1 shrink-0" />
+                <Mail size={18} className="text-white mt-1 shrink-0" />
                 <div>
-                  <span className="text-[12px] font-black uppercase text-gray-600 block mb-1">Email</span>
-                  <span className="text-sm font-bold text-gray-700">support@printsmatrix.com</span>
+                  <span className="text-[12px] font-black uppercase text-slate-500 block mb-1">Email</span>
+                  <span className="text-sm font-bold text-slate-300">support@printsmatrix.com</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-3 group">
-                <Globe size={18} className="text-[#0075be] mt-1 shrink-0" />
+                <Globe size={18} className="text-white mt-1 shrink-0" />
                 <div>
-                  <span className="text-[12px] font-black uppercase text-gray-600 block mb-1">Website</span>
-                  <span className="text-sm font-bold text-gray-700">www.printsmatrix.com</span>
+                  <span className="text-[12px] font-black uppercase text-slate-500 block mb-1">Website</span>
+                  <span className="text-sm font-bold text-slate-300">www.printsmatrix.com</span>
                 </div>
               </div>
             </div>
