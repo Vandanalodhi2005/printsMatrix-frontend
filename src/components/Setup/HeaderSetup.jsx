@@ -10,7 +10,7 @@ const HeaderSetup = ({ showLogo = true }) => {
       <nav className="w-full max-w-5xl flex items-center">
         <div className="flex items-center">
           {showLogo && (
-            <img src="/hp-logo.jpeg" alt="HP Logo" className="h-10 w-auto mr-4 inline-block align-middle" />
+            <img src="/hp-logo.jpeg" alt="HP Logo" width="40" height="40" className="h-10 w-auto mr-4 inline-block align-middle" />
           )}
           {/* Desktop Menu */}
           <ul className="hidden md:flex flex-row gap-8 items-center">

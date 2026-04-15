@@ -82,6 +82,12 @@
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://code.jivosite.com" />
+  <link rel="preconnect" href="https://upload.wikimedia.org" />
+
+  <!-- ── Critical Asset Preloading ────────────────────────────────────── -->
+  <link rel="preload" as="image" href="/hero_background_image.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="/logo/Prints-matrix-logo.png" fetchpriority="high" />
 
   <!-- ── Critical inline CSS — prevents blank white flash before fonts load ── -->
   <style>
@@ -112,13 +118,26 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" />
   </noscript>
 
+  <meta name="theme-color" content="#0075be" />
 </head>
 
 <body>
   <div id="root"></div>
 
   <script type="module" src="/src/main.jsx"></script>
-  <script src="//code.jivosite.com/widget/Tt7Z2rjzUJ" async></script>
+  
+  <!-- ── Deferred 3rd Party Scripts (improves interactive score) ─────────── -->
+  <script>
+    // Delay JivoChat loading to free up the main thread for React
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        const s = document.createElement('script');
+        s.src = "//code.jivosite.com/widget/Tt7Z2rjzUJ";
+        s.async = true;
+        document.body.appendChild(s);
+      }, 3000); // 3 second delay
+    });
+  </script>
 </body>
 
 </html>

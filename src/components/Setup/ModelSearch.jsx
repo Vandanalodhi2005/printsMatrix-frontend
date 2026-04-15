@@ -71,6 +71,9 @@ const ModelSearch = () => {
                         <img
                             src="/printer-without-bg.png"
                             alt="Printer and Devices"
+                            width="300"
+                            height="200"
+                            fetchpriority="high"
                             className="h-[200px] w-auto max-w-none drop-shadow-xl"
                             style={{ marginBottom: '-60px' }}
                         />

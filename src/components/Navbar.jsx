@@ -68,6 +68,9 @@ const Navbar = ({ showLogo = true }) => {
                                 <img 
                                     src="/logo/Prints-matrix-logo.png" 
                                     alt="Prints Matrix" 
+                                    width="180"
+                                    height="48"
+                                    fetchpriority="high"
                                     className="h-10 sm:h-12 w-auto object-contain"
                                 />
                             )}

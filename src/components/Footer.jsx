@@ -37,6 +37,8 @@ const Footer = () => {
               <img 
                 src="/logo/Prints-matrix-logo.png" 
                 alt="Prints Matrix Logo" 
+                width="180"
+                height="48"
                 className="h-12 w-auto object-contain"
               />
             </Link>
@@ -128,19 +130,19 @@ const Footer = () => {
             {/* Payment Icons */}
             <div className="flex flex-wrap items-center justify-center gap-4">
               <div className="bg-white px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" className="h-4 w-auto" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" width="40" height="15" className="h-4 w-auto" />
               </div>
               <div className="bg-[#1a1f71] px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14 border border-white/10">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="VISA" className="h-3 w-auto invert brightness-0" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="VISA" width="36" height="12" className="h-3 w-auto invert brightness-0" />
               </div>
               <div className="bg-white px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-5 w-auto" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" width="36" height="22" className="h-5 w-auto" />
               </div>
               <div className="bg-white px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Discover_Card_logo.svg" alt="Discover" className="h-3 w-auto" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Discover_Card_logo.svg" alt="Discover" width="40" height="10" className="h-3 w-auto" />
               </div>
               <div className="bg-[#016fcf] px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14 border border-white/10">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg" alt="Amex" className="h-5 w-auto" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg" alt="Amex" width="36" height="20" className="h-5 w-auto" />
               </div>
             </div>
           </div>

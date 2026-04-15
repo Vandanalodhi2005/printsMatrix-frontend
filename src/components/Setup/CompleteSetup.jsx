@@ -91,13 +91,13 @@ function CompleteSetup() {
               </div>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-2">
                 <a href="https://apps.apple.com/app/hp-smart/id469284907" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
-                  <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" className="h-10 md:h-12" />
+                  <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" width="120" height="40" loading="lazy" className="h-10 md:h-12" />
                 </a>
                 <a href="https://play.google.com/store/apps/details?id=com.hp.printercontrol&hl=en&gl=US" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" className="h-10 md:h-12" />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" width="135" height="40" loading="lazy" className="h-10 md:h-12" />
                 </a>
                 <a href="https://apps.microsoft.com/store/detail/hp-smart/9WZDNCRFHWLH" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
-                  <img src="https://get.microsoft.com/images/en-us%20dark.svg" alt="Microsoft Store" className="h-10 md:h-12 object-contain" />
+                  <img src="https://get.microsoft.com/images/en-us%20dark.svg" alt="Microsoft Store" width="120" height="40" loading="lazy" className="h-10 md:h-12 object-contain" />
                 </a>
               </div>
             </div>
@@ -106,6 +106,9 @@ function CompleteSetup() {
                 <img
                   src="/hp-printer-software.png"
                   alt="HP Printer Software"
+                  width="300"
+                  height="220"
+                  fetchpriority="high"
                   className="h-[180px] xl:h-[220px] w-auto max-w-none drop-shadow-2xl"
                   style={{ marginTop: '220px' }}
                 />
