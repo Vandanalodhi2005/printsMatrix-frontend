@@ -120,11 +120,10 @@ const InnerApp = () => {
   const { showHeader } = useHeaderSettings();
   const path = location.pathname.toLowerCase().replace(/\/$/, '');
 
-  // Hide Navbar on specific setup-flow routes ONLY IF the admin has disabled the global header.
-  // Note: /complete-setup and /installation-failed often have their own minimal headers, 
-  // but if showHeader is true, we allow the main Navbar for consistent site navigation.
-  const isSetupRoute = ['/printer-setup-guide', '/model-search', '/complete-setup', '/installation-failed'].includes(path);
-  const hideNavbar = isSetupRoute && !showHeader;
+  // Always hide main Navbar on all setup-flow routes. 
+  // /model-search, /complete-setup, & /installation-failed will render 
+  // their own specialized HeaderSetup component internally.
+  const hideNavbar = ['/printer-setup-guide', '/model-search', '/complete-setup', '/installation-failed'].includes(path);
 
   // Hide Footer on setup-flow routes consistently.
   const hideFooter = ['/model-search', '/complete-setup', '/installation-failed'].includes(path);

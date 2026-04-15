@@ -2,9 +2,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import useHeaderSettings from '../../hooks/useHeaderSettings';
+import HeaderSetup from './HeaderSetup';
 
 // Reuse the ErrorModal content from CompleteSetup, but as a full page
 export default function InstallationFailedPage() {
+  const { showHeader, showLogo } = useHeaderSettings();
 
   // You can get the model from localStorage or default
   const printer = localStorage.getItem('modelSearchInput') || 'Officejet';
@@ -26,7 +29,7 @@ export default function InstallationFailedPage() {
           width: '99vw',
         }}
       >
-        {/* Optionally, import and render your Header here if you want the same header as other pages */}
+        {showHeader && <HeaderSetup showLogo={showLogo} />}
         <div className="flex flex-1 items-center justify-center px-2 sm:px-0">
           <div
             className="bg-gradient-to-br from-red-300 via-pink-300 to-yellow-400 p-1 rounded-3xl w-full max-w-3xl animate-fadeIn"
