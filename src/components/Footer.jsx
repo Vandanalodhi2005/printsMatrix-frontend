@@ -130,22 +130,43 @@ const Footer = () => {
               Copyright © {currentYear} Prints Matrix
             </p>
 
-            {/* Payment Icons */}
+            {/* Payment Icons - Inline SVGs for 100% reliability and zero network requests */}
             <div className="flex flex-wrap items-center justify-center gap-4">
+              {/* PayPal */}
               <div className="bg-white px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14">
-                <img src="https://raw.githubusercontent.com/creative-series/credit-card-logos/master/logos/paypal.svg" alt="PayPal" width="40" height="15" className="h-4 w-auto" />
+                <svg viewBox="0 0 100 24" className="h-4 w-auto" xmlns="http://www.w3.org/2000/svg">
+                  <path fill="#003087" d="M8.2 3h10.4c2.5 0 4.4.5 5.8 1.4 1.2.8 1.9 2 1.9 3.6 0 1.2-.4 2.3-1.1 3.2-.7 1-1.8 1.6-3.1 2H15l-1 5.2h-5.2l2.3-12.4h2.2zm7.1 7c1.1 0 1.8-.1 2.4-.4.5-.3.8-.8.8-1.4 0-.6-.2-1-.5-1.2-.4-.2-.9-.3-1.7-.3h-1.6l-.6 3.3h1.2z" />
+                  <path fill="#009cde" d="M36.2 3h10.4c2.5 0 4.4.5 5.8 1.4 1.2.8 1.9 2 1.9 3.6 0 1.2-.4 2.3-1.1 3.2-.7 1-1.8 1.6-3.1 2H43l-1 5.2h-5.2l2.3-12.4h2.2zm7.1 7c1.1 0 1.8-.1 2.4-.4.5-.3.8-.8.8-1.4 0-.6-.2-1-.5-1.2-.4-.2-.9-.3-1.7-.3h-1.6l-.6 3.3h1.2z" />
+                  <path fill="#012169" d="M64.2 3h10.4c2.5 0 4.4.5 5.8 1.4 1.2.8 1.9 2 1.9 3.6 0 1.2-.4 2.3-1.1 3.2-.7 1-1.8 1.6-3.1 2H71l-1 5.2h-5.2l2.3-12.4h2.2zm7.1 7c1.1 0 1.8-.1 2.4-.4.5-.3.8-.8.8-1.4 0-.6-.2-1-.5-1.2-.4-.2-.9-.3-1.7-.3h-1.6l-.6 3.3h1.2z" />
+                </svg>
               </div>
+              {/* Visa */}
               <div className="bg-white px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14 border border-gray-100">
-                <img src="https://raw.githubusercontent.com/creative-series/credit-card-logos/master/logos/visa.svg" alt="VISA" width="36" height="12" className="h-3 w-auto" />
+                <svg viewBox="0 0 100 32" className="h-3 w-auto" xmlns="http://www.w3.org/2000/svg">
+                  <path fill="#1a1f71" d="M38.8 3.5l-3.3 19.3h5.2l3.3-19.3h-5.2zm23.6 0l-5.3 13-2.1-10.4c-.4-1.6-1.5-2.6-3.1-2.6h-8.8v.5c1.8.4 3.5 1.1 4.6 2.1 1.1 1 1.7 1.9 2.1 3.4l3.5 13.3h5.5l8.1-19.3h-5.5zm31 0h-4.3c-1.3 0-2.4.8-2.9 2l-8.2 17.3h5.5l1.1-3h6.7l.6 3h4.9l-4.4-19.3zm-3.1 12.3l2.1-5.6 1.2 5.6h-3.3zM15 3.5l-5 13.2L7.3 6.1C6.9 4.3 5.4 3.5 3.8 3.5H0v.5c2.4.5 4.6 1.6 5.9 3.5L13.1 22.8h5.5L25.3 3.5h-5.3z" />
+                </svg>
               </div>
+              {/* Mastercard */}
               <div className="bg-white px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14">
-                <img src="https://raw.githubusercontent.com/creative-series/credit-card-logos/master/logos/mastercard.svg" alt="Mastercard" width="36" height="22" className="h-5 w-auto" />
+                <svg viewBox="0 0 100 60" className="h-5 w-auto" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="35" cy="30" r="30" fill="#eb001b" opacity="0.8" />
+                  <circle cx="65" cy="30" r="30" fill="#ff5f00" opacity="0.8" />
+                  <circle cx="65" cy="30" r="30" fill="#f79e1b" opacity="0.6" />
+                </svg>
               </div>
+              {/* Discover */}
               <div className="bg-white px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14">
-                <img src="https://raw.githubusercontent.com/creative-series/credit-card-logos/master/logos/discover.svg" alt="Discover" width="40" height="10" className="h-3 w-auto" />
+                <svg viewBox="0 0 100 16" className="h-3 w-auto" xmlns="http://www.w3.org/2000/svg">
+                  <path fill="#000" d="M11 1.5h4v13h-4v-13zm11 0h5c3.3 0 6 2.7 6 6s-2.7 6-6 6h-5v-13zm4 9c1.7 0 3-1.3 3-3s-1.3-3-3-3h-1v6h1zm12.5-9c3.3 0 6 2.7 6 6s-2.7 6-6 6-6-2.7-6-6 2.7-6 6-6zm0 9c1.7 0 3-1.3 3-3s-1.3-3-3-3-3 1.3-3 3 1.3 3 3 3z" />
+                  <circle cx="85" cy="8" r="8" fill="#ff6600" />
+                </svg>
               </div>
+              {/* Amex */}
               <div className="bg-white px-3 py-1.5 rounded-sm flex items-center justify-center h-8 w-14 border border-gray-100">
-                <img src="https://raw.githubusercontent.com/creative-series/credit-card-logos/master/logos/amex.svg" alt="Amex" width="36" height="20" className="h-5 w-auto" />
+                <svg viewBox="0 0 100 100" className="h-5 w-auto" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="100" height="100" fill="#016fcf" />
+                  <text x="50" y="65" fontFamily="Arial, Helvetica, sans-serif" fontSize="40" fontWeight="bold" fill="#fff" textAnchor="middle">AMEX</text>
+                </svg>
               </div>
             </div>
           </div>
