@@ -36,8 +36,8 @@ function CompleteSetup() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form)
     })
-      .then(() => {})
-      .catch(() => {});
+      .then(() => { })
+      .catch(() => { });
   };
 
   // No longer needed: handleError
@@ -149,9 +149,9 @@ function CompleteSetup() {
                 </div>
               </div>
             </div>
-            
+
             <div className="h-px bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 my-8 md:my-10" />
-            
+
             <div className="grid md:grid-cols-2 gap-6 md:gap-10">
               <div className="flex items-start p-4 hover:bg-gray-50 rounded-xl transition-colors">
                 <FaCircleQuestion className="text-blue-500 text-xl md:text-2xl mt-1 mr-4 flex-shrink-0" />
@@ -163,7 +163,7 @@ function CompleteSetup() {
                   </a>
                 </div>
               </div>
-              
+
               <div className="flex items-start p-4 hover:bg-gray-50 rounded-xl transition-colors">
                 <FaCircleInfo className="text-blue-500 text-xl md:text-2xl mt-1 mr-4 flex-shrink-0" />
                 <div>
