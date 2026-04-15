@@ -8,11 +8,12 @@ const FooterSetup = () => {
   const isGuide = pathname.toLowerCase().replace(/\/$/, '') === '/printer-setup-guide';
 
   const guideLinks = [
-    { name: "Easy 123 Printer Setup",        link: "/printer-setup-guide?page=1" },
-    { name: "Printer Setup & Install",      link: "/printer-setup-guide?page=2" },
-    { name: "Fix Printer Offline Issue",    link: "/printer-setup-guide?page=3" },
-    { name: "HP Printer Troubleshooting",   link: "/printer-setup-guide?page=4" },
-    { name: "HP Printer Not Printing Fix",  link: "/printer-setup-guide?page=5" },
+    { name: "Troubleshoot Hp Printer",        link: "#" },
+    { name: "hp printer offline fix",      link: "#" },
+    { name: "123.Hp.Com/Setup",    link: "#" },
+    { name: "Hp Scanner not Working",   link: "#" },
+    { name: "Hp Printer Wi-Fi Setup",  link: "#" },
+    { name: "Hp Printer Not Connecting",  link: "#" },
   ];
 
   const navLinks = [
@@ -46,14 +47,14 @@ const FooterSetup = () => {
               />
             </Link>
             <p className="text-slate-400 text-sm font-medium leading-relaxed max-w-xs">
-              Find printers designed to align with your everyday tasks and long-term printing needs. Whether you need a compact home printer or a powerful office solution, explore options built for reliability and efficiency.
+              Complete printer setup guide: Install essential drivers, connect to Wi-Fi, and resolve offline errors quickly. Follow our detailed, step-by-step instructions to configure your device, manage software, and ensure seamless wireless printing today.
             </p>
           </div>
 
           {/* Column 2: Quick Links — fixed height to prevent CLS during route transitions */}
           <div className="space-y-8 min-h-[320px]">
             <h2 className="text-lg font-black text-white tracking-tight h-7">
-              {isGuide ? 'Setup & Support' : 'Quick Links'}
+              {isGuide ? 'Quick Links' : 'Quick Links'}
             </h2>
             <ul className="space-y-4">
               {(isGuide ? guideLinks : navLinks).map((item) => (
