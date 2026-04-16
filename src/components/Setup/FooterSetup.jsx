@@ -46,7 +46,7 @@ const FooterSetup = () => {
                 style={{ aspectRatio: '140 / 37' }}
               />
             </Link>
-            <p className="text-slate-400 text-sm font-medium leading-relaxed max-w-xs">
+            <p className="text-slate-300 text-sm font-medium leading-relaxed max-w-xs">
               Complete printer setup guide: Install essential drivers, connect to Wi-Fi, and resolve offline errors quickly. Follow our detailed, step-by-step instructions to configure your device, manage software, and ensure seamless wireless printing today.
             </p>
           </div>
@@ -59,7 +59,7 @@ const FooterSetup = () => {
             <ul className="space-y-4">
               {(isGuide ? guideLinks : navLinks).map((item) => (
                 <li key={item.name} className="h-5">
-                  <Link to={item.link} className="text-sm font-semibold text-slate-400 hover:text-white underline underline-offset-4 decoration-slate-700 transition-colors">
+                  <Link to={item.link} className="text-sm font-semibold text-slate-300 hover:text-white underline underline-offset-4 decoration-slate-700 transition-colors">
                     {item.name}
                   </Link>
                 </li>
@@ -80,7 +80,7 @@ const FooterSetup = () => {
                 { name: "Disclaimer", link: "/disclaimer" }
               ].map((item) => (
                 <li key={item.name}>
-                  <Link to={item.link} className="text-sm font-semibold text-slate-400 hover:text-white underline underline-offset-4 decoration-slate-700 transition-colors">
+                  <Link to={item.link} className="text-sm font-semibold text-slate-300 hover:text-white underline underline-offset-4 decoration-slate-700 transition-colors">
                     {item.name}
                   </Link>
                 </li>
@@ -95,7 +95,7 @@ const FooterSetup = () => {
               <div className="flex items-start gap-3 group">
                 <MapPin size={18} className="text-white mt-1 shrink-0" />
                 <div>
-                  <span className="text-[12px] font-black uppercase text-slate-500 block mb-1">Address</span>
+                  <span className="text-[12px] font-black uppercase text-slate-400 block mb-1">Address</span>
                   <span className="text-sm font-bold text-slate-300 leading-tight">
                     95 Broadacre Dr, Kitchener, ON <br />
                     N2R 0S5
@@ -106,7 +106,7 @@ const FooterSetup = () => {
               <div className="flex items-start gap-3 group">
                 <Mail size={18} className="text-white mt-1 shrink-0" />
                 <div>
-                  <span className="text-[12px] font-black uppercase text-slate-500 block mb-1">Email</span>
+                  <span className="text-[12px] font-black uppercase text-slate-400 block mb-1">Email</span>
                   <span className="text-sm font-bold text-slate-300">support@printsmatrix.com</span>
                 </div>
               </div>
@@ -114,7 +114,7 @@ const FooterSetup = () => {
               <div className="flex items-start gap-3 group">
                 <Globe size={18} className="text-white mt-1 shrink-0" />
                 <div>
-                  <span className="text-[12px] font-black uppercase text-slate-500 block mb-1">Website</span>
+                  <span className="text-[12px] font-black uppercase text-slate-400 block mb-1">Website</span>
                   <span className="text-sm font-bold text-slate-300">www.printsmatrix.com</span>
                 </div>
               </div>

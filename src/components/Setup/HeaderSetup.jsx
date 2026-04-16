@@ -14,6 +14,10 @@ const HeaderSetup = ({ showLogo = true }) => {
             <img 
               src={logo} 
               alt="HP Logo" 
+              width="40"
+              height="40"
+              fetchpriority="high"
+              decoding="async"
               className="h-10 w-10 object-contain block shrink-0 shadow-sm rounded-full" 
             />
           )}

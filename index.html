@@ -90,6 +90,7 @@
   <link rel="preload" as="image" href="/home.jpg" fetchpriority="high" />
   <link rel="preload" as="image" href="/hero_background_image.jpg" fetchpriority="high" />
 
+
   <!-- ── Critical inline CSS — prevents blank white flash before fonts load ── -->
   <style>
     /* Use a fallback stack that matches Outfit metrics closer to reduce CLS */
@@ -116,11 +117,11 @@
     Step 3: <noscript> ensures fonts still load without JavaScript.
   -->
   <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
     onload="this.onload=null;this.rel='stylesheet'" />
   <noscript>
     <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" />
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" />
   </noscript>
 
   <meta name="theme-color" content="#0075be" />

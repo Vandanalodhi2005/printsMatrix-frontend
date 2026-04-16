@@ -34,19 +34,21 @@ const ModelSearch = () => {
             </Helmet>
             <div className="w-full min-h-screen bg-white flex flex-col">
                 {!loading && showHeader && <HeaderSetup showLogo={showLogo} />}
-            <section
-                className="w-full min-h-[420px] flex items-start justify-center relative  md:px-[6%] px-3"
-                style={{
-                    height: '420px',
-                    backgroundImage: 'url(/hero_background_image.jpg)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                }}
-            >
-                <div className="w-full max-w-[1200px] flex  md:flex-row flex-col items-start md:justify-between justify-start relative h-full">
+            <section className="w-full min-h-[420px] relative overflow-hidden flex items-start justify-center md:px-[6%] px-3">
+                {/* High-performance Background specifically for LCP optimization */}
+                <img 
+                    src="/hero_background_image.jpg" 
+                    alt="" 
+                    className="absolute inset-0 w-full h-full object-cover z-0"
+                    fetchpriority="high"
+                    decoding="async"
+                    loading="eager"
+                />
+
+                <div className="w-full max-w-[1200px] flex md:flex-row flex-col items-start md:justify-between justify-start relative h-full z-10">
                     <div className="flex flex-col justify-center h-full w-full max-w-[700px] md:pt-0 pt-8" id="model-search-main-content">
                         <h1 className="text-white text-[2.7rem] md:text-[2.7rem] text-2xl font-normal mb-8 leading-tight drop-shadow-lg">Set up your printer</h1>
-                        <p className="text-white  md:text-xl text-base mb-8 font-normal leading-snug drop-shadow">
+                        <p className="text-white md:text-xl text-base mb-8 font-normal leading-snug drop-shadow">
                             Enter your product name and model number to get the right smart software
                             and drivers for you
                         </p>
@@ -77,6 +79,7 @@ const ModelSearch = () => {
                             width="300"
                             height="200"
                             fetchpriority="high"
+                            decoding="async"
                             className="h-[200px] w-auto max-w-none drop-shadow-xl"
                             style={{ marginBottom: '-60px' }}
                         />

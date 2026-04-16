@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ShopProvider } from './context/ShopContext';
 import { AuthProvider } from './context/AuthContext';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
 import { useEffect, lazy, Suspense } from 'react';
+import Navbar from './components/Navbar';
+const Footer = lazyWithRetry(() => import('./components/Footer'));
+import ScrollToTop from './components/ScrollToTop';
 import { useLocation } from 'react-router-dom';
 import useHeaderSettings from './hooks/useHeaderSettings';
 
@@ -191,7 +191,9 @@ const InnerApp = () => {
             </Routes>
           </Suspense>
         </main>
-        {!hideFooter && <Footer />}
+        <Suspense fallback={null}>
+          {!hideFooter && <Footer />}
+        </Suspense>
         <ScrollToTop />
 
       </div>
