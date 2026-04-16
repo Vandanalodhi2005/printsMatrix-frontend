@@ -96,7 +96,7 @@ const Hero = () => {
                                         fetchpriority="high"
                                         decoding="async"
                                         loading="eager"
-                                        className="w-full h-full object-contain transform transition-transform duration-[2000ms] group-hover:scale-105"
+                                        className="w-full h-full object-cover transform transition-transform duration-[2000ms] group-hover:scale-105"
                                     />
                                 </picture>
                             </div>
