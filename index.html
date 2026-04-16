@@ -86,7 +86,17 @@
   <link rel="preconnect" href="https://printsmatrix-backend-1.onrender.com" crossorigin />
   <link rel="dns-prefetch" href="https://printsmatrix-backend-1.onrender.com" />
 
-  <!-- Preloads moved to component level to avoid warnings on non-home routes -->
+  <!-- Smart Preload: Start LCP asset fetch immediately ONLY on the home page to avoid warnings on sub-routes -->
+  <script>
+    if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = '/home.webp';
+      link.fetchPriority = 'high';
+      document.head.appendChild(link);
+    }
+  </script>
 
 
 

@@ -1,111 +1,114 @@
 import { ShoppingCart, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import heroImage from "/home.webp";
 
 const Hero = () => {
     return (
         <section className="relative bg-[#0075be] text-white overflow-hidden min-h-[550px] lg:min-h-[650px] flex items-center">
-            <Helmet>
-                <link rel="preload" as="image" href="/home.webp" fetchPriority="high" />
-            </Helmet>
             {/* Inline CSS for Animations to keep it self-contained and fast */}
             <style dangerouslySetInnerHTML={{ __html: `
                 @keyframes heroFadeInUp {
-                    from {
-                        opacity: 0;
-                        transform: translateY(20px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
+                    from { opacity: 0; transform: translateY(30px); }
+                    to { opacity: 1; transform: translateY(0); }
                 }
-                @keyframes heroScaleIn {
-                    from {
-                        opacity: 0;
-                        transform: scale(0.9);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: scale(1);
-                    }
+                @keyframes heroFadeInRight {
+                    from { opacity: 0; transform: translateX(50px); }
+                    to { opacity: 1; transform: translateX(0); }
                 }
-                .hero-animate {
-                    animation: heroFadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-                }
-                .hero-animate-scale {
-                    animation: heroScaleIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
-                }
-                .delay-1 { animation-delay: 0.2s; }
-                .delay-2 { animation-delay: 0.35s; }
-                .delay-3 { animation-delay: 0.5s; }
-                .delay-4 { animation-delay: 0.65s; }
+                .hero-animate-up { animation: heroFadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+                .hero-animate-right { animation: heroFadeInRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
             `}} />
 
-            {/* Background Decorative Elements */}
-            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                <div className="absolute -top-[10%] -left-[5%] w-[40%] h-[60%] bg-white/5 rounded-full blur-[100px] rotate-12" />
-                <div className="absolute bottom-0 right-0 w-[50%] h-[70%] bg-black/10 rounded-full blur-[120px]" />
-            </div>
-
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10 w-full">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center text-center lg:text-left">
-                    {/* Content Left */}
-                    <div className="space-y-8 max-w-2xl mx-auto lg:mx-0">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 lg:py-20 relative z-10">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    
+                    {/* Content Column */}
+                    <div className="space-y-8 lg:space-y-10 hero-animate-up">
                         <div className="space-y-4">
-                            <h3 className="hero-animate text-xl sm:text-2xl font-semibold italic text-white/90 tracking-tight delay-1">
-                                Find the Right Printer for Your
-                            </h3>
-                            <h1 className="hero-animate text-5xl sm:text-7xl font-black text-[#facc15] tracking-tighter leading-none drop-shadow-xl delay-2">
-                                Home & Office
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-md">
+                                <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                                <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Independent U.S. Retailer</span>
+                            </div>
+                            <h1 className="text-5xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight">
+                                Home and Office <span className="text-white/70">Printing</span> Solutions
                             </h1>
+                            <p className="text-lg lg:text-xl text-white/80 max-w-xl leading-relaxed font-medium">
+                                Find printers designed to align with your everyday tasks and long-term printing needs—optimized for reliability and cost-efficiency.
+                            </p>
                         </div>
 
-                        <p className="hero-animate text-sm md:text-base text-white/90 leading-relaxed font-medium max-w-lg mx-auto lg:mx-0 delay-3">
-                            Explore printers built for everyday home use and busy office work. From compact all-in-one models to fast laser printers, discover dependable performance with easy connectivity.
-                        </p>
-
-                        <div className="hero-animate pt-4 flex justify-center lg:justify-start delay-4">
-                            <Link
-                                to="/shop"
-                                className="group inline-flex items-center gap-3 px-10 py-5 bg-white text-gray-900 font-bold uppercase tracking-widest text-sm hover:bg-[#facc15] transition-all duration-300 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] active:scale-95"
+                        <div className="flex flex-wrap gap-5 pt-4">
+                            <Link 
+                                to="/shop" 
+                                className="group relative px-8 py-4 bg-white text-[#0075be] rounded-2xl font-bold flex items-center gap-3 transition-all duration-300 hover:shadow-[0_20px_40px_rgba(255,255,255,0.2)] active:scale-95"
                             >
-                                <ShoppingCart size={20} className="transition-transform group-hover:scale-110" />
-                                SHOP PRINTERS
-                                <ArrowRight size={18} className="opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+                                Shop Products
+                                <ShoppingCart size={20} className="transition-transform group-hover:translate-x-1" />
                             </Link>
+
+                            <Link 
+                                to="/printer-setup-guide" 
+                                className="px-8 py-4 bg-transparent border-2 border-white/30 text-white rounded-2xl font-bold flex items-center gap-3 transition-all duration-300 hover:bg-white/10 hover:border-white/50 active:scale-95"
+                            >
+                                Setup Guide
+                                <ArrowRight size={20} />
+                            </Link>
+                        </div>
+
+                        {/* Social Proof */}
+                        <div className="pt-10 flex items-center gap-8 border-t border-white/10">
+                            <div>
+                                <p className="text-3xl font-black">2.5k+</p>
+                                <p className="text-[10px] uppercase font-bold tracking-widest text-white/50">Printers Delivered</p>
+                            </div>
+                            <div className="w-px h-10 bg-white/10" />
+                            <div>
+                                <p className="text-3xl font-black">4.9/5</p>
+                                <p className="text-[10px] uppercase font-bold tracking-widest text-white/50">Expert Rating</p>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Image Right */}
-                    <div className="hero-animate-scale relative flex justify-center lg:justify-end">
-                        <div className="relative group w-full max-w-lg lg:max-w-xl">
+                    {/* Image Column */}
+                    <div className="relative hero-animate-right">
+                        <div className="relative group">
+                            {/* Decorative Blobs */}
+                            <div className="absolute -top-20 -right-20 w-80 h-80 bg-white/10 rounded-full blur-[100px] animate-pulse" />
+                            <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-white/5 rounded-full blur-[100px] animate-pulse" />
+                            
+                            {/* Glass Card Container */}
                             <div className="absolute -inset-4 bg-white/10 rounded-[3rem] blur-2xl opacity-30 group-hover:opacity-50 transition duration-1000" />
                             <div className="relative overflow-hidden rounded-[2.5rem] shadow-2xl border-4 border-white/10 aspect-[4/3]">
                                 <img
-                                    src={heroImage}
+                                    src="/home.webp"
                                     srcSet="/home.webp 1170w"
                                     sizes="(max-width: 768px) 100vw, 651px"
                                     alt="Home and Office Printing Solutions"
                                     width="651"
                                     height="556"
-                                    fetchpriority="high"
+                                    fetchPriority="high"
                                     decoding="async"
                                     loading="eager"
                                     className="w-full h-full object-cover transform transition-transform duration-[2000ms] group-hover:scale-105"
                                 />
+                                
+                                {/* Info Badge */}
+                                <div className="absolute bottom-6 left-6 right-6 p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 translate-y-20 group-hover:translate-y-0 transition-transform duration-700">
+                                    <div className="flex items-center justify-between">
+                                        <div>
+                                            <p className="text-xs font-black uppercase tracking-widest text-white/60 mb-1">Top Rated Product</p>
+                                            <p className="text-lg font-bold">Wireless Business Printer</p>
+                                        </div>
+                                        <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#0075be] shadow-lg">
+                                            <ArrowRight size={24} />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            {/* Subtle bottom divider */}
-            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
-                <svg className="relative block w-full h-[40px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C58.47,112.55,200.54,64.21,321.39,56.44Z" className="fill-gray-50"></path>
-                </svg>
+                </div>
             </div>
         </section>
     );
