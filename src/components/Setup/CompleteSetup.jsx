@@ -52,14 +52,14 @@ function CompleteSetup() {
         <title>Complete Setup | HP Smart App</title>
         <link rel="preload" as="image" href="/hero_background_image.jpg" fetchpriority="high" />
       </Helmet>
-      <div className="w-full min-h-screen bg-white flex flex-col pt-16 md:pt-0">
+      <div className="w-full min-h-screen bg-white flex flex-col pt-0">
         {!settingsLoading && showHeader && <HeaderSetup showLogo={showLogo} />}
         {/* Top blue section */}
         <section className="w-full md:min-h-[560px] min-h-fit flex items-start justify-center relative px-4 md:px-[6%] py-12 md:py-0 overflow-hidden">
           {/* Guaranteed Background Layer */}
-          <img 
-            src="/hero_background_image.jpg" 
-            alt="" 
+          <img
+            src="/hero_background_image.jpg"
+            alt=""
             className="absolute inset-0 w-full h-full object-cover z-0"
             fetchpriority="high"
             decoding="async"
@@ -94,15 +94,9 @@ function CompleteSetup() {
                 <span className="font-semibold">To use all available printer features</span>, you must install the HP Smart app on a mobile device or the latest version of Windows or macOS. Available on:
               </div>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-2">
-                <a href="https://apps.apple.com/app/hp-smart/id469284907" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
-                  <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" width="120" height="40" loading="lazy" className="h-10 md:h-12" />
-                </a>
-                <a href="https://play.google.com/store/apps/details?id=com.hp.printercontrol&hl=en&gl=US" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" width="135" height="40" loading="lazy" className="h-10 md:h-12" />
-                </a>
-                <a href="https://apps.microsoft.com/store/detail/hp-smart/9WZDNCRFHWLH" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition">
-                  <img src="https://get.microsoft.com/images/en-us%20dark.svg" alt="Microsoft Store" width="120" height="40" loading="lazy" className="h-10 md:h-12 object-contain" />
-                </a>
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" width="120" height="40" loading="lazy" className="h-10 md:h-12" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" width="135" height="40" loading="lazy" className="h-10 md:h-12" />
+                <img src="https://get.microsoft.com/images/en-us%20dark.svg" alt="Microsoft Store" width="120" height="40" loading="lazy" className="h-10 md:h-12 object-contain" />
               </div>
             </div>
             <div className="hidden lg:flex flex-col items-center h-full absolute right-0 bottom-0 z-10">

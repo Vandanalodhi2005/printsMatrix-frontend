@@ -88,15 +88,9 @@ function CompleteSetup() {
                 <span className="font-semibold">To use all available printer features</span>, you must install the HP Smart app on a mobile device or the latest version of Windows or macOS. Available on:
               </div>
               <div className="flex flex-row gap-3 mb-2">
-                <a href="https://apps.apple.com/app/hp-smart/id469284907" target="_blank" rel="noopener noreferrer">
-                  <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" className="h-10" />
-                </a>
-                <a href="https://play.google.com/store/apps/details?id=com.hp.printercontrol&hl=en&gl=US" target="_blank" rel="noopener noreferrer">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" className="h-10" />
-                </a>
-                <a href="https://apps.microsoft.com/store/detail/hp-smart/9WZDNCRFHWLH" target="_blank" rel="noopener noreferrer">
-                  <img src="https://get.microsoft.com/images/en-us%20dark.svg" alt="Microsoft Store" className="h-10 object-contain" />
-                </a>
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" className="h-10" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" className="h-10" />
+                <img src="https://get.microsoft.com/images/en-us%20dark.svg" alt="Microsoft Store" className="h-10 object-contain" />
               </div>
             </div>
             <div className="hidden md:flex flex-col items-center h-full absolute right-12 bottom-0 z-10">

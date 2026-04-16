@@ -2,11 +2,11 @@ import React, { useState, useRef } from 'react';
 import SetupProgressModal from './SetupProgressModal';
 import { useState as useLocalState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { 
-  FaBoxOpen, 
-  FaMagnifyingGlass, 
-  FaWifi, 
-  FaNetworkWired, 
+import {
+  FaBoxOpen,
+  FaMagnifyingGlass,
+  FaWifi,
+  FaNetworkWired,
   FaGears,
   FaSignal,
   FaUsb,
@@ -54,7 +54,7 @@ function StepOne({ onSelect }) {
         </button>
 
         <p className="text-gray-600 mt-6 text-sm">
-          Need help? Contact our support team via <a href="/contact" className="text-blue-700 underline decoration-blue-200 underline-offset-4 font-bold">chat</a> or <a href="mailto:support@printsmatrix.com" className="text-blue-700 underline decoration-blue-200 underline-offset-4 font-bold">email</a>.
+          Need help? Contact our support team via chat or email.
         </p>
       </div>
     </div>
@@ -98,7 +98,7 @@ function StepThree({ onBack }) {
         
       </div> */}
       <p className="text-gray-600 mt-8 text-sm">
-        Need help? Contact our support team via <a href="/contact" className="text-blue-700 underline decoration-blue-200 underline-offset-4 font-bold">chat</a> or <a href="mailto:support@printsmatrix.com" className="text-blue-700 underline decoration-blue-200 underline-offset-4 font-bold">email</a>.
+        Need help? Contact our support team via chat or email.
       </p>
     </div>
   );
@@ -115,7 +115,7 @@ const IssueSelector = () => {
   const nameRef = useRef();
   const [userName, setUserName] = useState('Michal');
   const [printerModel, setPrinterModel] = useState('Officejet');
-  
+
   const navigate = useNavigate();
 
   const handleFinalSubmit = (e, form) => {

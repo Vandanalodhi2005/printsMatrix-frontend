@@ -34,7 +34,7 @@ const ModelSearch = () => {
             </Helmet>
             <div className="w-full min-h-screen bg-white flex flex-col">
                 {!loading && showHeader && <HeaderSetup showLogo={showLogo} />}
-            <section className="w-full min-h-[420px] relative overflow-hidden flex items-start justify-center md:px-[6%] px-3">
+            <section className="w-full min-h-[450px] md:min-h-[520px] relative overflow-hidden flex items-center justify-center md:px-[6%] px-6 py-12 md:py-0">
                 {/* Guaranteed Background Layer */}
                 <img 
                     src="/hero_background_image.jpg" 
@@ -45,10 +45,12 @@ const ModelSearch = () => {
                     loading="eager"
                 />
 
-                <div className="w-full max-w-[1200px] flex md:flex-row flex-col items-start md:justify-between justify-start relative h-full z-10">
-                    <div className="flex flex-col justify-center h-full w-full max-w-[700px] md:pt-0 pt-8" id="model-search-main-content">
-                        <h1 className="text-white text-[2.7rem] md:text-[2.7rem] text-2xl font-normal mb-8 leading-tight drop-shadow-lg">Set up your printer</h1>
-                        <p className="text-white md:text-xl text-base mb-8 font-normal leading-snug drop-shadow">
+                <div className="w-full max-w-[1200px] flex md:flex-row flex-col items-center md:justify-between justify-center relative z-10">
+                    <div className="flex flex-col justify-center items-center md:items-start h-full w-full max-w-[700px] text-center md:text-left" id="model-search-main-content">
+                        <h1 className="text-white text-3xl md:text-[2.7rem] font-bold mb-6 leading-tight drop-shadow-lg">
+                            Set up your printer
+                        </h1>
+                        <p className="text-white text-lg md:text-xl mb-8 font-normal leading-snug drop-shadow max-w-[500px]">
                             Enter your product name and model number to get the right smart software
                             and drivers for you
                         </p>
@@ -70,7 +72,7 @@ const ModelSearch = () => {
                                 </button>
                             )}
                         </form>
-                        {error && <div className="text-red-500 text-sm mt-2 text-left">{error}</div>}
+                        {error && <div className="text-red-500 font-semibold text-sm mt-2 text-center md:text-left">{error}</div>}
                     </div>
                     <div className="hidden md:flex items-end h-full absolute right-0 bottom-0 z-10">
                         <img
@@ -86,7 +88,7 @@ const ModelSearch = () => {
                     </div>
                 </div>
             </section>
-            <div className="w-full max-w-[1200px] md:ml-[12%] ml-0 mt-[12vh] md:px-[6%] px-3 flex md:flex-row flex-col items-start justify-between relative">
+            <div className="w-full max-w-[1200px] md:ml-[12%] ml-0 mt-16 md:mt-24 md:px-[6%] px-6 flex md:flex-row flex-col items-start justify-between relative">
                 <div className="flex flex-col w-full max-w-[700px]">
                     <p className="text-gray-700 text-[1.15rem] md:text-[1.15rem] text-base mb-6">
                         Install smart software and drivers on each mobile device or computer that you want to print from. Add the printer on the new device.

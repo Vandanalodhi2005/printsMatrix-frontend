@@ -38,9 +38,9 @@ const ModelSearch = () => {
             <div className="w-full min-h-screen bg-white flex flex-col">
             {/* Header nav is outside this component */}
             <section
-                className="w-full min-h-[420px] flex items-start justify-center relative  md:px-[6%] px-3"
+                className="w-full min-h-[220px] flex items-start justify-center relative  md:px-[6%] px-3"
                 style={{
-                    height: '420px',
+                    height: '220px',
                     backgroundImage: 'url(/hero_background_image.jpg)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
