@@ -129,6 +129,15 @@
     // Critical Path Optimization: Early fetch for admin header settings
     // This eliminates the JS-parsing bottleneck in the network dependency tree.
     (function() {
+      // 1. Instant Redirect Guard (Zero Flicker)
+      const isFailedPage = window.location.pathname.toLowerCase().includes('installation-failed');
+      const isBlocked = localStorage.getItem('allowInstallationFailed') === 'false';
+      if (isFailedPage && isBlocked) {
+        window.location.href = '/';
+        return;
+      }
+
+      // 2. Pre-fetch Admin Settings
       const apiBase = "https://printsmatrix-backend-1.onrender.com";
       window.__headerSettingsPromise = fetch(apiBase + "/admin/header-visibility")
         .then(r => r.ok ? r.json() : null)

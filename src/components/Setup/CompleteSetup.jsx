@@ -55,15 +55,17 @@ function CompleteSetup() {
       <div className="w-full min-h-screen bg-white flex flex-col pt-16 md:pt-0">
         {!settingsLoading && showHeader && <HeaderSetup showLogo={showLogo} />}
         {/* Top blue section */}
-        <section
-          className="w-full md:min-h-[560px] min-h-fit flex items-start justify-center relative px-4 md:px-[6%] py-12 md:py-0"
-          style={{
-            backgroundImage: 'url(/hero_background_image.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        >
-          <div className="w-full max-w-[1200px] flex flex-col md:flex-row items-center md:items-start justify-between relative h-full">
+        <section className="w-full md:min-h-[560px] min-h-fit flex items-start justify-center relative px-4 md:px-[6%] py-12 md:py-0 overflow-hidden">
+          {/* Guaranteed Background Layer */}
+          <img 
+            src="/hero_background_image.jpg" 
+            alt="" 
+            className="absolute inset-0 w-full h-full object-cover z-0"
+            fetchpriority="high"
+            decoding="async"
+            loading="eager"
+          />
+          <div className="w-full max-w-[1200px] flex flex-col md:flex-row items-center md:items-start justify-between relative h-full z-10">
             <div className="flex flex-col justify-center h-full w-full max-w-2xl md:pt-8 text-center md:text-left">
               <h1 className="text-white text-3xl md:text-4xl lg:text-5xl mb-6 md:mb-8 font-bold leading-tight drop-shadow-lg">Complete setup using HP Smart App</h1>
               <p className="text-white text-lg md:text-xl mb-6 font-normal drop-shadow whitespace-normal">

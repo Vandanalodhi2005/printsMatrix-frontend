@@ -3,7 +3,7 @@ import React from 'react';
 const Hero = () => {
   return (
     <section className="relative flex flex-col items-center justify-center text-center min-h-[320px] w-full overflow-hidden">
-      {/* High-performance Background specifically for LCP */}
+      {/* Guaranteed Background Layer */}
       <img 
         src="/hero_background_image.jpg" 
         alt="" 

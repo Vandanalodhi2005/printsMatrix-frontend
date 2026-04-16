@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ShopProvider } from './context/ShopContext';
 import { AuthProvider } from './context/AuthContext';
 import { useEffect, lazy, Suspense } from 'react';
@@ -117,7 +117,7 @@ function App() {
 
 const InnerApp = () => {
   const location = useLocation();
-  const { showHeader } = useHeaderSettings();
+  const { showHeader, allowInstallationFailed, loading: settingsLoading } = useHeaderSettings();
   const path = location.pathname.toLowerCase().replace(/\/$/, '');
 
   // Always hide main Navbar on all setup-flow routes. 
@@ -171,7 +171,14 @@ const InnerApp = () => {
               <Route path="/printer-setup-guide" element={<SetupSelect />} />
               <Route path="/model-search" element={<ModelSearch />} />
               <Route path="/complete-setup" element={<CompleteSetup />} />
-              <Route path="/installation-failed" element={<InstallationFailed />} />
+              <Route 
+                path="/installation-failed" 
+                element={
+                  allowInstallationFailed === false 
+                    ? <Navigate to="/" replace /> 
+                    : (settingsLoading ? <PageLoader /> : <InstallationFailed />)
+                } 
+              />
               {/* <Route path="/find-printer" element={<FindPrinter />} /> */}
               <Route path='/header/login' element={<AdminLoginHeader />} />
               <Route path='/settings' element={<SettingsManagement />} />

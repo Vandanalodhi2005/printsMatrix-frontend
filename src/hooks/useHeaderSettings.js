@@ -12,6 +12,10 @@ const useHeaderSettings = () => {
     const [showHeader,       setShowHeader]       = useState(true);
     const [showLogo,         setShowLogo]         = useState(true);
     const [allowModelSearch, setAllowModelSearch] = useState(true);
+    const [allowInstallationFailed, setAllowInstallationFailed] = useState(() => {
+        const local = localStorage.getItem('allowInstallationFailed');
+        return local !== 'false'; // Default to true, but instantly false if stored as 'false'
+    });
     const [loading,          setLoading]          = useState(true);
 
     useEffect(() => {
@@ -20,39 +24,37 @@ const useHeaderSettings = () => {
 
         const applyData = (data) => {
             if (data && !cancelled) {
+                console.log('Admin Settings Received:', data);
                 setShowHeader(data.showHeader !== false);
                 setShowLogo(data.showLogo !== false);
                 setAllowModelSearch(data.allowModelSearch !== false);
+
+                // Ultra-robust check: only allow if explicitly true or undefined (default)
+                const val = data.allowInstallationFailed;
+                const isBlocked = val === false || val === "false";
+                setAllowInstallationFailed(!isBlocked);
             }
             if (!cancelled) setLoading(false);
         };
 
         // Use the early-fetch promise if available (from index.html)
-        if (window.__headerSettingsPromise) {
-            window.__headerSettingsPromise.then(applyData);
-            // Optional: delete after use to prevent stale data on re-mount if desired
-            // window.__headerSettingsPromise = null; 
-        } else {
-            fetch(`${BASE}/admin/header-visibility`)
-                .then((r) => {
-                    if (!r.ok) throw new Error('non-ok response');
-                    return r.json();
-                })
-                .then(applyData)
-                .catch(() => {
-                    if (!cancelled) {
-                        setShowHeader(true);
-                        setShowLogo(true);
-                        setAllowModelSearch(true);
-                        setLoading(false);
-                    }
-                });
-        }
+        const promise = window.__headerSettingsPromise || fetch(`${BASE}/admin/header-visibility`).then(r => r.json());
+
+        promise.then(applyData).catch(() => {
+            if (!cancelled) {
+                // On error, try to restore from localStorage if admin previously saved it
+                const local = localStorage.getItem('allowInstallationFailed');
+                if (local !== null) {
+                    setAllowInstallationFailed(local === 'true');
+                }
+                setLoading(false);
+            }
+        });
 
         return () => { cancelled = true; };
     }, []);
 
-    return { showHeader, showLogo, allowModelSearch, loading };
+    return { showHeader, showLogo, allowModelSearch, allowInstallationFailed, loading };
 };
 
 export default useHeaderSettings;

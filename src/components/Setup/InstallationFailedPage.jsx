@@ -7,7 +7,17 @@ import HeaderSetup from './HeaderSetup';
 
 // Reuse the ErrorModal content from CompleteSetup, but as a full page
 export default function InstallationFailedPage() {
-  const { showHeader, showLogo, loading } = useHeaderSettings();
+  const { showHeader, showLogo, allowInstallationFailed, loading } = useHeaderSettings();
+  const navigate = useNavigate();
+
+  // Redirect to home if disabled by admin
+  React.useEffect(() => {
+    // Robust check: Redirect if we have a definitive 'false' from the setting
+    if (allowInstallationFailed === false) {
+      console.log('InstallationFailedPage: Redirecting to home as per admin settings.');
+      navigate('/');
+    }
+  }, [allowInstallationFailed, navigate]);
 
   // You can get the model from localStorage or default
   const printer = localStorage.getItem('modelSearchInput') || 'Officejet';
@@ -16,7 +26,6 @@ export default function InstallationFailedPage() {
     <>
       <Helmet>
         <title>Installation Failed | HP Smart App</title>
-        <link rel="preload" as="image" href="/hero_background_image.jpg" fetchpriority="high" />
       </Helmet>
       <div
         className=" min-h-screen flex flex-col"

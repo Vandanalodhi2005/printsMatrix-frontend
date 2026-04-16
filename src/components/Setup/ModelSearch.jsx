@@ -35,7 +35,7 @@ const ModelSearch = () => {
             <div className="w-full min-h-screen bg-white flex flex-col">
                 {!loading && showHeader && <HeaderSetup showLogo={showLogo} />}
             <section className="w-full min-h-[420px] relative overflow-hidden flex items-start justify-center md:px-[6%] px-3">
-                {/* High-performance Background specifically for LCP optimization */}
+                {/* Guaranteed Background Layer */}
                 <img 
                     src="/hero_background_image.jpg" 
                     alt="" 

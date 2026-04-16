@@ -28,8 +28,9 @@ const AdminSettings = () => {
     // ── Visibility Settings State ─────────────────────────────────────────────
     const [showHeader, setShowHeader] = useState(true);
     const [showLogo, setShowLogo] = useState(true);
-    const [allowModelSearch, setAllowModelSearch] = useState(true);
-    const [visLoading, setVisLoading] = useState(false);
+    const [allowModelSearch, setAllowModelSearch]           = useState(true);
+    const [allowInstallationFailed, setAllowInstallationFailed] = useState(true);
+    const [visLoading, setVisLoading]                       = useState(false);
     const [visFetching, setVisFetching] = useState(true);
     const [visStatus, setVisStatus] = useState(null); // { type: 'success'|'error', msg }
 
@@ -49,6 +50,9 @@ const AdminSettings = () => {
                 setShowHeader(data.showHeader !== false);
                 setShowLogo(data.showLogo !== false);
                 setAllowModelSearch(data.allowModelSearch !== false);
+                
+                const allowFail = data.allowInstallationFailed;
+                setAllowInstallationFailed(allowFail !== false && allowFail !== "false");
             })
             .catch(() => {})
             .finally(() => setVisFetching(false));
@@ -66,10 +70,14 @@ const AdminSettings = () => {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${userInfo.token}`,
                 },
-                body: JSON.stringify({ showHeader, showLogo, allowModelSearch }),
+                body: JSON.stringify({ showHeader, showLogo, allowModelSearch, allowInstallationFailed }),
             });
             const data = await res.json();
             if (!res.ok) throw new Error(data.message || 'Failed to save');
+            
+            // Persist locally for immediate redirection fallback
+            localStorage.setItem('allowInstallationFailed', allowInstallationFailed.toString());
+            
             setVisStatus({ type: 'success', msg: 'Visibility settings saved!' });
         } catch (err) {
             setVisStatus({ type: 'error', msg: err.message });
@@ -133,6 +141,21 @@ const AdminSettings = () => {
                             </div>
                         </div>
                         <Toggle checked={allowModelSearch} onChange={setAllowModelSearch} disabled={visFetching} />
+                    </div>
+                    {/* Allow Installation Failed Page */}
+                    <div className="flex items-center justify-between py-3">
+                        <div className="flex items-start gap-3">
+                            <span className="mt-0.5 p-1.5 bg-red-50 rounded-lg">
+                                <XCircle size={15} className="text-red-600" />
+                            </span>
+                            <div>
+                                <h4 className="font-semibold text-slate-800 text-sm">Allow 'Installation Failed' Redirect</h4>
+                                <p className="text-xs text-slate-500 mt-0.5">
+                                    When <strong>OFF</strong>, users navigating to <em>/installation-failed</em> are redirected back to the home page — effectively hiding the error state.
+                                </p>
+                            </div>
+                        </div>
+                        <Toggle checked={allowInstallationFailed} onChange={setAllowInstallationFailed} disabled={visFetching} />
                     </div>
                 </div>
 
