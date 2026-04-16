@@ -1,6 +1,6 @@
 import React from 'react';
 import { Truck, ShieldCheck, Tag, Lock, Check } from 'lucide-react';
-import whyChooseUs from "../../../public/Why-Choose-Prints-Matrix.jpg";
+import whyChooseUs from "../../../public/Why-Choose-Prints-Matrix.webp";
 
 const WhyChooseUs = () => {
     return (

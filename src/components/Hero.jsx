@@ -2,7 +2,7 @@ import React from 'react';
 import { ShoppingCart, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import home from "../../public/home.jpg";
+import home from "../../public/home.webp";
 
 const Hero = () => {
     const containerVariants = {
@@ -78,7 +78,7 @@ const Hero = () => {
                             <div className="absolute -inset-4 bg-white/10 rounded-[3rem] blur-2xl opacity-30 group-hover:opacity-50 transition duration-1000" />
                             <div className="relative overflow-hidden rounded-[2.5rem] shadow-2xl border-4 border-white/10 aspect-[4/3]">
                                 <picture>
-                                    <source srcSet={home} type="image/jpeg" />
+                                    <source srcSet={home} type="image/webp" />
                                     <img
                                         src={home}
                                         alt="Home and Office Printing Solutions"
