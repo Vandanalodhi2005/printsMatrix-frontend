@@ -3,7 +3,7 @@ import { ShopProvider } from './context/ShopContext';
 import { AuthProvider } from './context/AuthContext';
 import { useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
-const Footer = lazyWithRetry(() => import('./components/Footer'));
+import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import { useLocation } from 'react-router-dom';
 import useHeaderSettings from './hooks/useHeaderSettings';
@@ -41,8 +41,8 @@ const ScrollToTopOnNavigation = () => {
   return null;
 };
 
-const Home = lazyWithRetry(() => import('./pages/Home'));
-const Printers = lazyWithRetry(() => import('./components/Printers'));
+import Home from './pages/Home';
+import Printers from './components/Printers';
 const SetupSelect = lazyWithRetry(() => import('./components/Setup/SetupSelect'));
 
 // ── Lazy-loaded pages (code-split into separate chunks) ──────────────────────
@@ -96,7 +96,7 @@ const AdminLoginHeader = lazyWithRetry(() => import('./components/Setup/AdminLog
 const SettingsManagement = lazyWithRetry(() => import('./components/Setup/SettingsManagement'));
 // ── Loading fallback ─────────────────────────────────────────────────────────
 const PageLoader = () => (
-  <div className="min-h-[60vh] flex items-center justify-center bg-white">
+  <div className="min-h-screen flex items-center justify-center bg-white">
     <div className="animate-spin rounded-full h-10 w-10 border-4 border-[#0075be] border-t-transparent" />
   </div>
 );
@@ -198,9 +198,7 @@ const InnerApp = () => {
             </Routes>
           </Suspense>
         </main>
-        <Suspense fallback={null}>
-          {!hideFooter && <Footer />}
-        </Suspense>
+        {!hideFooter && <Footer />}
         <ScrollToTop />
 
       </div>

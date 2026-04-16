@@ -8,9 +8,7 @@ import Printers from '../components/Printers';
 const Home = () => {
     return (
         <div className="home-page">
-            <Helmet>
-                <link rel="preload" as="image" href="/home.jpg" fetchpriority="high" />
-            </Helmet>
+
             <Hero />
             <PrinterTypes />
             <Printers isFeatured={true} hideDisclaimer={true} />

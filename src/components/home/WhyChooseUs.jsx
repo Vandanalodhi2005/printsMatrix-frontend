@@ -1,6 +1,6 @@
 import React from 'react';
 import { Truck, ShieldCheck, Tag, Lock, Check } from 'lucide-react';
-import whyChooseUs from "../../../public/Why-Choose-Prints-Matrix.webp";
+
 
 const WhyChooseUs = () => {
     return (
@@ -47,9 +47,14 @@ const WhyChooseUs = () => {
                     <div className="relative group">
                         <div className="relative z-10 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-transform duration-700 group-hover:scale-[1.02]">
                             <img 
-                                src={whyChooseUs}
+                                src="/Why-Choose-Prints-Matrix.webp"
                                 alt="Modern Office Environment" 
+                                width="800"
+                                height="600"
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-auto object-cover"
+                                style={{ aspectRatio: '800 / 600' }}
                             />
                         </div>
                         {/* Background shape */}

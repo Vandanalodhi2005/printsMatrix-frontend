@@ -59,6 +59,9 @@ const PrinterTypes = () => {
                                 <img
                                     src={type.img}
                                     alt={type.title}
+                                    width="300"
+                                    height="256"
+                                    loading="lazy"
                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent group-hover:from-[#0075be]/40 transition-colors duration-500"></div>

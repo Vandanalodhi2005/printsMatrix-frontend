@@ -30,30 +30,41 @@ export const listProducts = (search = '', category = '', pageNumber = 1, brand =
     try {
         dispatch({ type: PRODUCT_LIST_REQUEST });
 
-        // Encode parameters to handle special characters
-        const searchParam = encodeURIComponent(search);
-        const categoryParam = encodeURIComponent(category);
-        const brandParam = encodeURIComponent(brand);
-        const usageCategoryParam = encodeURIComponent(usageCategory);
+        let data;
+        const isInitialHomeCall = !search && !category && pageNumber === 1 && !brand && !usageCategory && !minPrice && !maxPrice && !sort;
 
-        let url = `${import.meta.env.VITE_API_URL}/products?search=${searchParam}&category=${categoryParam}&page=${pageNumber}`;
-        if (brand && brand !== 'all') {
-            url += `&brand=${brandParam}`;
-        }
-        if (usageCategory) {
-            url += `&usageCategory=${usageCategoryParam}`;
-        }
-        if (minPrice) {
-            url += `&minPrice=${minPrice}`;
-        }
-        if (maxPrice) {
-            url += `&maxPrice=${maxPrice}`;
-        }
-        if (sort) {
-            url += `&sort=${sort}`;
+        if (isInitialHomeCall && window.__initialProductsPromise) {
+            data = await window.__initialProductsPromise;
+            window.__initialProductsPromise = null; // Consume once
         }
 
-        const { data } = await axios.get(url);
+        if (!data) {
+            // Encode parameters to handle special characters
+            const searchParam = encodeURIComponent(search);
+            const categoryParam = encodeURIComponent(category);
+            const brandParam = encodeURIComponent(brand);
+            const usageCategoryParam = encodeURIComponent(usageCategory);
+
+            let url = `${import.meta.env.VITE_API_URL}/products?search=${searchParam}&category=${categoryParam}&page=${pageNumber}`;
+            if (brand && brand !== 'all') {
+                url += `&brand=${brandParam}`;
+            }
+            if (usageCategory) {
+                url += `&usageCategory=${usageCategoryParam}`;
+            }
+            if (minPrice) {
+                url += `&minPrice=${minPrice}`;
+            }
+            if (maxPrice) {
+                url += `&maxPrice=${maxPrice}`;
+            }
+            if (sort) {
+                url += `&sort=${sort}`;
+            }
+
+            const res = await axios.get(url);
+            data = res.data;
+        }
 
         dispatch({
             type: PRODUCT_LIST_SUCCESS,
