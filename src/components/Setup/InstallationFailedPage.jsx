@@ -38,7 +38,7 @@ export default function InstallationFailedPage() {
           width: '99vw',
         }}
       >
-        {!loading && showHeader && <HeaderSetup showLogo={showLogo} />}
+
         <div className="flex flex-1 items-center justify-center px-2 sm:px-0">
           <div
             className="bg-gradient-to-br from-red-300 via-pink-300 to-yellow-400 p-1 rounded-3xl w-full max-w-3xl animate-fadeIn"

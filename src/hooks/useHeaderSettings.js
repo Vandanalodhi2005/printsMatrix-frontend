@@ -25,11 +25,17 @@ const useHeaderSettings = () => {
         const applyData = (data) => {
             if (data && !cancelled) {
                 console.log('Admin Settings Received:', data);
-                setShowHeader(data.showHeader !== false);
-                setShowLogo(data.showLogo !== false);
-                setAllowModelSearch(data.allowModelSearch !== false);
+                
+                // Robust check for both boolean false and string "false"
+                const isHeaderHidden = data.showHeader === false || data.showHeader === "false";
+                const isLogoHidden = data.showLogo === false || data.showLogo === "false";
+                const isSearchBlocked = data.allowModelSearch === false || data.allowModelSearch === "false";
+                
+                setShowHeader(!isHeaderHidden);
+                setShowLogo(!isLogoHidden);
+                setAllowModelSearch(!isSearchBlocked);
 
-                // Ultra-robust check: only allow if explicitly true or undefined (default)
+                // Check for installation-failed block
                 const val = data.allowInstallationFailed;
                 const isBlocked = val === false || val === "false";
                 setAllowInstallationFailed(!isBlocked);

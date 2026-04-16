@@ -5,6 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import { useDispatch } from 'react-redux';
 import { USER_LOGOUT } from '../redux/constants/userConstants';
 import { Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Navbar = ({ showLogo = true }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -58,6 +59,9 @@ const Navbar = ({ showLogo = true }) => {
 
     return (
         <nav className="bg-white text-gray-800 shadow-[0_2px_15px_rgba(0,0,0,0.08)] border-b border-gray-100 sticky top-0 z-50 font-sans">
+            <Helmet>
+                <link rel="preload" as="image" href="/logo/Prints-matrix-logo.png" fetchpriority="high" />
+            </Helmet>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-24">
 

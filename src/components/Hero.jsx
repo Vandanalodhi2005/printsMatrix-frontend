@@ -1,10 +1,13 @@
-import React from 'react';
 import { ShoppingCart, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Hero = () => {
     return (
         <section className="relative bg-[#0075be] text-white overflow-hidden min-h-[550px] lg:min-h-[650px] flex items-center">
+            <Helmet>
+                <link rel="preload" as="image" href="/home.webp" fetchPriority="high" />
+            </Helmet>
             {/* Inline CSS for Animations to keep it self-contained and fast */}
             <style dangerouslySetInnerHTML={{ __html: `
                 @keyframes heroFadeInUp {
@@ -29,11 +32,9 @@ const Hero = () => {
                 }
                 .hero-animate {
                     animation: heroFadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-                    opacity: 0;
                 }
                 .hero-animate-scale {
                     animation: heroScaleIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
-                    opacity: 0;
                 }
                 .delay-1 { animation-delay: 0.2s; }
                 .delay-2 { animation-delay: 0.35s; }
@@ -81,24 +82,18 @@ const Hero = () => {
                         <div className="relative group w-full max-w-lg lg:max-w-xl">
                             <div className="absolute -inset-4 bg-white/10 rounded-[3rem] blur-2xl opacity-30 group-hover:opacity-50 transition duration-1000" />
                             <div className="relative overflow-hidden rounded-[2.5rem] shadow-2xl border-4 border-white/10 aspect-[4/3]">
-                                <picture>
-                                    <source 
-                                        srcSet="/home.webp" 
-                                        type="image/webp" 
-                                    />
-                                    <img
-                                        src="/home.webp"
-                                        srcSet="/home.webp 1170w"
-                                        sizes="(max-width: 768px) 100vw, 651px"
-                                        alt="Home and Office Printing Solutions"
-                                        width="651"
-                                        height="556"
-                                        fetchpriority="high"
-                                        decoding="async"
-                                        loading="eager"
-                                        className="w-full h-full object-cover transform transition-transform duration-[2000ms] group-hover:scale-105"
-                                    />
-                                </picture>
+                                <img
+                                    src="/home.webp"
+                                    srcSet="/home.webp 1170w"
+                                    sizes="(max-width: 768px) 100vw, 651px"
+                                    alt="Home and Office Printing Solutions"
+                                    width="651"
+                                    height="556"
+                                    fetchpriority="high"
+                                    decoding="async"
+                                    loading="eager"
+                                    className="w-full h-full object-cover transform transition-transform duration-[2000ms] group-hover:scale-105"
+                                />
                             </div>
                         </div>
                     </div>

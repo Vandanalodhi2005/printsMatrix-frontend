@@ -86,9 +86,8 @@
   <link rel="preconnect" href="https://printsmatrix-backend-1.onrender.com" crossorigin />
   <link rel="dns-prefetch" href="https://printsmatrix-backend-1.onrender.com" />
 
-  <!-- Preload Critical Assets (LCP) -->
-  <link rel="preload" as="image" href="/logo/Prints-matrix-logo.png" fetchpriority="high" />
-  <link rel="preload" as="image" href="/home.webp" fetchpriority="high" />
+  <!-- Preloads moved to component level to avoid warnings on non-home routes -->
+
 
 
   <!-- ── Critical inline CSS — prevents blank white flash before fonts load ── -->
@@ -138,15 +137,15 @@
       }
 
       // 2. Pre-fetch Admin Settings & Home Products
-      const apiBase = "https://printsmatrix-backend-1.onrender.com/api";
+      const apiBase = "https://printsmatrix-backend-1.onrender.com";
       
       // Pre-fetch header settings
       window.__headerSettingsPromise = fetch(apiBase + "/admin/header-visibility")
         .then(r => r.ok ? r.json() : null)
         .catch(() => null);
 
-      // Pre-fetch home page products (matches the default call in Printers.jsx)
-      window.__initialProductsPromise = fetch(apiBase + "/products?search=&category=&page=1")
+      // Pre-fetch home page products
+      window.__initialProductsPromise = fetch(apiBase + "/api/products?search=&category=&page=1")
         .then(r => r.ok ? r.json() : null)
         .catch(() => null);
     })();

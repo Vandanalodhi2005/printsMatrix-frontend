@@ -4,6 +4,7 @@ import { AuthProvider } from './context/AuthContext';
 import { useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import HeaderSetup from './components/Setup/HeaderSetup';
 import ScrollToTop from './components/ScrollToTop';
 import { useLocation } from 'react-router-dom';
 import useHeaderSettings from './hooks/useHeaderSettings';
@@ -117,23 +118,22 @@ function App() {
 
 const InnerApp = () => {
   const location = useLocation();
-  const { showHeader, allowInstallationFailed, loading: settingsLoading } = useHeaderSettings();
+  const { showHeader, showLogo, allowInstallationFailed, loading: settingsLoading } = useHeaderSettings();
   const path = location.pathname.toLowerCase().replace(/\/$/, '');
 
   // Always hide main Navbar on all setup-flow routes. 
   // /model-search, /complete-setup, & /installation-failed will render 
   // their own specialized HeaderSetup component internally.
   const hideNavbar = ['/printer-setup-guide', '/model-search', '/complete-setup', '/installation-failed'].includes(path);
-
-  // Hide Footer on setup-flow routes consistently. 
-  // /printer-setup-guide will render its own specialized FooterSetup component internally.
-  const hideFooter = ['/printer-setup-guide', '/model-search', '/complete-setup', '/installation-failed'].includes(path);
+  const isSetupRoute = hideNavbar;
+  const hideFooter = hideNavbar;
 
   return (
     <>
       <ScrollToTopOnNavigation />
       <div className="min-h-screen bg-gray-50 flex flex-col">
         {!hideNavbar && <Navbar />}
+        {isSetupRoute && !settingsLoading && showHeader && <HeaderSetup showLogo={showLogo} />}
         <main className="flex-grow min-h-[70vh]">
           <Suspense fallback={<PageLoader />}>
             <Routes>

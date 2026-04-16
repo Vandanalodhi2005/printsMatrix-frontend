@@ -29,11 +29,10 @@ const ModelSearch = () => {
         <>
             <Helmet>
                 <title>Model Search | HP Smart App</title>
-                <link rel="preload" as="image" href="/hero_background_image.jpg" fetchpriority="high" />
-                <link rel="preload" as="image" href="/printer-without-bg.png" fetchpriority="high" />
+                <link rel="preload" as="image" href="/hero_background_image.jpg" fetchPriority="high" />
+                <link rel="preload" as="image" href="/printer-without-bg.png" fetchPriority="high" />
             </Helmet>
             <div className="w-full min-h-screen bg-white flex flex-col">
-                {!loading && showHeader && <HeaderSetup showLogo={showLogo} />}
             <section className="w-full min-h-[450px] md:min-h-[520px] relative overflow-hidden flex items-center justify-center md:px-[6%] px-6 py-12 md:py-0">
                 {/* Guaranteed Background Layer */}
                 <img 

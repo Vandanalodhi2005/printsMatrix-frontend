@@ -12,11 +12,11 @@ const HeaderSetup = ({ showLogo = true }) => {
         <div className="flex items-center gap-4">
           {showLogo && (
             <img 
-              src={logo} 
+              src="/hp-logo.jpeg" 
               alt="HP Logo" 
               width="40"
               height="40"
-              fetchpriority="high"
+              fetchPriority="high"
               decoding="async"
               className="h-10 w-10 object-contain block shrink-0 shadow-sm rounded-full" 
             />
