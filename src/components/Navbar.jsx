@@ -72,6 +72,7 @@ const Navbar = ({ showLogo = true }) => {
                                     height="48"
                                     fetchpriority="high"
                                     decoding="async"
+                                    loading="eager"
                                     className="h-10 sm:h-12 w-auto object-contain"
                                     style={{ aspectRatio: '180 / 48' }}
                                 />

@@ -39,7 +39,7 @@ const Footer = () => {
                 alt="Prints Matrix Logo"
                 width="180"
                 height="48"
-                loading="lazy"
+                loading="eager"
                 decoding="async"
                 className="h-12 w-auto object-contain"
                 style={{ aspectRatio: '180 / 48' }}

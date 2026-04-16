@@ -134,7 +134,7 @@ const InnerApp = () => {
       <ScrollToTopOnNavigation />
       <div className="min-h-screen bg-gray-50 flex flex-col">
         {!hideNavbar && <Navbar />}
-        <main className="flex-grow">
+        <main className="flex-grow min-h-[70vh]">
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Home />} />
