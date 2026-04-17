@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import Hero from './Hero';
 import IssueSelector from './IssueSelector';
 import FooterSetup from './FooterSetup';
+import SetupGuide from './SetupGuide';
 
 const SetupSelect = () => {
     return (
@@ -148,6 +149,8 @@ const SetupSelect = () => {
             </Helmet>
             <Hero />
             <IssueSelector />
+
+            <SetupGuide />
             <FooterSetup />
         </>
     );
