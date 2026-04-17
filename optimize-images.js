@@ -8,16 +8,18 @@ const outputPath = 'd:/TechnoSky_Official/printsMatrix/frontend/public/hero_back
 async function convert() {
   try {
     await sharp(inputPath)
-      .webp({ quality: 80 })
+      .resize(1200)
+      .webp({ quality: 75 })
       .toFile(outputPath);
-    console.log('Successfully converted hero_background_image.webp to webp');
-    
-    // Also optimize the original JPG if we want to keep it as fallback
-    const optimizedJpgPath = 'd:/TechnoSky_Official/printsMatrix/frontend/public/hero_background_image_optimized.webp';
-    await sharp(inputPath)
-      .jpeg({ quality: 75, progressive: true })
-      .toFile(optimizedJpgPath);
     console.log('Successfully optimized hero_background_image.webp');
+    
+    // Also generate a smaller version for mobile
+    const mobilePath = 'd:/TechnoSky_Official/printsMatrix/frontend/public/hero_background_image_mobile.webp';
+    await sharp(inputPath)
+      .resize(800)
+      .webp({ quality: 70 })
+      .toFile(mobilePath);
+    console.log('Successfully generated mobile version');
 
   } catch (error) {
     console.error('Error during conversion:', error);

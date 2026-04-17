@@ -85,12 +85,12 @@ const Hero = () => {
                             <div className="relative overflow-hidden rounded-[2.5rem] shadow-2xl border-4 border-white/10 aspect-[4/3]">
                                 <img
                                     src="/home.webp"
-                                    srcSet="/home.webp 1170w"
+                                    srcSet="/home.webp 800w"
                                     sizes="(max-width: 768px) 100vw, 651px"
                                     alt="Home and Office Printing Solutions"
                                     width="651"
                                     height="556"
-                                    fetchpriority="high"
+                                    fetchPriority="high"
                                     decoding="async"
                                     loading="eager"
                                     className="w-full h-full object-cover transform transition-transform duration-[2000ms] group-hover:scale-105"
