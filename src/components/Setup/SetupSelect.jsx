@@ -14,7 +14,7 @@ const SetupSelect = () => {
                 <link rel="canonical" href="https://printsmatrix.com/123-hp-printer-setup-offline-fix" />
 
                 {/* Performance Preload */}
-                <link rel="preload" as="image" href="/hero_background_image.jpg" fetchPriority="high" />
+                <link rel="preload" as="image" href="/hero_background_image.webp" fetchPriority="high" />
 
                 {/* Open Graph */}
                 <meta property="og:type" content="website" />

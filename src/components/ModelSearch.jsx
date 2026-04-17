@@ -41,7 +41,7 @@ const ModelSearch = () => {
                 className="w-full min-h-[220px] flex items-start justify-center relative  md:px-[6%] px-3"
                 style={{
                     height: '220px',
-                    backgroundImage: 'url(/hero_background_image.jpg)',
+                    backgroundImage: 'url(/hero_background_image.webp)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}

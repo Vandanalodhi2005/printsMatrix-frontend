@@ -66,14 +66,14 @@ function CompleteSetup() {
     <>
       <Helmet>
         <title>Complete Setup | HP Smart App</title>
-        <link rel="preload" as="image" href="/hero_background_image.jpg" fetchPriority="high" />
+        <link rel="preload" as="image" href="/hero_background_image.webp" fetchPriority="high" />
       </Helmet>
       <div className="w-full min-h-screen bg-white flex flex-col pt-0">
         {/* Top blue section */}
         <section className="w-full md:min-h-[560px] min-h-fit flex items-start justify-center relative px-4 md:px-[6%] py-12 md:py-0 overflow-hidden">
           {/* Guaranteed Background Layer */}
           <img
-            src="/hero_background_image.jpg"
+            src="/hero_background_image.webp"
             alt=""
             className="absolute inset-0 w-full h-full object-cover z-0"
             fetchPriority="high"

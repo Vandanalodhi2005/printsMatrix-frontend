@@ -17,7 +17,7 @@ export default function InstallationFailedPage() {
       <div
         className=" min-h-screen flex flex-col"
         style={{
-          backgroundImage: "url('/hero_background_image.jpg')",
+          backgroundImage: "url('/hero_background_image.webp')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

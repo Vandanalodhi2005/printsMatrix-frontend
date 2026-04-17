@@ -2,7 +2,7 @@ import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
 
-const inputPath = 'd:/TechnoSky_Official/printsMatrix/frontend/public/hero_background_image.jpg';
+const inputPath = 'd:/TechnoSky_Official/printsMatrix/frontend/public/hero_background_image.webp';
 const outputPath = 'd:/TechnoSky_Official/printsMatrix/frontend/public/hero_background_image.webp';
 
 async function convert() {
@@ -10,14 +10,14 @@ async function convert() {
     await sharp(inputPath)
       .webp({ quality: 80 })
       .toFile(outputPath);
-    console.log('Successfully converted hero_background_image.jpg to webp');
+    console.log('Successfully converted hero_background_image.webp to webp');
     
     // Also optimize the original JPG if we want to keep it as fallback
-    const optimizedJpgPath = 'd:/TechnoSky_Official/printsMatrix/frontend/public/hero_background_image_optimized.jpg';
+    const optimizedJpgPath = 'd:/TechnoSky_Official/printsMatrix/frontend/public/hero_background_image_optimized.webp';
     await sharp(inputPath)
       .jpeg({ quality: 75, progressive: true })
       .toFile(optimizedJpgPath);
-    console.log('Successfully optimized hero_background_image.jpg');
+    console.log('Successfully optimized hero_background_image.webp');
 
   } catch (error) {
     console.error('Error during conversion:', error);

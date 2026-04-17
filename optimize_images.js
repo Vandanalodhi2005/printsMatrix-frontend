@@ -3,8 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 const images = [
-  { name: 'home.jpg', width: 800 },
-  { name: 'hero_background_image.jpg', width: 1200 }
+  { name: 'home.webp', width: 800 },
+  { name: 'hero_background_image.webp', width: 1200 }
 ];
 
 async function optimize() {

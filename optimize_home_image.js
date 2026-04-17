@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 async function optimizeImage() {
-    const inputPath = 'public/home.jpg';
+    const inputPath = 'public/home.webp';
     const outputPath = 'public/home.webp';
 
     try {

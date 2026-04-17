@@ -5,7 +5,7 @@ const Hero = () => {
     <section className="relative flex flex-col items-center justify-center text-center min-h-[320px] w-full overflow-hidden">
       {/* Guaranteed Background Layer */}
       <img 
-        src="/hero_background_image.jpg" 
+        src="/hero_background_image.webp" 
         alt="" 
         className="absolute inset-0 w-full h-full object-cover z-0"
         fetchPriority="high"

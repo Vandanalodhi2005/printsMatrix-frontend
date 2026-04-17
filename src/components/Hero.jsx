@@ -7,7 +7,7 @@ const Hero = () => {
     return (
         <section className="relative bg-[#0075be] text-white overflow-hidden min-h-[550px] lg:min-h-[650px] flex items-center">
             <Helmet>
-                <link rel="preload" as="image" href="/home.jpg" fetchPriority="high" />
+                <link rel="preload" as="image" href="/home.webp" fetchPriority="high" />
             </Helmet>
             {/* Inline CSS for Animations to keep it self-contained and fast */}
             <style dangerouslySetInnerHTML={{ __html: `
@@ -84,8 +84,8 @@ const Hero = () => {
                             <div className="absolute -inset-4 bg-white/10 rounded-[3rem] blur-2xl opacity-30 group-hover:opacity-50 transition duration-1000" />
                             <div className="relative overflow-hidden rounded-[2.5rem] shadow-2xl border-4 border-white/10 aspect-[4/3]">
                                 <img
-                                    src="/home.jpg"
-                                    srcSet="/home.jpg 1170w"
+                                    src="/home.webp"
+                                    srcSet="/home.webp 1170w"
                                     sizes="(max-width: 768px) 100vw, 651px"
                                     alt="Home and Office Printing Solutions"
                                     width="651"
