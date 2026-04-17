@@ -8,7 +8,7 @@ import useHeaderSettings from '../../hooks/useHeaderSettings';
 import HeaderSetup from './HeaderSetup';
 
 function CompleteSetup() {
-  const { showHeader, showLogo, loading: settingsLoading } = useHeaderSettings();
+  const { showHeader, showLogo, allowInstallationFailed, loading: settingsLoading } = useHeaderSettings();
   const navigate = useNavigate();
   const [showFinalStep, setShowFinalStep] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -43,7 +43,23 @@ function CompleteSetup() {
   // No longer needed: handleError
 
   if (showModal) {
-    return <div className="fixed inset-0 z-50 bg-white flex items-center justify-center"><SetupProgressModal open={showModal} onClose={() => setShowModal(false)} user={userName} printer={printerModel} onError={() => navigate('/installation-failed')} /></div>;
+    return (
+      <div className="fixed inset-0 z-50 bg-white flex items-center justify-center">
+        <SetupProgressModal 
+          open={showModal} 
+          onClose={() => setShowModal(false)} 
+          user={userName} 
+          printer={printerModel} 
+          onError={() => {
+            if (allowInstallationFailed === false) {
+              navigate('/', { replace: true });
+            } else {
+              navigate('/installation-failed');
+            }
+          }} 
+        />
+      </div>
+    );
   }
 
   return (
@@ -60,7 +76,7 @@ function CompleteSetup() {
             src="/hero_background_image.jpg"
             alt=""
             className="absolute inset-0 w-full h-full object-cover z-0"
-            fetchpriority="high"
+            fetchPriority="high"
             decoding="async"
             loading="eager"
           />

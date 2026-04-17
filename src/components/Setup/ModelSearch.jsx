@@ -39,7 +39,7 @@ const ModelSearch = () => {
                     src="/hero_background_image.jpg" 
                     alt="" 
                     className="absolute inset-0 w-full h-full object-cover z-0"
-                    fetchpriority="high"
+                    fetchPriority="high"
                     decoding="async"
                     loading="eager"
                 />
@@ -79,7 +79,7 @@ const ModelSearch = () => {
                             alt="Printer and Devices"
                             width="300"
                             height="200"
-                            fetchpriority="high"
+                            fetchPriority="high"
                             decoding="async"
                             className="h-[200px] w-auto max-w-none drop-shadow-xl"
                             style={{ marginBottom: '-60px' }}

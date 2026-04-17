@@ -9,12 +9,19 @@ const BASE = (import.meta.env.VITE_API_URL || '').replace('/api', '');
  */
 const useHeaderSettings = () => {
     // Always start with everything visible — only hide when backend explicitly says so
-    const [showHeader,       setShowHeader]       = useState(true);
-    const [showLogo,         setShowLogo]         = useState(true);
+    const [showHeader, setShowHeader] = useState(() => {
+        const local = localStorage.getItem('showHeader');
+        return local === null ? true : local === 'true';
+    });
+    const [showLogo, setShowLogo] = useState(() => {
+        const local = localStorage.getItem('showLogo');
+        return local === null ? true : local === 'true';
+    });
     const [allowModelSearch, setAllowModelSearch] = useState(true);
     const [allowInstallationFailed, setAllowInstallationFailed] = useState(() => {
+        // Default to false (hidden) for error page, unless explicitly stored as 'true'
         const local = localStorage.getItem('allowInstallationFailed');
-        return local !== 'false'; // Default to true, but instantly false if stored as 'false'
+        return local === 'true';
     });
     const [loading,          setLoading]          = useState(true);
 
@@ -24,21 +31,22 @@ const useHeaderSettings = () => {
 
         const applyData = (data) => {
             if (data && !cancelled) {
-                console.log('Admin Settings Received:', data);
+                console.log('Syncing Admin Settings:', data);
                 
-                // Robust check for both boolean false and string "false"
-                const isHeaderHidden = data.showHeader === false || data.showHeader === "false";
-                const isLogoHidden = data.showLogo === false || data.showLogo === "false";
-                const isSearchBlocked = data.allowModelSearch === false || data.allowModelSearch === "false";
+                const isHeaderOn       = data.showHeader === true || data.showHeader === "true";
+                const isLogoOn         = data.showLogo === true || data.showLogo === "true";
+                const isSearchOn       = data.allowModelSearch === true || data.allowModelSearch === "true";
+                const isFailAllowed    = data.allowInstallationFailed === true || data.allowInstallationFailed === "true";
                 
-                setShowHeader(!isHeaderHidden);
-                setShowLogo(!isLogoHidden);
-                setAllowModelSearch(!isSearchBlocked);
+                setShowHeader(isHeaderOn);
+                setShowLogo(isLogoOn);
+                setAllowModelSearch(isSearchOn);
+                setAllowInstallationFailed(isFailAllowed);
 
-                // Check for installation-failed block
-                const val = data.allowInstallationFailed;
-                const isBlocked = val === false || val === "false";
-                setAllowInstallationFailed(!isBlocked);
+                // Persist all critical settings to localStorage for zero-flicker reload
+                localStorage.setItem('showHeader', isHeaderOn.toString());
+                localStorage.setItem('showLogo', isLogoOn.toString());
+                localStorage.setItem('allowInstallationFailed', isFailAllowed.toString());
             }
             if (!cancelled) setLoading(false);
         };

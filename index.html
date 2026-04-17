@@ -130,14 +130,15 @@
     (function() {
       // 1. Instant Redirect Guard (Zero Flicker)
       const isFailedPage = window.location.pathname.toLowerCase().includes('installation-failed');
-      const isBlocked = localStorage.getItem('allowInstallationFailed') === 'false';
-      if (isFailedPage && isBlocked) {
+      const isAllowed = localStorage.getItem('allowInstallationFailed') === 'true';
+      if (isFailedPage && !isAllowed) {
         window.location.href = '/';
         return;
       }
 
       // 2. Pre-fetch Admin Settings & Home Products
-      const apiBase = "https://printsmatrix-backend-1.onrender.com";
+      const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      const apiBase = isLocal ? "http://127.0.0.1:5000" : "https://printsmatrix-backend-1.onrender.com";
       
       // Pre-fetch header settings
       window.__headerSettingsPromise = fetch(apiBase + "/admin/header-visibility")

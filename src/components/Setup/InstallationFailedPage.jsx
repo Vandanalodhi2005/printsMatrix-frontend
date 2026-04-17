@@ -15,9 +15,12 @@ export default function InstallationFailedPage() {
     // Robust check: Redirect if we have a definitive 'false' from the setting
     if (allowInstallationFailed === false) {
       console.log('InstallationFailedPage: Redirecting to home as per admin settings.');
-      navigate('/');
+      navigate('/', { replace: true });
     }
   }, [allowInstallationFailed, navigate]);
+
+  // Prevent flicker by returning null immediately if we are supposed to be redirected
+  if (allowInstallationFailed === false) return null;
 
   // You can get the model from localStorage or default
   const printer = localStorage.getItem('modelSearchInput') || 'Officejet';

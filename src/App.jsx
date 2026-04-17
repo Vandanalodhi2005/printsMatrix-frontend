@@ -128,6 +128,9 @@ const InnerApp = () => {
   const isSetupRoute = hideNavbar;
   const hideFooter = hideNavbar;
 
+  // Redirection is handled directly in the <Route> components for zero-flicker transitions.
+  // The index.html guard handles the pre-mount hard redirect.
+
   return (
     <>
       <ScrollToTopOnNavigation />
@@ -174,9 +177,11 @@ const InnerApp = () => {
               <Route 
                 path="/installation-failed" 
                 element={
-                  allowInstallationFailed === false 
-                    ? <Navigate to="/" replace /> 
-                    : (settingsLoading ? <PageLoader /> : <InstallationFailed />)
+                  settingsLoading 
+                    ? <PageLoader /> 
+                    : (allowInstallationFailed === true 
+                        ? <InstallationFailed /> 
+                        : <Navigate to="/" replace />)
                 } 
               />
               {/* <Route path="/find-printer" element={<FindPrinter />} /> */}

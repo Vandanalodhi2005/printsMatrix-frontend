@@ -47,12 +47,12 @@ const AdminSettings = () => {
         fetch(`${BACKEND}/admin/header-visibility`)
             .then((r) => r.json())
             .then((data) => {
-                setShowHeader(data.showHeader !== false);
-                setShowLogo(data.showLogo !== false);
-                setAllowModelSearch(data.allowModelSearch !== false);
-                
-                const allowFail = data.allowInstallationFailed;
-                setAllowInstallationFailed(allowFail !== false && allowFail !== "false");
+                if (data) {
+                    setShowHeader(data.showHeader === true);
+                    setShowLogo(data.showLogo === true);
+                    setAllowModelSearch(data.allowModelSearch === true);
+                    setAllowInstallationFailed(data.allowInstallationFailed === true);
+                }
             })
             .catch(() => {})
             .finally(() => setVisFetching(false));
