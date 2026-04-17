@@ -53,7 +53,7 @@ const About = () => {
                         <div className="relative group">
                             <div className="relative z-10 rounded-[2rem] overflow-hidden shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]">
                                 <img 
-                                    src="/about/about.jpg" 
+                                    src="/about/about.webp" 
                                     alt="Modern Office Connectivity" 
                                     className="w-full h-auto object-cover min-h-[400px] md:min-h-[500px]"
                                     onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1000'; }}

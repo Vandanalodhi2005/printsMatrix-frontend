@@ -31,7 +31,7 @@ const FindPrinter = () => {
             className="flex-1 flex justify-center md:justify-end"
           >
             <img 
-              src="/type/p-type2.jpg" 
+              src="/type/p-type2.webp" 
               alt="Setup Support" 
               className="w-full max-w-md object-contain drop-shadow-xl"
             />
@@ -115,7 +115,7 @@ const FindPrinter = () => {
               className="flex-1 flex justify-center"
             >
               <img 
-                src="/type/p-type1.jpg" 
+                src="/type/p-type1.webp" 
                 alt="Printer Model" 
                 className="w-full max-w-md object-contain drop-shadow-2xl"
               />

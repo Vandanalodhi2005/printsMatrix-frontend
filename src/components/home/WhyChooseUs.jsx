@@ -47,7 +47,7 @@ const WhyChooseUs = () => {
                     <div className="relative group">
                         <div className="relative z-10 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-transform duration-700 group-hover:scale-[1.02]">
                             <img 
-                                src="/Why-Choose-Prints-Matrix.webp"
+                                src="/about/about.webp"
                                 alt="Modern Office Environment" 
                                 width="800"
                                 height="600"

@@ -7,25 +7,25 @@ const PrinterTypes = () => {
         {
             title: "Home Printers",
             description: "Best for documents, photos & schoolwork",
-            img: "/type/p-type1.jpg",
+            img: "/type/p-type1.webp",
             link: "/shop?filter=home-printers"
         },
         {
             title: "Office Printers",
             description: "Best for teams, invoices & daily workloads",
-            img: "/type/p-type2.jpg",
+            img: "/type/p-type2.webp",
             link: "/shop?filter=office-printers"
         },
         {
             title: "Laser Printers",
             description: "Best for speed, efficiency & bulk printing",
-            img: "/type/p-type3.jpg",
+            img: "/type/p-type3.webp",
             link: "/shop?filter=laser-printers"
         },
         {
             title: "Inkjet Printers",
             description: "Best for photos, color prints & versatility",
-            img: "/type/p-type4.jpg",
+            img: "/type/p-type4.webp",
             link: "/shop?filter=inkjet-printers"
         }
     ];
