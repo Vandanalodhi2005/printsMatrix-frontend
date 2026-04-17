@@ -125,7 +125,7 @@ const InnerApp = () => {
   // /model-search, /complete-setup, & /installation-failed will render 
   // their own specialized HeaderSetup component internally.
   const hideNavbar = ['/printer-setup-guide', '/model-search', '/complete-setup', '/installation-failed'].includes(path);
-  const isSetupRoute = hideNavbar;
+  const isSetupRoute = ['/model-search', '/complete-setup', '/installation-failed'].includes(path);
   const hideFooter = hideNavbar;
 
   // Redirection is handled directly in the <Route> components for zero-flicker transitions.
