@@ -14,7 +14,7 @@ const SetupSelect = () => {
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="theme-color" content="#ffffff" />
 
-        <link rel="canonical" href="https://printsmatrix.com/123-hp-printer-setup-offline-fix" />
+        <link rel="canonical" href="https://printsmatrix.com/printer-setup-guide/" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
@@ -22,7 +22,7 @@ const SetupSelect = () => {
         <meta property="og:site_name" content="Prints Matrix" />
         <meta property="og:title" content="123.hp.com/setup | HP Printer Setup, Offline Fix & Troubleshooting" />
         <meta property="og:description" content="Complete HP printer setup, fix HP printer offline problems, and troubleshoot HP printer issues with easy guided steps." />
-        <meta property="og:url" content="https://printsmatrix.com/123-hp-printer-setup-offline-fix" />
+        <meta property="og:url" content="https://printsmatrix.com/printer-setup-guide/" />
         <meta property="og:image" content="https://printsmatrix.com/images/hp-printer-setup-guide.jpg" />
         <meta property="og:image:alt" content="HP printer setup and troubleshooting guide" />
 
@@ -41,7 +41,7 @@ const SetupSelect = () => {
             "@context": "https://schema.org",
             "@type": "WebPage",
             "name": "123.hp.com/setup | HP Printer Setup, Offline Fix & Troubleshooting",
-            "url": "https://printsmatrix.com/123-hp-printer-setup-offline-fix",
+            "url": "https://printsmatrix.com/printer-setup-guide/",
             "description": "Step-by-step guidance for HP printer setup, fixing HP printer offline problems, and troubleshooting HP printer issues.",
             "inLanguage": "en"
           })}
@@ -63,13 +63,13 @@ const SetupSelect = () => {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "HP Printer Support",
-                "item": "https://printsmatrix.com/hp-printer-support"
+                "item": "https://printsmatrix.com/printer-setup-guide/"
               },
               {
                 "@type": "ListItem",
                 "position": 3,
                 "name": "123.hp.com/setup | HP Printer Setup, Offline Fix & Troubleshooting",
-                "item": "https://printsmatrix.com/123-hp-printer-setup-offline-fix"
+                "item": "https://printsmatrix.com/printer-setup-guide/"
               }
             ]
           })}
