@@ -5,10 +5,14 @@ import store from './redux/store'
 import './index.css'
 import App from './App.jsx'
 
+import { HelmetProvider } from 'react-helmet-async';
+
 createRoot(document.getElementById('root')).render(
-
-  <Provider store={store}>
-    <App />
-  </Provider>
-
+  <StrictMode>
+    <Provider store={store}>
+      <HelmetProvider>
+        <App />
+      </HelmetProvider>
+    </Provider>
+  </StrictMode>
 )

@@ -9,8 +9,7 @@
 
   <!-- ── Primary SEO ───────────────────────────────────────────────────── -->
   <title>Prints Matrix</title>
-  <meta name="description"
-    content="Innovation Dynamics Group LLC is a U.S.-based independent online retailer specializing in home printers, office printers, laser printers, inkjet printers, and ink & toner supplies. Shop verified products with free shipping, manufacturer warranty, and dedicated support." />
+
   <meta name="keywords"
     content="printers, home printers, office printers, laser printers, inkjet printers, ink and toner, buy printers online, Innovation Dynamics Group, IDG printers, Minnesota printer retailer" />
   <meta name="author" content="Prints Matrix" />
@@ -126,12 +125,12 @@
   <script>
     // Critical Path Optimization: Early fetch for admin header settings
     // This eliminates the JS-parsing bottleneck in the network dependency tree.
-    (function() {
+    (function () {
       // 1. Instant Redirect Guard (Zero Flicker)
       const path = window.location.pathname.toLowerCase();
       const isFailedPage = path.includes('installation-failed');
       const isCompletePage = path.includes('complete-setup');
-      
+
       const allowFailed = localStorage.getItem('allowInstallationFailed') === 'true';
       const allowComplete = localStorage.getItem('allowCompleteSetup') !== 'false'; // Default true
 
@@ -143,7 +142,7 @@
       // 2. Pre-fetch Admin Settings & Home Products
       const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
       const apiBase = isLocal ? "http://127.0.0.1:5000" : "https://printsmatrix-backend-1.onrender.com";
-      
+
       // Pre-fetch header settings
       window.__headerSettingsPromise = fetch(apiBase + "/admin/header-visibility")
         .then(r => r.ok ? r.json() : null)
