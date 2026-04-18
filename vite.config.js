@@ -25,12 +25,6 @@ export default defineConfig({
         completeSetup: resolve(__dirname, 'complete-setup.html'),
         installationFailed: resolve(__dirname, 'installation-failed.html'),
       },
-      output: {
-        // Stable, predictable chunk names so Netlify caches correctly
-        chunkFileNames: 'assets/[name]-[hash].js',
-        entryFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash][extname]',
-      },
     },
   },
 });
