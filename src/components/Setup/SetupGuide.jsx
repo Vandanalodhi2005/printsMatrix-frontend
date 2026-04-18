@@ -64,10 +64,10 @@ const SetupGuide = () => {
     return (
         <>
            
-            <div className="relative min-h-screen overflow-x-hidden mt-5 md:mt-10 bg-white">
+            <div className="relative min-h-screen overflow-x-hidden  bg-white">
            
-            <hr />
-            <main className="relative w-full max-w-5xl mx-auto px-2 sm:px-4 animate-fade-in z-10">
+        
+            <main className="relative w-full max-w-5xl mt-5 md:mt-10 mx-auto px-2 sm:px-4 animate-fade-in z-10">
                
 
 
