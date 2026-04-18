@@ -6,7 +6,7 @@ import { resolve } from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss(), cssInjectedByJsPlugin()],
+  plugins: [react(), tailwindcss()],
 
   // Must be '/' so all asset paths in the built index.html are absolute.
   // A relative base (e.g. './') causes MIME errors on Netlify because
