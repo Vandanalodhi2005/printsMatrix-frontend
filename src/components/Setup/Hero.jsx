@@ -6,7 +6,7 @@ const Hero = () => {
       {/* Guaranteed Background Layer */}
       <img 
         src="/hero_background_image.webp" 
-        alt="" 
+        alt="123.hp.com/setup | HP Printer Setup, Offline Fix & Troubleshooting" 
         className="absolute inset-0 w-full h-full object-cover z-0"
         fetchPriority="high"
         decoding="async"

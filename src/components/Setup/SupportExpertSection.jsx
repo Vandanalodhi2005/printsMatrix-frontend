@@ -39,7 +39,7 @@ export default function SupportExpertSection({
           <div className="w-full max-w-[320px] sm:max-w-[380px] h-[200px] sm:h-[260px] md:h-[300px] rounded-2xl overflow-hidden">
             <img
               src={image}
-              alt="Customer support expert with headset ready to help with printer setup"
+              alt="24/7 Live Chat Assistance"
               className="w-full h-full object-cover rounded-2xl"
             />
           </div>
