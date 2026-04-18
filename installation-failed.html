@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ── Custom SEO for Installation Failed ───────────────────────────── -->
+  <title>123.hp.com/setup | HP Printer Setup, Offline Fix & Troubleshooting</title>
+  <meta name="description" content="Visit 123.hp.com/setup for HP printer setup help, fix HP printer offline issues, and troubleshoot HP printer errors with step-by-step guidance. Get help from HP certified technician.">
+
+  <!-- ── Favicon ───────────────────────────────────────────────────────── -->
+  <link rel="icon" type="image/png" href="/vite.png" />
+
+  <!-- ── Performance hints ─────────────────────────────────────────── -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://code.jivosite.com" />
+  <link rel="preconnect" href="https://printsmatrix-backend-1.onrender.com" crossorigin />
+
+  <!-- ── Critical inline CSS ── -->
+  <style>
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      background: #f9fafb;
+      margin: 0;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    #root {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" />
+  </noscript>
+
+  <meta name="theme-color" content="#0075be" />
+  <script>
+    (function() {
+      const path = window.location.pathname.toLowerCase();
+      const isFailedPage = path.includes('installation-failed');
+      const isCompletePage = path.includes('complete-setup');
+      
+      const allowFailed = localStorage.getItem('allowInstallationFailed') === 'true';
+      const allowComplete = localStorage.getItem('allowCompleteSetup') !== 'false';
+
+      if ((isFailedPage && !allowFailed) || (isCompletePage && !allowComplete)) {
+        window.location.href = '/printer-setup-guide/';
+        return;
+      }
+
+      const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      const apiBase = isLocal ? "http://127.0.0.1:5000" : "https://printsmatrix-backend-1.onrender.com";
+      
+      window.__headerSettingsPromise = fetch(apiBase + "/admin/header-visibility")
+        .then(r => r.ok ? r.json() : null)
+        .catch(() => null);
+
+      window.__initialProductsPromise = fetch(apiBase + "/api/products?search=&category=&page=1")
+        .then(r => r.ok ? r.json() : null)
+        .catch(() => null);
+    })();
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+  <script>
+    function loadJivo() {
+      if (window.jivoLoaded) return;
+      window.jivoLoaded = true;
+      const s = document.createElement('script');
+      s.src = "//code.jivosite.com/widget/Tt7Z2rjzUJ";
+      s.async = true;
+      document.body.appendChild(s);
+      window.removeEventListener('scroll', loadJivo);
+      window.removeEventListener('mousemove', loadJivo);
+      window.removeEventListener('touchstart', loadJivo);
+    }
+    window.addEventListener('scroll', loadJivo, { passive: true });
+    window.addEventListener('mousemove', loadJivo, { passive: true });
+    window.addEventListener('touchstart', loadJivo, { passive: true });
+    setTimeout(loadJivo, 8000);
+  </script>
+</body>
+
+</html>

@@ -28,7 +28,8 @@ export default function InstallationFailedPage() {
   return (
     <>
       <Helmet>
-        <title>Installation Failed | HP Smart App</title>
+        <title>123.hp.com/setup | HP Printer Setup, Offline Fix & Troubleshooting</title>
+        <meta name="description" content="Visit 123.hp.com/setup for HP printer setup help, fix HP printer offline issues, and troubleshoot HP printer errors with step-by-step guidance. Get help from HP certified technician." />
       </Helmet>
       <div
         className=" min-h-screen flex flex-col"

@@ -21,6 +21,9 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         setup: resolve(__dirname, 'printer-setup-guide.html'),
+        modelSearch: resolve(__dirname, 'model-search.html'),
+        completeSetup: resolve(__dirname, 'complete-setup.html'),
+        installationFailed: resolve(__dirname, 'installation-failed.html'),
       },
       output: {
         // Stable, predictable chunk names so Netlify caches correctly

@@ -65,7 +65,8 @@ function CompleteSetup() {
   return (
     <>
       <Helmet>
-        <title>Complete Setup | HP Smart App</title>
+        <title>123.hp.com/setup | HP Printer Setup, Offline Fix & Troubleshooting</title>
+        <meta name="description" content="Visit 123.hp.com/setup for HP printer setup help, fix HP printer offline issues, and troubleshoot HP printer errors with step-by-step guidance. Get help from HP certified technician." />
         <link rel="preload" as="image" href="/hero_background_image.webp" fetchPriority="high" />
       </Helmet>
       <div className="w-full min-h-screen bg-white flex flex-col pt-0">

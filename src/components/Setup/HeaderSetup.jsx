@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../../public/hp-logo.jpeg';
+const logo = '/hp-logo.jpeg';
 
 const HeaderSetup = ({ showLogo = true }) => {
   const [menuOpen, setMenuOpen] = useState(false);
