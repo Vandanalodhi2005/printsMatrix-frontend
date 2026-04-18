@@ -35,25 +35,25 @@ const SetupGuide = () => {
     // Step data for quick start cards (updated as per user request)
    const stepCards = [
         {
-            img: "./1ba.webp",
+            img: "/1ba.webp",
             title: "Download the Latest Software",
             desc: "Get the latest printer drivers and software designed for optimal performance and compatibility. Always download the official version to ensure smooth installation and reliable printing results.",
             alt: "Download Hp Smart App"
         },
         {
-            img: "./2ba.webp",
+            img: "/2ba.webp",
             title: "Connect Your Printer",
             desc: "Connect your printer via USB cable or Wi-Fi network using the printer’s setup options. For wireless connections, make sure your printer and device are on the same network before proceeding.",
             alt: "Connect Hp Printer to Wifi"
         },
         {
-            img: "./3ba.webp",
+            img: "/3ba.webp",
             title: "Install the Printer Drivers",
             desc: "Run the downloaded setup file and follow the on-screen instructions to install the required drivers. This ensures your printer communicates correctly with your computer or mobile device.",
             alt: "Start 123 Hp Com Setup And Installation"
         },
         {
-            img: "./4ba.webp",
+            img: "/4ba.webp",
             title: "Test the Printer",
             desc: "Once installation is complete, print a test page to confirm that your printer is working properly. Adjust settings as needed for the best print quality and performance.",
             alt: "Finish 123.hp.com/setup and test print"
