@@ -45,18 +45,18 @@ function CompleteSetup() {
   if (showModal) {
     return (
       <div className="fixed inset-0 z-50 bg-white flex items-center justify-center">
-        <SetupProgressModal 
-          open={showModal} 
-          onClose={() => setShowModal(false)} 
-          user={userName} 
-          printer={printerModel} 
+        <SetupProgressModal
+          open={showModal}
+          onClose={() => setShowModal(false)}
+          user={userName}
+          printer={printerModel}
           onError={() => {
             if (allowInstallationFailed === false) {
               navigate('/printer-setup-guide/', { replace: true });
             } else {
               navigate('/installation-failed');
             }
-          }} 
+          }}
         />
       </div>
     );
@@ -65,7 +65,7 @@ function CompleteSetup() {
   return (
     <>
       <Helmet>
-        <title>123.hp.com/setup | HP Printer Setup, Offline Fix & Troubleshooting</title>
+        <title>Complete 123.hp.com/setup Steps | HP Printer Setup, Offline Fix & Troubleshooting</title>
         <meta name="description" content="Visit 123.hp.com/setup for HP printer setup help, fix HP printer offline issues, and troubleshoot HP printer errors with step-by-step guidance. Get help from HP certified technician." />
         <link rel="preload" as="image" href="/hero_background_image.webp" fetchPriority="high" />
       </Helmet>

@@ -9,7 +9,7 @@ const SetupSelect = () => {
     return (
         <>
             <Helmet>
-                <title>123.hp.com/setup | HP Printer Setup, Offline Fix & Troubleshooting</title>
+                <title>Complete 123.hp.com/setup Steps | HP Printer Setup, Offline Fix & Troubleshooting</title>
 
                 <meta name="description" content="Visit 123.hp.com/setup for HP printer setup help, fix HP printer offline issues, and troubleshoot HP printer errors with step-by-step guidance. Get help from HP certified technician." />
 
