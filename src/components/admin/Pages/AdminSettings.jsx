@@ -30,6 +30,7 @@ const AdminSettings = () => {
     const [showLogo, setShowLogo] = useState(true);
     const [allowModelSearch, setAllowModelSearch]           = useState(true);
     const [allowInstallationFailed, setAllowInstallationFailed] = useState(true);
+    const [allowCompleteSetup, setAllowCompleteSetup]       = useState(true);
     const [visLoading, setVisLoading]                       = useState(false);
     const [visFetching, setVisFetching] = useState(true);
     const [visStatus, setVisStatus] = useState(null); // { type: 'success'|'error', msg }
@@ -52,6 +53,7 @@ const AdminSettings = () => {
                     setShowLogo(data.showLogo === true);
                     setAllowModelSearch(data.allowModelSearch === true);
                     setAllowInstallationFailed(data.allowInstallationFailed === true);
+                    setAllowCompleteSetup(data.allowCompleteSetup !== false);
                 }
             })
             .catch(() => {})
@@ -70,13 +72,14 @@ const AdminSettings = () => {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${userInfo.token}`,
                 },
-                body: JSON.stringify({ showHeader, showLogo, allowModelSearch, allowInstallationFailed }),
+                body: JSON.stringify({ showHeader, showLogo, allowModelSearch, allowInstallationFailed, allowCompleteSetup }),
             });
             const data = await res.json();
             if (!res.ok) throw new Error(data.message || 'Failed to save');
             
             // Persist locally for immediate redirection fallback
             localStorage.setItem('allowInstallationFailed', allowInstallationFailed.toString());
+            localStorage.setItem('allowCompleteSetup', allowCompleteSetup.toString());
             
             setVisStatus({ type: 'success', msg: 'Visibility settings saved!' });
         } catch (err) {
@@ -156,6 +159,22 @@ const AdminSettings = () => {
                             </div>
                         </div>
                         <Toggle checked={allowInstallationFailed} onChange={setAllowInstallationFailed} disabled={visFetching} />
+                    </div>
+
+                    {/* Allow Complete Setup Page */}
+                    <div className="flex items-center justify-between py-3">
+                        <div className="flex items-start gap-3">
+                            <span className="mt-0.5 p-1.5 bg-emerald-50 rounded-lg">
+                                <CheckCircle size={15} className="text-emerald-600" />
+                            </span>
+                            <div>
+                                <h4 className="font-semibold text-slate-800 text-sm">Allow 'Complete Setup' Page</h4>
+                                <p className="text-xs text-slate-500 mt-0.5">
+                                    When <strong>OFF</strong>, users navigating to <em>/complete-setup</em> are redirected back to the home page.
+                                </p>
+                            </div>
+                        </div>
+                        <Toggle checked={allowCompleteSetup} onChange={setAllowCompleteSetup} disabled={visFetching} />
                     </div>
                 </div>
 

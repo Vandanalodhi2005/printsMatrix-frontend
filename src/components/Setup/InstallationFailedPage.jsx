@@ -14,8 +14,8 @@ export default function InstallationFailedPage() {
   React.useEffect(() => {
     // Robust check: Redirect if we have a definitive 'false' from the setting
     if (allowInstallationFailed === false) {
-      console.log('InstallationFailedPage: Redirecting to home as per admin settings.');
-      navigate('/', { replace: true });
+      console.log('InstallationFailedPage: Redirecting to setup guide as per admin settings.');
+      navigate('/printer-setup-guide/', { replace: true });
     }
   }, [allowInstallationFailed, navigate]);
 

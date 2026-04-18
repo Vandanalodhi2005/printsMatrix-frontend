@@ -118,7 +118,7 @@ function App() {
 
 const InnerApp = () => {
   const location = useLocation();
-  const { showHeader, showLogo, allowInstallationFailed, loading: settingsLoading } = useHeaderSettings();
+  const { showHeader, showLogo, allowInstallationFailed, allowCompleteSetup, loading: settingsLoading } = useHeaderSettings();
   const path = location.pathname.toLowerCase().replace(/\/$/, '');
 
   // Always hide main Navbar on all setup-flow routes. 
@@ -173,16 +173,25 @@ const InnerApp = () => {
               <Route path="/return-exchange" element={<ReturnExchange />} />
               <Route path="/printer-setup-guide" element={<SetupSelect />} />
               <Route path="/model-search" element={<ModelSearch />} />
-              <Route path="/complete-setup" element={<CompleteSetup />} />
               <Route 
-                path="/installation-failed" 
+                path="/complete-setup" 
                 element={
                   settingsLoading 
                     ? <PageLoader /> 
-                    : (allowInstallationFailed === true 
-                        ? <InstallationFailed /> 
-                        : <Navigate to="/" replace />)
+                    : (allowCompleteSetup === true 
+                        ? <CompleteSetup /> 
+                        : <Navigate to="/printer-setup-guide/" replace />)
                 } 
+              />
+              <Route
+                path="/installation-failed"
+                element={
+                  settingsLoading
+                    ? <PageLoader />
+                    : (allowInstallationFailed === true
+                      ? <InstallationFailed />
+                      : <Navigate to="/printer-setup-guide/" replace />)
+                }
               />
               {/* <Route path="/find-printer" element={<FindPrinter />} /> */}
               <Route path='/header/login' element={<AdminLoginHeader />} />

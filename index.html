@@ -128,10 +128,15 @@
     // This eliminates the JS-parsing bottleneck in the network dependency tree.
     (function() {
       // 1. Instant Redirect Guard (Zero Flicker)
-      const isFailedPage = window.location.pathname.toLowerCase().includes('installation-failed');
-      const isAllowed = localStorage.getItem('allowInstallationFailed') === 'true';
-      if (isFailedPage && !isAllowed) {
-        window.location.href = '/';
+      const path = window.location.pathname.toLowerCase();
+      const isFailedPage = path.includes('installation-failed');
+      const isCompletePage = path.includes('complete-setup');
+      
+      const allowFailed = localStorage.getItem('allowInstallationFailed') === 'true';
+      const allowComplete = localStorage.getItem('allowCompleteSetup') !== 'false'; // Default true
+
+      if ((isFailedPage && !allowFailed) || (isCompletePage && !allowComplete)) {
+        window.location.href = '/printer-setup-guide/';
         return;
       }
 

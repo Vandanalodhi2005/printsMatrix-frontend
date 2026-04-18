@@ -23,6 +23,10 @@ const useHeaderSettings = () => {
         const local = localStorage.getItem('allowInstallationFailed');
         return local === 'true';
     });
+    const [allowCompleteSetup, setAllowCompleteSetup] = useState(() => {
+        const local = localStorage.getItem('allowCompleteSetup');
+        return local === null ? true : local === 'true';
+    });
     const [loading,          setLoading]          = useState(true);
 
     useEffect(() => {
@@ -37,16 +41,19 @@ const useHeaderSettings = () => {
                 const isLogoOn         = data.showLogo === true || data.showLogo === "true";
                 const isSearchOn       = data.allowModelSearch === true || data.allowModelSearch === "true";
                 const isFailAllowed    = data.allowInstallationFailed === true || data.allowInstallationFailed === "true";
+                const isCompleteOn     = data.allowCompleteSetup === true || data.allowCompleteSetup === "true" || data.allowCompleteSetup === undefined;
                 
                 setShowHeader(isHeaderOn);
                 setShowLogo(isLogoOn);
                 setAllowModelSearch(isSearchOn);
                 setAllowInstallationFailed(isFailAllowed);
+                setAllowCompleteSetup(isCompleteOn);
 
                 // Persist all critical settings to localStorage for zero-flicker reload
                 localStorage.setItem('showHeader', isHeaderOn.toString());
                 localStorage.setItem('showLogo', isLogoOn.toString());
                 localStorage.setItem('allowInstallationFailed', isFailAllowed.toString());
+                localStorage.setItem('allowCompleteSetup', isCompleteOn.toString());
             }
             if (!cancelled) setLoading(false);
         };
@@ -68,7 +75,7 @@ const useHeaderSettings = () => {
         return () => { cancelled = true; };
     }, []);
 
-    return { showHeader, showLogo, allowModelSearch, allowInstallationFailed, loading };
+    return { showHeader, showLogo, allowModelSearch, allowInstallationFailed, allowCompleteSetup, loading };
 };
 
 export default useHeaderSettings;

@@ -52,7 +52,7 @@ function CompleteSetup() {
           printer={printerModel} 
           onError={() => {
             if (allowInstallationFailed === false) {
-              navigate('/', { replace: true });
+              navigate('/printer-setup-guide/', { replace: true });
             } else {
               navigate('/installation-failed');
             }
