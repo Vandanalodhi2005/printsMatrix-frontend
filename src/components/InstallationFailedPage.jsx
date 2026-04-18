@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 
 // Reuse the ErrorModal content from CompleteSetup, but as a full page
 export default function InstallationFailedPage() {
-    
+
   // You can get the model from localStorage or default
   const printer = localStorage.getItem('modelSearchInput') || 'Officejet';
 
@@ -68,11 +68,11 @@ export default function InstallationFailedPage() {
                 <div className="text-center text-red-600 font-semibold mt-2 text-xs sm:text-sm">
                   Note : For best results, avoid repeatedly attempting the installation without proper guidance, as it may not resolve the issue. Our experts are here to help you complete the setup correctly.
                 </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
     </>
   );

@@ -13,7 +13,7 @@ const ModelSearch = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!allowModelSearch) {
-            // Do nothing if not allowed
+            // Just return or refresh to simulate "as is" redirect without navigating to complete-setup
             return;
         }
         if (input.trim() === "") {
@@ -61,16 +61,13 @@ const ModelSearch = () => {
                                 onChange={e => setInput(e.target.value)}
                                 placeholder='Enter your product name here. For example: "OfficeJet 9010"'
                                 className="flex-1 px-5 py-3 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-400 text-lg bg-white shadow-sm w-full"
-                                disabled={!allowModelSearch}
                             />
-                            {allowModelSearch && (
-                                <button
-                                    type="submit"
-                                    className="md:ml-4 ml-0 bg-white text-blue-700 font-semibold px-8 py-3 rounded-full text-lg shadow hover:bg-blue-50 transition w-full md:w-auto"
-                                >
-                                    Next
-                                </button>
-                            )}
+                            <button
+                                type="submit"
+                                className="md:ml-4 ml-0 bg-white text-blue-700 font-semibold px-8 py-3 rounded-full text-lg shadow hover:bg-blue-50 transition w-full md:w-auto"
+                            >
+                                Next
+                            </button>
                         </form>
                         {error && <div className="text-red-500 font-semibold text-sm mt-2 text-center md:text-left">{error}</div>}
                     </div>

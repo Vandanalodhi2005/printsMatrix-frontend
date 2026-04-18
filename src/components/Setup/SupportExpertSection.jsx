@@ -27,7 +27,15 @@ export default function SupportExpertSection({
 
           <button
             className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 sm:px-8 py-3 rounded-full text-sm sm:text-base shadow-md hover:shadow-lg active:scale-95 transition-all duration-200 focus:ring-4 focus:ring-blue-200/40 focus:outline-none"
-            onClick={onButtonClick}
+            onClick={() => {
+              if (onButtonClick) {
+                onButtonClick();
+              } else if (window.jivo_api && typeof window.jivo_api.open === 'function') {
+                window.jivo_api.open();
+              } else {
+                alert('Chat support is not available yet.');
+              }
+            }}
           >
             {buttonText}
           </button>

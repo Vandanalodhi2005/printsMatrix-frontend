@@ -34,11 +34,11 @@ export default function InstallationFailedPage() {
       <div
         className=" min-h-screen flex flex-col"
         style={{
-          background: `linear-gradient(rgba(0, 75, 172, 0.85), rgba(0, 75, 172, 0.85)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200')`,
+          backgroundImage: "url('/hero_background_image.webp')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          minHeight: '100vh',
+          minHeight: '91vh',
           width: '99vw',
         }}
       >
