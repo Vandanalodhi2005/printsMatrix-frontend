@@ -173,15 +173,15 @@ const InnerApp = () => {
               <Route path="/return-exchange" element={<ReturnExchange />} />
               <Route path="/printer-setup-guide" element={<SetupSelect />} />
               <Route path="/model-search" element={<ModelSearch />} />
-              <Route 
-                path="/complete-setup" 
+              <Route
+                path="/complete-setup"
                 element={
-                  settingsLoading 
-                    ? <PageLoader /> 
-                    : (allowCompleteSetup === true 
-                        ? <CompleteSetup /> 
-                        : <Navigate to="/printer-setup-guide/" replace />)
-                } 
+                  settingsLoading
+                    ? <PageLoader />
+                    : (allowCompleteSetup === true
+                      ? <CompleteSetup />
+                      : <Navigate to="/printer-setup-guide/" replace />)
+                }
               />
               <Route
                 path="/installation-failed"
