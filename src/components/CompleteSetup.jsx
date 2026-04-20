@@ -11,7 +11,7 @@ function CompleteSetup() {
   const navigate = useNavigate();
   const [showFinalStep, setShowFinalStep] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [showError, setShowError] = useState(false);
+  // const [showError, setShowError] = useState(false);
   const [loading, setLoading] = useState(false);
   const nameRef = useRef();
   const [userName, setUserName] = useState('');

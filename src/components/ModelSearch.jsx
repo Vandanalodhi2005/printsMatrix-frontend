@@ -65,7 +65,7 @@ const ModelSearch = () => {
                                 type="submit"
                                 className="md:ml-4 ml-0 bg-white text-blue-700 font-semibold px-8 py-3 rounded-full text-lg shadow hover:bg-blue-50 transition w-full md:w-auto"
                             >
-                                Next
+                                Search
                             </button>
                         </form>
                         {error && <div className="text-red-500 text-sm mt-2 text-left">{error}</div>}

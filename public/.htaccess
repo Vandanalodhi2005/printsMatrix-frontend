@@ -61,13 +61,18 @@
   # 1. Never rewrite requests that are already index.html
   RewriteRule ^index\.html$ - [L]
 
-  # 2. Explicitly pass through ALL /assets/ requests — never serve index.html for chunks
+  # 2. If directory exists with index.html, serve it directly
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.+)/$ $1/index.html [L]
+
+  # 3. Explicitly pass through ALL /assets/ requests — never serve index.html for chunks
   RewriteRule ^assets/ - [L]
 
-  # 3. Pass through any URL ending in a known static file extension
+  # 4. Pass through any URL ending in a known static file extension
   RewriteRule \.(js|mjs|css|png|jpg|jpeg|gif|svg|ico|woff2|woff|ttf|webp|json|map)$ - [L]
 
-  # 4. SPA fallback — only reaches here if none of the above matched
+  # 5. SPA fallback — only reaches here if none of the above matched
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]

@@ -11,7 +11,7 @@ const defaultSteps = [
         status: '',
     },
     {
-        label: `Downloading Drivers for ${modelsearchinput || 'Printer'} (64-bit)`,
+        label: `Downloading Drivers for ${modelsearchinput || 'Printer'} `,
         right: 'Completed (145 MB)',
         progress: 0,
         status: '',

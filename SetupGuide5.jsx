@@ -437,7 +437,7 @@ const SetupGuide5 = () => {
                     <Link to="/hp-printer-troubleshooting" className="btn-primary" style={{ fontWeight: 700, fontSize: '1rem', borderRadius: 10, padding: '12px 32px', minWidth: 140, textAlign: 'center', background: '#1565d8', color: '#fff', textDecoration: 'none' }}>
                         &larr; Previous
                     </Link>
-                    <Link to="/step-by-step-setup-guide" className="btn-primary" style={{ fontWeight: 700, fontSize: '1rem', borderRadius: 10, padding: '12px 32px', minWidth: 140, textAlign: 'center', background: '#1565d8', color: '#fff', textDecoration: 'none' }}>
+                    <Link to="/step-by-step-setup-guide/" className="btn-primary" style={{ fontWeight: 700, fontSize: '1rem', borderRadius: 10, padding: '12px 32px', minWidth: 140, textAlign: 'center', background: '#1565d8', color: '#fff', textDecoration: 'none' }}>
                         Next &rarr;
                     </Link>
                 </div>
