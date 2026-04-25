@@ -6,7 +6,7 @@ const Accessibility = () => {
             <div className="max-w-4xl mx-auto">
                 <header className="mb-12 border-b border-gray-100 pb-8 text-left">
                     <h1 className="text-4xl font-bold text-black mb-4">Accessibility</h1>
-                    <p className="text-gray-500 text-sm font-medium">Innovation Dynamics Group LLC protocol for providing an inclusive digital environment accessible to the widest possible audience.</p>
+                    <p className="text-gray-500 text-sm font-medium">Prints Matrix protocol for providing an inclusive digital environment accessible to the widest possible audience.</p>
                     <div className="mt-6 flex flex-col sm:flex-row gap-6 text-xs text-gray-400 font-bold uppercase tracking-widest">
                         <span>Updated: March 25, 2026</span>
                     </div>
@@ -16,7 +16,7 @@ const Accessibility = () => {
                     <section id="commitment">
                         <h2 className="text-2xl font-bold text-black mb-6">Our Commitment</h2>
                         <p className="text-lg text-gray-600 mb-6 font-medium">
-                            Innovation Dynamics Group LLC strives to ensure that its services are accessible to people with disabilities. We hold that every user has the right to navigate the digital world with dignity, equality, and independence.
+                            Prints Matrix strives to ensure that its services are accessible to people with disabilities. We hold that every user has the right to navigate the digital world with dignity, equality, and independence.
                         </p>
                     </section>
 
@@ -62,19 +62,20 @@ const Accessibility = () => {
                             <div className="space-y-6">
                                 <div className="space-y-2">
                                     <p className="text-xs font-bold text-[#0075be] uppercase tracking-wider">Direct Message</p>
-                                    <p className="font-bold text-black text-sm break-all">support@innovationdynamicsgroup.com</p>
+                                    <p className="font-bold text-black text-sm break-all">support@printsmatrix.com</p>
                                 </div>
                                 <div className="space-y-2">
                                     <p className="text-xs font-bold text-[#0075be] uppercase tracking-wider">Operational Voice</p>
-                                    <p className="font-bold text-black text-sm">+1 (651) 815-4630</p>
+
                                 </div>
                             </div>
                             <div className="space-y-2">
                                 <p className="text-xs font-bold text-[#0075be] uppercase tracking-wider">Operational HQ</p>
                                 <div className="text-sm font-medium text-gray-500">
-                                    <p>Innovation Dynamics Group LLC</p>
-                                    <p>11397 Quincy St NE</p>
-                                    <p>Blaine, MN 55434</p>
+                                    <p>Prints Matrix</p>
+                                    <p>95 Broadacre Dr</p>
+                                    <p>Kitchener, ON N2R 0S5</p>
+                                    <p>Canada</p>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +84,7 @@ const Accessibility = () => {
 
                 <footer className="mt-24 pt-10 border-t border-gray-100 text-center">
                     <p className="text-xs text-gray-300 font-medium tracking-wide">
-                        Innovation Dynamics Group LLC © 2026
+                        Prints Matrix © 2026
                     </p>
                 </footer>
             </div>

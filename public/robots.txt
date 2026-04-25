@@ -1,5 +1,5 @@
-# robots.txt — Innovation Dynamics Group LLC
-# https://innovationdynamicsgroup.com
+# robots.txt — Prints Matrix
+# https://www.printsmatrix.com
 
 User-agent: *
 Allow: /
@@ -45,4 +45,4 @@ Allow: /buying-guide
 Allow: /resources
 
 # Sitemap
-Sitemap: https://innovationdynamicsgroup.com/sitemap.xml
+Sitemap: https://www.printsmatrix.com/sitemap.xml

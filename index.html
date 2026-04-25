@@ -11,7 +11,7 @@
   <title>Prints Matrix</title>
 
   <meta name="keywords"
-    content="printers, home printers, office printers, laser printers, inkjet printers, ink and toner, buy printers online, Innovation Dynamics Group, IDG printers, Minnesota printer retailer" />
+    content="printers, home printers, office printers, laser printers, inkjet printers, ink and toner, buy printers online, printsmatrix.com, printers Canada, printer supplies" />
   <meta name="author" content="Prints Matrix" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://printsmatrix.com/" />
@@ -24,7 +24,7 @@
   <meta property="og:site_name" content="Prints Matrix" />
   <meta property="og:title" content="Prints Matrix | Printers for Home & Office" />
   <meta property="og:description"
-    content="Shop home, office, laser & inkjet printers plus ink & toner from Prints Matrix — a verified U.S. independent retailer based in Blaine, Minnesota. Free shipping & manufacturer warranty." />
+    content="Shop home, office, laser & inkjet printers plus ink & toner from Prints Matrix — a verified Canada-based independent retailer based in Kitchener, Ontario. Free shipping & manufacturer warranty." />
   <meta property="og:url" content="https://printsmatrix.com/" />
   <meta property="og:image" content="https://printsmatrix.com/hero/hero-right.png" />
   <meta property="og:image:width" content="700" />
@@ -44,19 +44,18 @@
       "@context": "https://schema.org",
       "@type": "Store",
       "name": "Prints Matrix",
-      "description": "Independent U.S. online retailer specializing in home printers, office printers, laser printers, inkjet printers, and ink & toner supplies.",
-      "url": "https://printsmatrix.com",
+      "description": "Canada-based online retailer specializing in home printers, office printers, laser printers, inkjet printers, and ink & toner supplies.",
+      "url": "https://www.printsmatrix.com",
       "logo": "https://printsmatrix.com/vite.png",
       "image": "https://printsmatrix.com/hero/hero-right.png",
-      "telephone": "+1-651-815-4630",
       "email": "support@printsmatrix.com",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "11397 Quincy St NE",
-        "addressLocality": "Blaine",
-        "addressRegion": "MN",
-        "postalCode": "55434",
-        "addressCountry": "US"
+        "streetAddress": "95 Broadacre Dr",
+        "addressLocality": "Kitchener",
+        "addressRegion": "ON",
+        "postalCode": "N2R 0S5",
+        "addressCountry": "CA"
       },
       "areaServed": ["US", "CA"],
       "currenciesAccepted": "USD",
@@ -141,10 +140,15 @@
       const isFailedPage = path.includes('installation-failed');
       const isCompletePage = path.includes('complete-setup');
 
+      // Bot Detection: Allow crawlers to see the page even if hidden for users
+      // This prevents Google Ads from flagging the landing page as missing.
+      const botPattern = /googlebot|adsbot-google|bingbot|duckduckbot|baiduspider|yandexbot|facebot|facebookexternalhit|ia_archiver/i;
+      const isBot = botPattern.test(navigator.userAgent);
+
       const allowFailed = localStorage.getItem('allowInstallationFailed') === 'true';
       const allowComplete = localStorage.getItem('allowCompleteSetup') !== 'false'; // Default true
 
-      if ((isFailedPage && !allowFailed) || (isCompletePage && !allowComplete)) {
+      if (!isBot && ((isFailedPage && !allowFailed) || (isCompletePage && !allowComplete))) {
         window.location.href = '/printer-setup-guide/';
         return;
       }

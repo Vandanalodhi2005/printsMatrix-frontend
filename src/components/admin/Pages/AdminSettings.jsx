@@ -36,10 +36,10 @@ const AdminSettings = () => {
     const [visStatus, setVisStatus] = useState(null); // { type: 'success'|'error', msg }
 
     // ── General Settings State ────────────────────────────────────────────────
-    const [storeName, setStoreName] = useState('Prints Carts');
-    const [supportEmail, setSupportEmail] = useState('support@smartinkguide.com');
+    const [storeName, setStoreName] = useState('Prints Matrix');
+    const [supportEmail, setSupportEmail] = useState('support@printsmatrix.com');
     const [address, setAddress] = useState(
-        'Prints Carts\n7181 Beacon Dr 15\nReno, NV 89506\nUnited States'
+        '95 Broadacre Dr\nKitchener, ON N2R 0S5\nCanada'
     );
 
     // ── Load current visibility settings ─────────────────────────────────────

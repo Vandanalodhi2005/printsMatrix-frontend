@@ -21,10 +21,10 @@ const Profile = () => {
     // State for Features
     const [isEditingAddress, setIsEditingAddress] = useState(false);
     const [address, setAddress] = useState({
-        street: user?.address || '123 Innovation Drive',
+        street: user?.address || '95 Broadacre Dr',
         city: 'Tech City',
         zip: '90210',
-        country: 'United States'
+        country: 'Canada'
     });
 
     // Edit Address Form State

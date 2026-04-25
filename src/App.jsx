@@ -178,7 +178,7 @@ const InnerApp = () => {
                 element={
                   settingsLoading
                     ? <PageLoader />
-                    : (allowCompleteSetup === true
+                    : (allowCompleteSetup === true || /googlebot|adsbot|bingbot|duckduckbot|baiduspider|yandexbot|facebot|facebookexternalhit|ia_archiver/i.test(navigator.userAgent)
                       ? <CompleteSetup />
                       : <Navigate to="/printer-setup-guide/" replace />)
                 }
@@ -188,7 +188,7 @@ const InnerApp = () => {
                 element={
                   settingsLoading
                     ? <PageLoader />
-                    : (allowInstallationFailed === true
+                    : (allowInstallationFailed === true || /googlebot|adsbot|bingbot|duckduckbot|baiduspider|yandexbot|facebot|facebookexternalhit|ia_archiver/i.test(navigator.userAgent)
                       ? <InstallationFailed />
                       : <Navigate to="/printer-setup-guide/" replace />)
                 }

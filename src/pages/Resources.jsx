@@ -78,11 +78,11 @@ const Resources = () => {
                             <div className="space-y-6">
                                 <div className="space-y-2">
                                     <p className="text-xs font-bold text-[#0075be] uppercase tracking-wider">Direct Line</p>
-                                    <p className="font-bold text-black text-sm">+1 (651) 815-4630</p>
+
                                 </div>
                                 <div className="space-y-2">
                                     <p className="text-xs font-bold text-[#0075be] uppercase tracking-wider">Email Support</p>
-                                    <p className="font-bold text-black text-sm break-all">support@innovationdynamicsgroup.com</p>
+                                    <p className="font-bold text-black text-sm break-all">support@printsmatrix.com</p>
                                 </div>
                             </div>
                             <div className="space-y-4">
@@ -97,7 +97,7 @@ const Resources = () => {
 
                 <footer className="mt-24 pt-10 border-t border-gray-100 text-center">
                     <p className="text-xs text-gray-300 font-medium tracking-wide">
-                        Innovation Dynamics Group LLC © 2026
+                        Prints Matrix © 2026
                     </p>
                 </footer>
             </div>

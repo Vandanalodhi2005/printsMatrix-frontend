@@ -91,7 +91,7 @@ const ReturnExchange = () => {
                     <div>
                         <h2 className="text-xl font-bold text-black mb-2 mt-8">📦 Prepaid Return Shipping</h2>
                         <p>
-                            For approved returns, Innovation Dynamics Group LLC provides prepaid return shipping labels. Return authorization is required before sending any item back.
+                            For approved returns, Prints Matrix provides prepaid return shipping labels. Return authorization is required before sending any item back.
                         </p>
                     </div>
 
@@ -306,10 +306,10 @@ const ReturnExchange = () => {
                         <h2 className="text-xl font-bold text-black mb-6">Need Help? Contact Us</h2>
                         <p>For any return requests, questions, or support:</p>
                         <div className="mt-4 space-y-2">
-                            <p className="font-bold text-black">Innovation Dynamics Group LLC</p>
-                            <p>📧 Email: support@innovationdynamicsgroup.com</p>
-                            <p>📞 Phone: +1 (651) 815-4630</p>
-                            <p>📍 Registered Address:<br/>11397 Quincy St NE<br/>Blaine, MN 55434<br/>United States</p>
+                            <p className="font-bold text-black">Prints Matrix</p>
+                            <p>📧 Email: support@printsmatrix.com</p>
+
+                            <p>📍 Registered Address:<br/>95 Broadacre Dr<br/>Kitchener, ON N2R 0S5<br/>Canada</p>
                             <p className="mt-4">💬 Live Chat: Available on our website during business hours.</p>
                         </div>
                         <p className="mt-6">We are committed to assisting you promptly and ensuring a smooth return and refund experience.</p>
@@ -318,7 +318,7 @@ const ReturnExchange = () => {
 
                 <footer className="mt-24 pt-10 border-t border-gray-100 text-center">
                     <p className="text-xs text-gray-400 font-bold uppercase tracking-widest">
-                        Innovation Dynamics Group LLC © 2026
+                        Prints Matrix © 2026
                     </p>
                 </footer>
             </div>

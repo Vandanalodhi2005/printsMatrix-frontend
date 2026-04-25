@@ -182,7 +182,7 @@ const PrivacyPolicy = () => {
                             <li className="flex items-center gap-3"><span className="w-1 h-1 bg-black rounded-full shrink-0"></span> Opt out of marketing communications or targeted advertising</li>
                             <li className="flex items-center gap-3"><span className="w-1 h-1 bg-black rounded-full shrink-0"></span> Limit data sharing under CCPA/CPRA provisions</li>
                         </ul>
-                        <p className="mt-6">To exercise your rights, contact us at <span className="text-black font-bold text-sans">support@printsmatrix.com</span> or call <span className="text-black font-bold text-sans">+1-651-815-4630</span>.</p>
+                        <p className="mt-6">To exercise your rights, contact us at <span className="text-black font-bold text-sans">support@printsmatrix.com</span>.</p>
                         <p>We may verify your identity before processing your request.</p>
                     </div>
 
@@ -237,7 +237,7 @@ const PrivacyPolicy = () => {
                                     <span className="text-blue-500">📧</span> Email: support@printsmatrix.com
                                 </p>
                                 <p className="flex items-center gap-3">
-                                    <span className="text-green-500">📞</span> Phone: +1-651-815-4630
+
                                 </p>
                                 <p className="flex items-center gap-3">
                                     <span className="text-blue-400">🌐</span> Website: www.printsmatrix.com

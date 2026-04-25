@@ -69,9 +69,9 @@ const OrderDetails = () => {
         <body>
             <div class="header">
                 <div>
-                    <div class="brand">idg | <span>INNOVATION DYNAMICS GROUP</span></div>
-                    <p style="font-size:12px;color:#888;margin-top:6px">11397 Quincy St NE, Blaine, MN 55434</p>
-                    <p style="font-size:12px;color:#888">support@innovationdynamicsgroup.com</p>
+                    <div class="brand"><span>PRINTS MATRIX</span></div>
+                    <p style="font-size:12px;color:#888;margin-top:6px">95 Broadacre Dr, Kitchener, ON N2R 0S5, Canada</p>
+                    <p style="font-size:12px;color:#888">support@printsmatrix.com</p>
                 </div>
                 <div class="invoice-meta">
                     <h1>INVOICE</h1>
@@ -120,8 +120,8 @@ const OrderDetails = () => {
             </div>
 
             <div class="footer">
-                <p>Thank you for your purchase! For support, contact support@innovationdynamicsgroup.com or call +1 (651) 815-4630</p>
-                <p style="margin-top:6px">Innovation Dynamics Group LLC &bull; HP Amplify Partner &bull; All trademarks belong to their respective owners.</p>
+                <p>Thank you for your purchase! For support, contact support@printsmatrix.com</p>
+                <p style="margin-top:6px">Prints Matrix &bull; HP Amplify Partner &bull; All trademarks belong to their respective owners.</p>
             </div>
 
             <script>window.onload = function(){ window.print(); }</script>

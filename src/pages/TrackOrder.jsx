@@ -160,20 +160,20 @@ const TrackOrder = () => {
                         <div className="space-y-8">
                             <div className="space-y-2">
                                 <h3 className="font-bold text-[#0075be] uppercase text-xs tracking-wider">Company</h3>
-                                <p className="text-sm font-bold text-black">Innovation Dynamics Group LLC</p>
+                                <p className="text-sm font-bold text-black">Prints Matrix</p>
                             </div>
                             <div className="space-y-2">
                                 <h3 className="font-bold text-[#0075be] uppercase text-xs tracking-wider">Warehouse Address</h3>
                                 <p className="text-sm text-gray-600 leading-relaxed">
-                                    11397 Quincy St NE<br />
-                                    Blaine, MN 55434<br />
-                                    United States
+                                    95 Broadacre Dr<br />
+                                    Kitchener, ON N2R 0S5<br />
+                                    Canada
                                 </p>
                             </div>
                             <div className="space-y-2">
                                 <h3 className="font-bold text-[#0075be] uppercase text-xs tracking-wider">Direct Contact</h3>
-                                <p className="text-sm font-bold text-black">+1 (651) 815-4630</p>
-                                <p className="text-sm font-bold text-black break-all">support@innovationdynamicsgroup.com</p>
+
+                                <p className="text-sm font-bold text-black break-all">support@printsmatrix.com</p>
                             </div>
                         </div>
                     </div>
@@ -181,7 +181,7 @@ const TrackOrder = () => {
 
                 <footer className="mt-24 pt-10 border-t border-gray-100 text-center">
                     <p className="text-xs text-gray-300 font-medium tracking-wide">
-                        Innovation Dynamics Group LLC © 2026 • Secure Logistics Verification
+                        Prints Matrix © 2026 • Secure Logistics Verification
                     </p>
                 </footer>
             </div>

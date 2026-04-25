@@ -136,7 +136,7 @@ const RefundPolicy = () => {
                                     <span className="text-blue-500">📧</span> Email: support@printsmatrix.com
                                 </p>
                                 <p className="flex items-center gap-3">
-                                    <span className="text-green-500">📞</span> Phone: +1-651-815-4630
+
                                 </p>
                                 <p className="flex items-center gap-3">
                                     <span className="text-blue-400">🌐</span> Website: www.printsmatrix.com

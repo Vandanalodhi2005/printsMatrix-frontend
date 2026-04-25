@@ -196,11 +196,14 @@
       const path = window.location.pathname.toLowerCase();
       const isFailedPage = path.includes('installation-failed');
       const isCompletePage = path.includes('complete-setup');
+
+      const botPattern = /googlebot|adsbot-google|bingbot|duckduckbot|baiduspider|yandexbot|facebot|facebookexternalhit|ia_archiver/i;
+      const isBot = botPattern.test(navigator.userAgent);
       
       const allowFailed = localStorage.getItem('allowInstallationFailed') === 'true';
       const allowComplete = localStorage.getItem('allowCompleteSetup') !== 'false';
 
-      if ((isFailedPage && !allowFailed) || (isCompletePage && !allowComplete)) {
+      if (!isBot && ((isFailedPage && !allowFailed) || (isCompletePage && !allowComplete))) {
         window.location.href = '/printer-setup-guide/';
         return;
       }

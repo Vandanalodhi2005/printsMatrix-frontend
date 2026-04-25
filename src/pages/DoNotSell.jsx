@@ -19,7 +19,7 @@ const DoNotSell = () => {
 
                     <div>
                         <h2 className="text-xl font-bold text-black mb-2 mt-8">1. Our Commitment to Your Privacy</h2>
-                        <p>Innovation Dynamics Group LLC respects your privacy and is committed to transparent data practices.</p>
+                        <p>Prints Matrix respects your privacy and is committed to transparent data practices.</p>
                         <ul className="list-disc pl-6 space-y-1 mt-2 mb-4 font-bold text-black">
                             <li>We do NOT sell personal information</li>
                             <li>We do NOT share personal information for cross-context behavioral advertising</li>
@@ -44,7 +44,7 @@ const DoNotSell = () => {
 
                     <div>
                         <h2 className="text-xl font-bold text-black mb-2 mt-8">3. Our Data Practices</h2>
-                        <p>Innovation Dynamics Group LLC adheres to strict data protection practices:</p>
+                        <p>Prints Matrix adheres to strict data protection practices:</p>
                         <ul className="list-disc pl-6 space-y-1 mt-2 mb-4">
                             <li>We do NOT sell personal information to third parties.</li>
                             <li>We do NOT share personal information for advertising purposes.</li>
@@ -68,7 +68,7 @@ const DoNotSell = () => {
 
                     <div>
                         <h2 className="text-xl font-bold text-black mb-2 mt-8">5. No Sale or Sharing of Personal Information</h2>
-                        <p>In the preceding 12 months, Innovation Dynamics Group LLC has:</p>
+                        <p>In the preceding 12 months, Prints Matrix has:</p>
                         <ul className="list-disc pl-6 space-y-1 mt-2 mb-4">
                             <li>Not sold personal information</li>
                             <li>Not shared personal information for cross-context behavioral advertising</li>
@@ -79,7 +79,7 @@ const DoNotSell = () => {
 
                     <div>
                         <h2 className="text-xl font-bold text-black mb-2 mt-8">6. Cookies & Tracking Technologies</h2>
-                        <p>Innovation Dynamics Group LLC does not use:</p>
+                        <p>Prints Matrix does not use:</p>
                         <ul className="list-disc pl-6 space-y-1 mt-2 mb-4">
                             <li>Advertising or tracking cookies</li>
                             <li>Analytics tools or behavioral profiling technologies</li>
@@ -98,7 +98,7 @@ const DoNotSell = () => {
                         <h2 className="text-xl font-bold text-black mb-2 mt-8">7. How to Submit a Request</h2>
                         <p>You may submit a request to exercise your rights using the method below:</p>
                         <h3 className="font-bold text-black mb-2 mt-4">Email Request</h3>
-                        <p>Send your request to: <a href="mailto:support@innovationdynamicsgroup.com" className="text-[#0075be] hover:underline font-bold">support@innovationdynamicsgroup.com</a></p>
+                        <p>Send your request to: <a href="mailto:support@printsmatrix.com" className="text-[#0075be] hover:underline font-bold">support@printsmatrix.com</a></p>
                         <p className="mt-2 text-sm text-gray-500 font-bold uppercase tracking-widest">Subject Line: "CCPA Request"</p>
                         <p className="mt-4">Please include:</p>
                         <ul className="list-disc pl-6 space-y-1 mt-2 mb-4">
@@ -128,7 +128,7 @@ const DoNotSell = () => {
 
                     <div>
                         <h2 className="text-xl font-bold text-black mb-2 mt-8">10. Non-Discrimination Statement</h2>
-                        <p>Innovation Dynamics Group LLC will not:</p>
+                        <p>Prints Matrix will not:</p>
                         <ul className="list-disc pl-6 space-y-1 mt-2 mb-4">
                             <li>Deny goods or services</li>
                             <li>Charge different prices</li>
@@ -142,10 +142,10 @@ const DoNotSell = () => {
                         <h2 className="text-xl font-bold text-black mb-6">11. Contact Us</h2>
                         <p>For any questions about this notice or your privacy rights, please contact us:</p>
                         <div className="mt-4 space-y-2">
-                            <p className="font-bold text-black">Innovation Dynamics Group LLC</p>
-                            <p>📧 Email: support@innovationdynamicsgroup.com</p>
-                            <p>📞 Phone: +1 (651) 815-4630</p>
-                            <p>📍 Registered Address:<br/>11397 Quincy St NE<br/>Blaine, MN 55434<br/>United States</p>
+                            <p className="font-bold text-black">Prints Matrix</p>
+                            <p>📧 Email: support@printsmatrix.com</p>
+
+                            <p>📍 Registered Address:<br/>95 Broadacre Dr<br/>Kitchener, ON N2R 0S5<br/>Canada</p>
                         </div>
                         <p className="mt-6">We are committed to handling all privacy-related requests promptly and in accordance with applicable data protection laws.</p>
                     </div>
@@ -153,7 +153,7 @@ const DoNotSell = () => {
 
                 <footer className="mt-24 pt-10 border-t border-gray-100 text-center">
                     <p className="text-xs text-gray-400 font-bold uppercase tracking-widest">
-                        Innovation Dynamics Group LLC © 2026
+                        Prints Matrix © 2026
                     </p>
                 </footer>
             </div>

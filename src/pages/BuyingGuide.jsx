@@ -77,14 +77,14 @@ const BuyingGuide = () => {
                     <section className="bg-gray-50 p-10 rounded-sm border border-gray-100 text-center">
                         <h3 className="text-2xl font-bold text-black mb-6">Quality Curation Guaranteed</h3>
                         <p className="text-gray-600 max-w-2xl mx-auto font-medium">
-                            Innovation Dynamics Group LLC only manages authorized assets that meet our rigorous standards. This framework empowers your infrastructure with verified printing excellence.
+                            Prints Matrix only manages authorized assets that meet our rigorous standards. This framework empowers your infrastructure with verified printing excellence.
                         </p>
                     </section>
                 </div>
 
                 <footer className="mt-24 pt-10 border-t border-gray-100 text-center">
                     <p className="text-xs text-gray-300 font-medium tracking-wide">
-                        Innovation Dynamics Group LLC © 2026
+                        Prints Matrix © 2026
                     </p>
                 </footer>
             </div>
